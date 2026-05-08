@@ -131,11 +131,12 @@ Vorhandene Markdown-Dateien überschreiben:
 .venv\Scripts\python.exe scripts\pdfs_to_md_with_metadata.py --force
 
 ### 9. Alternative PDF-zu-Markdown-Skripte basierend auf MarkItDown (muss noch separat installiert werden)
-- scripts/pdfs_to_md_alternative.py
-  Einige alternative Skripte zur Umwandlung von PDFs in Markdown basieren auf **MarkItDown**.  
-  Diese Variante ist nicht Teil der Standardinstallation und erfordert eine separate Installation.
+scripts/pdfs_to_md_alternative.py
+Einige alternative Skripte zur Umwandlung von PDFs in Markdown basieren auf **MarkItDown**.  
+Diese Variante ist nicht Teil der Standardinstallation und erfordert eine separate Installation von markitdown.
 Beispiel:
 py -m pip install "markitdown[all]"
+Das pdfs_to_md_alternative.py file wird in den source_pdfs Ordner kopiert und über die Befehlseingabe aufgerufen. Dadurch werden die entsprechenden .md files kreiert, die dann in den materials Ordner kompiert werden.
 
 ### 10. Zusätzliche Materialien ergänzen
 Normale Materialien nach:
