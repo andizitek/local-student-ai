@@ -177,6 +177,8 @@ Standardmodell: qwen2.5:7b
 Schnellmodus: qwen2.5:3b-instruct
 Qualitätsmodus: gemma3:12b
 
+qwen2.5:7b ist für Englisch und Deutsch wahrscheinlich dein bester Allrounder
+
 ## RAM und VRAM
 Arbeitsspeicher (RAM) und Grafikspeicher (VRAM) sind getrennte Ressourcen. Für kleinere lokale Modelle kann ein Rechner mit 16 GB RAM auch ohne starke GPU ausreichen, dann allerdings oft mit längeren Antwortzeiten. Wenn eine dedizierte GPU genutzt wird, sind etwa 6–8 GB VRAM ein brauchbarer Einstieg, während 10–12 GB oder mehr das Arbeiten mit größeren Modellen deutlich erleichtern.
 
