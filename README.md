@@ -182,6 +182,9 @@ qwen2.5:7b ist für Englisch und Deutsch wahrscheinlich dein bester Allrounder
 ## RAM und VRAM
 Arbeitsspeicher (RAM) und Grafikspeicher (VRAM) sind getrennte Ressourcen. Für kleinere lokale Modelle kann ein Rechner mit 16 GB RAM auch ohne starke GPU ausreichen, dann allerdings oft mit längeren Antwortzeiten. Wenn eine dedizierte GPU genutzt wird, sind etwa 6–8 GB VRAM ein brauchbarer Einstieg, während 10–12 GB oder mehr das Arbeiten mit größeren Modellen deutlich erleichtern.
 
+## Benötigter lkaler Speicherplatz
+Neben RAM und gegebenenfalls VRAM ist auch ausreichender freier Speicherplatz erforderlich. Als grobe Untergrenze erscheinen etwa 20–30 GB sinnvoll; bei mehreren lokalen Modellen, umfangreicheren Materialsammlungen oder mehreren Kursindizes sind 50 GB oder mehr deutlich günstiger.
+
 # So testest du die drei Modelle sinnvoll
 Du vergleichst immer dieselbe Frage mit:
 qwen2.5:7b
