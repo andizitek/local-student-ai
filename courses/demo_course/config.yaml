@@ -1,0 +1,18 @@
+course_id: demo_kurs
+course_name: "Demo-Kurs"
+language: de
+
+llm:
+  provider: ollama
+  chat_model: gemma3:12b
+  embedding_model: mxbai-embed-large
+
+retrieval:
+  top_k: 4
+  chunk_size: 2000
+  chunk_overlap: 100
+
+response:
+  temperature: 0.2
+  cite_sources: true
+  refusal_on_missing_context: true

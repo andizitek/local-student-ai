@@ -1,0 +1,11 @@
+{
+  "Schauspiel": ["schauspiel", "rolle", "theater"],
+  "Körperarbeit": ["körperarbeit", "körper", "leib", "bewegung", "haltung", "gestik"],
+  "Stanislawski": ["stanislawski"],
+  "Action Theater": ["action theater", "zaporah"],
+  "Tschechow": ["tschechow", "tschechov", "chekhov"],
+  "Improvisation": ["improvisation", "improvisieren"],
+  "Traumarbeit": ["traum", "träume", "traumarbeit"],
+  "Jung": ["jung", "ich-selbst-achse", "selbst"],
+  "Paperanalyse": ["paper", "studie", "artikel", "methode", "ergebnis"]
+}
