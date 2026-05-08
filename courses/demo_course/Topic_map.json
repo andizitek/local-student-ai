@@ -1,0 +1,11 @@
+{
+  "_description": "Thematische Zuordnungen für die heuristische Erkennung bearbeiteter Themen. Links steht jeweils ein Themenname, rechts eine Liste möglicher Schlüsselwörter oder Formulierungen, die diesem Thema zugeordnet werden können.",
+  "Beispielthema1": [
+    "beispielbegriff1",
+    "beispielbegriff2"
+  ],
+  "Beispielthema2": [
+    "andererbegriff1",
+    "andererbegriff2"
+  ]
+}
