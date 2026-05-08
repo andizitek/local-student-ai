@@ -43,7 +43,7 @@ student-course-ai-final/
 ### Originalquellen
 courses\demo_kurs\source_pdfs\
 
-### Fachliche Materialien ald .md files
+### Fachliche Materialien als .md files
 courses\demo_kurs\materials\
 
 ### Reflexions- und Zusatztexte
@@ -130,27 +130,31 @@ courses\demo_kurs\metadata.csv
 Vorhandene Markdown-Dateien überschreiben:
 .venv\Scripts\python.exe scripts\pdfs_to_md_with_metadata.py --force
 
-### 9. Zusätzliche Materialien ergänzen
+### 9. Alternative PDF-zu-Markdown-Skripte basierend aud MarkItDown (muss noch separat installiert werden)
+- scripts/pdfs_to_md_alternative.py
+  Alternative Variante für andere PDF-Strukturen oder vereinfachte Verarbeitung.
+
+### 10. Zusätzliche Materialien ergänzen
 Normale Materialien nach:
 courses\demo_kurs\materials\
 
 Reflexions-/Critical-Dateien nach:
 courses\demo_kurs\critical\
 
-### 10. Index bauen
+### 11. Index bauen
 set PYTHONPATH=.
 .venv\Scripts\python.exe scripts\build_index.py --course demo_kurs
 
-### 11. Backend starten
+### 12. Backend starten
 .venv\Scripts\python.exe -m uvicorn app.main:app --reload
 
-### 12. Streamlit starten
+### 13. Streamlit starten
 In einem zweiten Fenster:
 
 cd C:\Users\andre\student-course-ai-final
 .venv\Scripts\python.exe -m streamlit run app\ui\streamlit_app.py
 
-### 13. App im Browser öffnen
+### 14. App im Browser öffnen
 http://localhost:8501
 
 ## Wann du was neu starten musst
