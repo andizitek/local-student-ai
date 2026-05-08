@@ -3,6 +3,71 @@ Ein lokaler KI-Chatbot für kollaboratives Lernen, kritische Reflexion und Kompe
 
 **Praktische Einrichtung.**
 Nach Installation von Python, Ollama und den Projektabhängigkeiten werden lokale Modelle geladen. Anschließend werden Original-PDFs in einem Quellordner abgelegt, in Markdown überführt und über eine Metadaten-Datei beschrieben. Zusätzliche fachliche und reflexive Materialien können in eigenen Ordnern ergänzt werden. Danach werden die Materialien gechunkt, eingebettet und in einer Vektordatenbank indexiert. Erst auf dieser Grundlage werden Backend und Benutzeroberfläche gestartet und für unterschiedliche Modi nutzbar gemacht.
+**Strukturelle Gliederung.**
+Die Materialien der App sind in mehrere Bereiche gegliedert: Originalquellen liegen in einem PDF-Ordner vor, fachliche Kursmaterialien werden in einem Materialordner als Markdown aufbereitet, und zusätzliche Reflexions- und Orientierungstexte können in einem eigenen Critical-Ordner hinterlegt werden. Ergänzt wird dies durch Konfigurations-, Prompt- und Metadatendateien. Die App arbeitet mit verschiedenen Modi, die von Erklärung, Zusammenfassung und Quiz über Gruppenarbeit und Peer-Review bis hin zu kritischer KI-Reflexion und der Strukturierung kollaborativer Arbeitsprozesse reichen.
+
+## Projektstruktur
+```text
+student-course-ai-final/
+├── app/
+│   ├── api/
+│   ├── core/
+│   └── ui/
+├── courses/
+│   └── demo_kurs/
+│       ├── source_pdfs/
+│       ├── materials/
+│       ├── critical/
+│       ├── config.yaml
+│       ├── system_prompt.md
+│       ├── metadata.csv
+│       └── topic_map.json
+├── scripts/
+├── student_data/
+├── requirements.txt
+└── README.md
+```
+### Ordnerstruktur und Funktion
+
+| Bereich            | Funktion                                                                                                                                        |
+| ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| `source_pdfs/`     | Enthält die Originalquellen, insbesondere PDF-Dateien.                                                                                          |
+| `materials/`       | Enthält die fachlichen, für das Retrieval aufbereiteten Materialien, meist als Markdown.                                                        |
+| `critical/`        | Enthält zusätzliche Reflexions- und Orientierungstexte, etwa für kritische KI-Reflexion oder die Strukturierung kollaborativer Arbeitsprozesse. |
+| `metadata.csv`     | Enthält strukturierte Metadaten zu Quellen, z. B. Titel, Autor:in, Jahr, DOI, URL und Dateizuordnung.                                           |
+| `config.yaml`      | Enthält die zentrale Konfiguration, etwa Modellwahl, Retrieval-Parameter und Antwortverhalten.                                                  |
+| `system_prompt.md` | Enthält die grundlegenden Regeln und den didaktischen Rahmen für die Antworten der App.                                                         |
+| `topic_map.json`   | Enthält thematische Zuordnungen für Lern- und Verlaufsfunktionen.                                                                               |
+
+### Modi der App
+
+| Modus                  | Funktion                                                                                                    |
+| ---------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `explain`              | Erklärt Begriffe und Zusammenhänge verständlich.                                                            |
+| `summarize`            | Fasst Materialien oder Themen strukturiert zusammen.                                                        |
+| `quiz`                 | Erzeugt Verständnisfragen für Lern- und Gruppenprozesse.                                                    |
+| `flashcards`           | Erstellt Lernkarten für Wiederholung und Begriffsarbeit.                                                    |
+| `study_guide`          | Unterstützt die Strukturierung von Lernprozessen.                                                           |
+| `group_prep`           | Unterstützt die Vorbereitung von Gruppenbeiträgen.                                                          |
+| `discussion`           | Erzeugt Fragen, Perspektiven und Kontroversen für Diskussionen.                                             |
+| `peer_review`          | Unterstützt Rückmeldungen zu Texten und Entwürfen.                                                          |
+| `group_summary`        | Bündelt Gruppenergebnisse in verdichteter Form.                                                             |
+| `critical_ai_literacy` | Unterstützt die kritische Prüfung von KI-Antworten und Materialien.                                         |
+| `collaborative_work`   | Unterstützt die Strukturierung gemeinsamer Arbeitsprozesse, z. B. Rollen, Teilaufgaben und Zusammenführung. |
+
+## Typischer Workflow
+
+1. PDFs nach `source_pdfs/` legen
+2. `metadata.csv` ergänzen
+3. PDFs in Markdown überführen
+4. Materialien in `materials/` und ggf. `critical/` ablegen
+5. Index bauen
+6. Backend starten
+7. Streamlit starten
+8. Modi testen und bei Bedarf anpassen
+
+Wenn du willst, formuliere ich dir daraus noch eine **besonders schöne, publikationsnahe Tabelle** oder eine **fertige README-Sektion in sauberem Markdown**.
+
 
 ## Typischer Workflow mit Befehlen
 ### 1. Projektordner öffnen
