@@ -39,6 +39,26 @@ student-course-ai-final/
 | `system_prompt.md` | Enthält die grundlegenden Regeln und den didaktischen Rahmen für die Antworten der App.                                                         |
 | `topic_map.json`   | Enthält thematische Zuordnungen für Lern- und Verlaufsfunktionen.                                                                               |
 
+## Wichtige Ordner mit Funktion
+### Originalquellen
+courses\demo_kurs\source_pdfs\
+
+### Fachliche Materialien ald .md files
+courses\demo_kurs\materials\
+
+### Reflexions- und Zusatztexte
+courses\demo_kurs\critical\
+### Metadaten
+courses\demo_kurs\metadata.csv
+
+### Konfiguration
+courses\demo_kurs\config.yaml
+### Systemprompt
+courses\demo_kurs\system_prompt.md
+
+### Thematische Zuordnungen
+courses\demo_kurs\topic_map.json
+
 ### Modi der App
 
 | Modus                  | Funktion                                                                                                    |
@@ -134,27 +154,6 @@ cd C:\Users\andre\student-course-ai-final
 ### 13. App im Browser öffnen
 http://localhost:8501
 
-## Wichtige Ordner mit Funktion
-
-### Originalquellen
-courses\demo_kurs\source_pdfs\
-
-### Fachliche Materialien ald .md files
-courses\demo_kurs\materials\
-
-### Reflexions- und Zusatztexte
-courses\demo_kurs\critical\
-### Metadaten
-courses\demo_kurs\metadata.csv
-
-### Konfiguration
-courses\demo_kurs\config.yaml
-### Systemprompt
-courses\demo_kurs\system_prompt.md
-
-### Thematische Zuordnungen
-courses\demo_kurs\topic_map.json
-
 ## Wann du was neu starten musst
 ### Nur `chat_model` in `config.yaml` geändert
 Dann reicht:
@@ -171,3 +170,33 @@ danach Backend und Streamlit neu starten.
 Dann meist nur Backend neu starten:
 .venv\Scripts\python.exe -m uvicorn app.main:app --reload
 
+## Mögliche Modelle für den lokalen Betrieb
+Für die lokale Nutzung erwies sich ein mittelgroßes Modell als besonders praktikabel, da es ein gutes Verhältnis zwischen Antwortqualität, Sprachkompetenz in Deutsch und Englisch sowie Verarbeitungsgeschwindigkeit bietet; kleinere Modelle sind für ressourcenschwächere Systeme interessant, größere Modelle eher für leistungsstärkere Rechner und qualitativ anspruchsvollere Szenarien.
+
+## RAM und VRAM
+Arbeitsspeicher (RAM) und Grafikspeicher (VRAM) sind getrennte Ressourcen. Für kleinere lokale Modelle kann ein Rechner mit 16 GB RAM auch ohne starke GPU ausreichen, dann allerdings oft mit längeren Antwortzeiten. Wenn eine dedizierte GPU genutzt wird, sind etwa 6–8 GB VRAM ein brauchbarer Einstieg, während 10–12 GB oder mehr das Arbeiten mit größeren Modellen deutlich erleichtern.
+
+Standardmodell: qwen2.5:7b
+Schnellmodus: qwen2.5:3b-instruct
+Qualitätsmodus: gemma3:12b
+
+#So testest du die drei Modi sinnvoll
+Du vergleichst immer dieselbe Frage mit:
+
+qwen2.5:7b
+qwen2.5:3b-instruct
+gemma3:12b
+
+und achtest auf:
+
+Geschwindigkeit
+Deutsch
+Englisch
+Quellentreue
+Nützlichkeit für eure Modi
+
+#Immer nur ein Modell in config.yaml z.B
+chat_model: qwen2.5:7b
+#embedding_model bleibt gleich:
+embedding_model: mxbai-embed-large
+#Zeit messen und Qualität bewerten
