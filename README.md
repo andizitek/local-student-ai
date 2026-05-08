@@ -130,9 +130,12 @@ courses\demo_kurs\metadata.csv
 Vorhandene Markdown-Dateien überschreiben:
 .venv\Scripts\python.exe scripts\pdfs_to_md_with_metadata.py --force
 
-### 9. Alternative PDF-zu-Markdown-Skripte basierend aud MarkItDown (muss noch separat installiert werden)
+### 9. Alternative PDF-zu-Markdown-Skripte basierend auf MarkItDown (muss noch separat installiert werden)
 - scripts/pdfs_to_md_alternative.py
-  Alternative Variante für andere PDF-Strukturen oder vereinfachte Verarbeitung.
+  Einige alternative Skripte zur Umwandlung von PDFs in Markdown basieren auf **MarkItDown**.  
+  Diese Variante ist nicht Teil der Standardinstallation und erfordert eine separate Installation.
+Beispiel:
+py -m pip install "markitdown[all]"
 
 ### 10. Zusätzliche Materialien ergänzen
 Normale Materialien nach:
