@@ -146,8 +146,8 @@ Reflexions-/Critical-Dateien nach:
 courses\demo_kurs\critical\
 
 ### 11. Index bauen
-set PYTHONPATH=.
-.venv\Scripts\python.exe scripts\build_index.py --course demo_kurs
+```set PYTHONPATH=.
+```.venv\Scripts\python.exe scripts\build_index.py --course demo_kurs
 
 ### 12. Backend starten
 .venv\Scripts\python.exe -m uvicorn app.main:app --reload
@@ -181,9 +181,9 @@ Dann meist nur Backend neu starten:
 Für die lokale Nutzung erwies sich ein mittelgroßes Modell als besonders praktikabel, da es ein gutes Verhältnis zwischen Antwortqualität, Sprachkompetenz in Deutsch und Englisch sowie Verarbeitungsgeschwindigkeit bietet; kleinere Modelle sind für ressourcenschwächere Systeme interessant, größere Modelle eher für leistungsstärkere Rechner und qualitativ anspruchsvollere Szenarien.
 
 # Beispielmodelle
-Standardmodell: qwen2.5:7b
-Schnellmodus: qwen2.5:3b-instruct
-Qualitätsmodus: gemma3:12b
+```Standardmodell: qwen2.5:7b
+```Schnellmodus: qwen2.5:3b-instruct
+```Qualitätsmodus: gemma3:12b
 
 qwen2.5:7b ist für Englisch und Deutsch wahrscheinlich dein bester Allrounder
 
