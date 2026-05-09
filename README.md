@@ -101,8 +101,8 @@ Nur falls noch keine `.venv` vorhanden ist:
 py -3.11 -m venv .venv
 
 ### 3. Abhängigkeiten installieren
-.venv\Scripts\python.exe -m pip install --upgrade pip. 
-.venv\Scripts\pip.exe install -r requirements.txt
+.venv\Scripts\python.exe -m pip install --upgrade pip   
+.venv\Scripts\pip.exe install -r requirements.txt  
 
 ### 4. Ollama prüfen oder starten
 Prüfen:
