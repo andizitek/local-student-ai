@@ -190,7 +190,7 @@ Für die lokale Nutzung erwies sich ein mittelgroßes Modell als besonders prakt
 - Schnellmodus: qwen2.5:3b-instruct
 - Qualitätsmodus: gemma3:12b
 
-qwen2.5:7b ist für Englisch und Deutsch wahrscheinlich dein bester Allrounder, hier können und sollten weitere Tests systematisch selbst gemacht werden.
+qwen2.5:7b ist für Englisch und Deutsch wahrscheinlich dein bester Allrounder, hier können und sollten weitere Tests systematisch selbst durchgeführt werden.
 
 # So testest du die drei Modelle sinnvoll
 Du vergleichst immer dieselbe Frage mit:
