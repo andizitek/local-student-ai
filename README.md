@@ -81,7 +81,7 @@ courses\demo_kurs\topic_map.json
 
 ## Typischer Workflow
 
-1. Projektordner anlegen
+1. Projektordner anlegen (z.B. C:\Users\andre\student-course-ai
 2. Python (3.11 bis 3.13) und die vorausgesetzten files (in requirements.text) installieren
 3. PDFs nach `source_pdfs/` legen
 4. `metadata.csv` ergänzen (Metadaten werden beim Tool-spezifischen Ablauf der Markdown-files automatisch in den Header geschrieben. Wichtig: Filename und Eintrag im Metadatenfile müssen eindeutig übereinstimmen (inkl. Filetyp-Endung)
