@@ -9,10 +9,12 @@ Die Materialien der App sind in mehrere Bereiche gegliedert: Originalquellen lie
 Arbeitsspeicher (RAM) und Grafikspeicher (VRAM) sind getrennte Ressourcen. Für kleinere lokale Modelle kann ein Rechner mit 16 GB RAM auch ohne starke GPU ausreichen, dann allerdings oft mit längeren Antwortzeiten. Wenn eine dedizierte GPU genutzt wird, sind etwa 6–8 GB VRAM ein brauchbarer Einstieg, während 10–12 GB oder mehr das Arbeiten mit größeren Modellen deutlich erleichtern.
 ## Benötigter lokaler Speicherplatz
 Neben RAM und gegebenenfalls VRAM ist auch ausreichender freier Speicherplatz erforderlich. Als grobe Untergrenze erscheinen etwa 15-30 GB sinnvoll; bei mehreren lokalen Modellen, umfangreicheren Materialsammlungen oder mehreren Kursindizes können mehr als 30 GB notwendig sein.
+## Allgemeines zu Installation und Start des Modells
+Zuerst werden die Ordner und die notwendigen Dateien installiert. Die Installation der notwendigen Dateien und Modelle erfolgt im Eingabefenster (Windows-Taste und "R", dann cmd, dann in den Ordner des Chatbots wechseln, und die weiteren Befehle ausführen). Nach der Installation werden einerseits das Backend und die Applikation samt dem User Interface (Streamlit) in zwei einzelnen Eingabefenstern geöffnet. Wenn man etwas ändern möchte bzw. geändert hat, dann kann man mit der Strg.-Taste und "C" den laufenden Prozess unterbrechen, und wieder neu starten. Alles weitere findet sich in der untenstehenden Anleitung.
 
 ## Projektstruktur
 ```text
-student-course-ai-final/
+student-course-ai/
 ├── app/
 │   ├── api/
 │   ├── core/
@@ -94,7 +96,7 @@ courses\demo_kurs\topic_map.json
 
 ## Typischer Workflow mit Befehlen
 ### 1. Projektordner öffnen
-cd C:\Users\andre\student-course-ai-final
+cd C:\Users\andre\student-course-ai
 
 ### 2. Virtuelle Umgebung anlegen
 Nur falls noch keine `.venv` vorhanden ist:  
@@ -160,19 +162,22 @@ Das Chunking, das beim Index bauen geschieht, ist für die Qualität des Retriev
 
 Ebenfalls in der config.yaml ist die Temperatur des Modells angegeben. Die Temperatur steuert, wie eng ein Sprachmodell am bereitgestellten Material und an naheliegenden Formulierungen bleibt: Niedrige Werte führen in der Regel zu stärker materialgebundenen, stabileren Antworten, während höhere Werte eher zu freieren und weniger eng am Kontext orientierten Ausgaben führen. Standardmäßig ist die Temperatur auf 0.2 eingestellt, was bedeutet, dass die Ausgaben in der Regel stärker am bereitgestellten Material orientiert sind und konsistente Antworten mit nüchternen Formulierungen ausgegeben werden und somit weniger kreative Ausschmückung und Halluzinationen beinhalten. Es werden auch bei mehreren Abfragen weniger zufällige Varianten erzeugt. Dies ist bevorzugt wenn auf Quellenbezug und den Inhalt der bereitgestellten Materialien wert gelegt wird.
 
-### 12. Backend starten
+### 12. Backend starten (erstes Eingabefenster - Windows-Taste und "R", dann cmd eintippen)
+Erstes Fenster öffen  
+
+cd C:\Users\andre\student-course-ai  
 .venv\Scripts\python.exe -m uvicorn app.main:app --reload
 
-### 13. Streamlit starten
+### 13. Streamlit starten (zweites Eingabefenster, wiede Windows-Taste und "R", dann cmd eintippen)
 In einem zweiten Fenster:
 
-cd C:\Users\andre\student-course-ai-final. 
+cd C:\Users\andre\student-course-ai  
 .venv\Scripts\python.exe -m streamlit run app\ui\streamlit_app.py
 
 ### 14. App im Browser öffnen
 http://localhost:8501
 
-## Wann muss was neu gestartet werden
+## Wann muss was neu gestartet werden 
 ### Nur `chat_model` in `config.yaml` geändert
 Dann reicht:
 .venv\Scripts\python.exe -m uvicorn app.main:app --reload. 
