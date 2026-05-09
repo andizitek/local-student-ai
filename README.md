@@ -212,3 +212,4 @@ chat_model: qwen2.5:7b
 ## embedding_model bleibt gleich:
 embedding_model: mxbai-embed-large
 ## Zeit messen und Qualität bewerten
+Tabellarische Vergleichsdokumentation erstellen
