@@ -152,7 +152,9 @@ courses\demo_kurs\critical\
 ### 11. Index bauen
 set PYTHONPATH=.
 
-.venv\Scripts\python.exe scripts\build_index.py --course demo_kurs
+.venv\Scripts\python.exe scripts\build_index.py --course demo_kurs  
+
+Das Chunking, das beim Index bauen geschieht, ist für die Qualität des Retrievals ist das zentral. Die in Einheiten zerlegten längerne Texte werde dabei eingebettet und in der Vektordatenbank gespeichert. Relevante Parameter sind insbesondere chunk_size, chunk_overlap und top_k.  Diese Parameter sind in der config.yaml auf Ebene des Kurses definiert (chunk_size: standarddmäßig auf 2000, chunk_overlap: standardmäßig auf 100 und top_k (als Anzahl der herangezogenen Chunks für eine Antwort): standardmäßig auf 4). Diese können je nach Material und "Auflösungstiefe" der Materialien angepasst werden. Zu große Chunks können die Suche unpräzise machen, zu kleine Chunks wichtige Zusammenhänge zerstören. Praktisch verbessert eine vorgängige Bereinigung der Materialien, etwa durch PDF-zu-Markdown-Konvertierung und das Anpassen der Markdown-Dateien hinsichtlich störender Fragmente, die Qualität der Ergebnisse deutlich.
 
 ### 12. Backend starten
 .venv\Scripts\python.exe -m uvicorn app.main:app --reload
