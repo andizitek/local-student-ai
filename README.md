@@ -111,7 +111,7 @@ ollama list -> listet welche Modelle bereits lokal vorhanden sind
 Falls nötig starten:  
 ollama serve
 
-### 5. Modelle herunterladen
+### 5. Modelle herunterladen (von https://ollama.com/library/)
 Beispiel:  
 ollama pull qwen2.5:7b  
 ollama pull qwen2.5:3b-instruct  
