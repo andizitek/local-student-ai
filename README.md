@@ -101,18 +101,18 @@ Nur falls noch keine `.venv` vorhanden ist:
 py -3.11 -m venv .venv (oder mit Python 3.13 - damit wurde das Modell erfolgreich getestet)
 
 ### 3. Abhängigkeiten installieren
-.venv\Scripts\python.exe -m pip install --upgrade pip   
+.venv\Scripts\python.exe -m pip install --upgrade pip     
 .venv\Scripts\pip.exe install -r requirements.txt  
 
 ### 4. Ollama prüfen oder starten
-Prüfen:
+Prüfen:  
 ollama list
 
-Falls nötig starten:
+Falls nötig starten:  
 ollama serve
 
 ### 5. Modelle laden
-Beispiel:
+Beispiel:  
 ollama pull qwen2.5:7b. 
 ollama pull qwen2.5:3b-instruct. 
 ollama pull gemma3:12b. 
