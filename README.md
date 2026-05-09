@@ -146,8 +146,9 @@ Reflexions-/Critical-Dateien nach:
 courses\demo_kurs\critical\
 
 ### 11. Index bauen
-~set PYTHONPATH=.
-~.venv\Scripts\python.exe scripts\build_index.py --course demo_kurs
+set PYTHONPATH=.
+
+.venv\Scripts\python.exe scripts\build_index.py --course demo_kurs
 
 ### 12. Backend starten
 .venv\Scripts\python.exe -m uvicorn app.main:app --reload
@@ -181,11 +182,11 @@ Dann meist nur Backend neu starten:
 Für die lokale Nutzung erwies sich ein mittelgroßes Modell als besonders praktikabel, da es ein gutes Verhältnis zwischen Antwortqualität, Sprachkompetenz in Deutsch und Englisch sowie Verarbeitungsgeschwindigkeit bietet; kleinere Modelle sind für ressourcenschwächere Systeme interessant, größere Modelle eher für leistungsstärkere Rechner und qualitativ anspruchsvollere Szenarien.
 
 # Beispielmodelle
-```Standardmodell: qwen2.5:7b
-```Schnellmodus: qwen2.5:3b-instruct
-```Qualitätsmodus: gemma3:12b
+- Standardmodell: qwen2.5:7b
+- Schnellmodus: qwen2.5:3b-instruct
+- Qualitätsmodus: gemma3:12b
 
-qwen2.5:7b ist für Englisch und Deutsch wahrscheinlich dein bester Allrounder
+qwen2.5:7b ist für Englisch und Deutsch wahrscheinlich dein bester Allrounder, hier können und sollten weitere Tests systematisch selbst gemacht werden.
 
 ## RAM und VRAM
 Arbeitsspeicher (RAM) und Grafikspeicher (VRAM) sind getrennte Ressourcen. Für kleinere lokale Modelle kann ein Rechner mit 16 GB RAM auch ohne starke GPU ausreichen, dann allerdings oft mit längeren Antwortzeiten. Wenn eine dedizierte GPU genutzt wird, sind etwa 6–8 GB VRAM ein brauchbarer Einstieg, während 10–12 GB oder mehr das Arbeiten mit größeren Modellen deutlich erleichtern.
