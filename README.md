@@ -81,14 +81,16 @@ courses\demo_kurs\topic_map.json
 
 ## Typischer Workflow
 
-1. PDFs nach `source_pdfs/` legen
-2. `metadata.csv` ergänzen (Metadaten werden beim Tool-spezifischen Ablauf der Markdown-files automatisch in den Header geschrieben. Wichtig: Filename und Eintrag im Metadatenfile müssen eindeutig übereinstimmen (inkl. Filetyp-Endung)
-3. PDFs in Markdown überführen
-4. Materialien in `materials/` und ggf. `critical/` ablegen
-5. Index bauen
-6. Backend starten
-7. Streamlit starten
-8. Modi testen und bei Bedarf anpassen
+1. Projektordner anlegen
+2. Python (3.11 bis 3.13) und die vorausgesetzten files (in requirements.text) installieren
+3. PDFs nach `source_pdfs/` legen
+4. `metadata.csv` ergänzen (Metadaten werden beim Tool-spezifischen Ablauf der Markdown-files automatisch in den Header geschrieben. Wichtig: Filename und Eintrag im Metadatenfile müssen eindeutig übereinstimmen (inkl. Filetyp-Endung)
+5. PDFs in Markdown überführen
+6. Materialien in `materials/` und ggf. `critical/` ablegen
+7. Index bauen (Chunking Parameter beachten)
+8. Backend starten
+9. Streamlit starten
+10. Modi testen und bei Bedarf anpassen (die Metaprompts aber auch z. B. die Temperatur lässt sich in der config.yaml Datei anpassen)
 
 Wenn du willst, formuliere ich dir daraus noch eine **besonders schöne, publikationsnahe Tabelle** oder eine **fertige README-Sektion in sauberem Markdown**.
 
