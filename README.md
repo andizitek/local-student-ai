@@ -5,6 +5,10 @@ Ein lokaler KI-Chatbot für kollaboratives Lernen, kritische Reflexion und Kompe
 Nach Installation von Python, Ollama und den Projektabhängigkeiten werden lokale Modelle geladen. Anschließend werden Original-PDFs in einem Quellordner abgelegt, in Markdown überführt und über eine Metadaten-Datei beschrieben. Zusätzliche fachliche und reflexive Materialien können in eigenen Ordnern ergänzt werden. Danach werden die Materialien gechunkt, eingebettet und in einer Vektordatenbank indexiert. Erst auf dieser Grundlage werden Backend und Benutzeroberfläche gestartet und für unterschiedliche Modi nutzbar gemacht.
 **Strukturelle Gliederung.**
 Die Materialien der App sind in mehrere Bereiche gegliedert: Originalquellen liegen in einem PDF-Ordner vor, fachliche Kursmaterialien werden in einem Materialordner als Markdown aufbereitet, und zusätzliche Reflexions- und Orientierungstexte können in einem eigenen Critical-Ordner hinterlegt werden. Ergänzt wird dies durch Konfigurations-, Prompt- und Metadatendateien. Die App arbeitet mit verschiedenen Modi, die von Erklärung, Zusammenfassung und Quiz über Gruppenarbeit und Peer-Review bis hin zu kritischer KI-Reflexion und der Strukturierung kollaborativer Arbeitsprozesse reichen.
+## Voraussetzungen RAM und VRAM
+Arbeitsspeicher (RAM) und Grafikspeicher (VRAM) sind getrennte Ressourcen. Für kleinere lokale Modelle kann ein Rechner mit 16 GB RAM auch ohne starke GPU ausreichen, dann allerdings oft mit längeren Antwortzeiten. Wenn eine dedizierte GPU genutzt wird, sind etwa 6–8 GB VRAM ein brauchbarer Einstieg, während 10–12 GB oder mehr das Arbeiten mit größeren Modellen deutlich erleichtern.
+## Benötigter lokaler Speicherplatz
+Neben RAM und gegebenenfalls VRAM ist auch ausreichender freier Speicherplatz erforderlich. Als grobe Untergrenze erscheinen etwa 20–30 GB sinnvoll; bei mehreren lokalen Modellen, umfangreicheren Materialsammlungen oder mehreren Kursindizes sind 50 GB oder mehr deutlich günstiger.
 
 ## Projektstruktur
 ```text
@@ -187,12 +191,6 @@ Für die lokale Nutzung erwies sich ein mittelgroßes Modell als besonders prakt
 - Qualitätsmodus: gemma3:12b
 
 qwen2.5:7b ist für Englisch und Deutsch wahrscheinlich dein bester Allrounder, hier können und sollten weitere Tests systematisch selbst gemacht werden.
-
-## RAM und VRAM
-Arbeitsspeicher (RAM) und Grafikspeicher (VRAM) sind getrennte Ressourcen. Für kleinere lokale Modelle kann ein Rechner mit 16 GB RAM auch ohne starke GPU ausreichen, dann allerdings oft mit längeren Antwortzeiten. Wenn eine dedizierte GPU genutzt wird, sind etwa 6–8 GB VRAM ein brauchbarer Einstieg, während 10–12 GB oder mehr das Arbeiten mit größeren Modellen deutlich erleichtern.
-
-## Benötigter lkaler Speicherplatz
-Neben RAM und gegebenenfalls VRAM ist auch ausreichender freier Speicherplatz erforderlich. Als grobe Untergrenze erscheinen etwa 20–30 GB sinnvoll; bei mehreren lokalen Modellen, umfangreicheren Materialsammlungen oder mehreren Kursindizes sind 50 GB oder mehr deutlich günstiger.
 
 # So testest du die drei Modelle sinnvoll
 Du vergleichst immer dieselbe Frage mit:
