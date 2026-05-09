@@ -92,8 +92,6 @@ courses\demo_kurs\topic_map.json
 9. Streamlit starten
 10. Modi testen und bei Bedarf anpassen (die Metaprompts aber auch z. B. die Temperatur lässt sich in der config.yaml Datei anpassen)
 
-Wenn du willst, formuliere ich dir daraus noch eine **besonders schöne, publikationsnahe Tabelle** oder eine **fertige README-Sektion in sauberem Markdown**.
-
 ## Typischer Workflow mit Befehlen
 ### 1. Projektordner öffnen
 cd C:\Users\andre\student-course-ai-final
