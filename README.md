@@ -194,17 +194,17 @@ qwen2.5:7b ist für Englisch und Deutsch wahrscheinlich dein bester Allrounder, 
 
 # So testest du die drei Modelle sinnvoll
 Du vergleichst immer dieselbe Frage mit:
-qwen2.5:7b
-qwen2.5:3b-instruct
+qwen2.5:7b. 
+qwen2.5:3b-instruct. 
 gemma3:12b
 
 und achtest auf:
 
 Geschwindigkeit
-Deutsch
-Englisch
-Quellentreue
-Nützlichkeit für eure Modi
+Deutsch. 
+Englisch. 
+Quellentreue. 
+Nützlichkeit für eure Modi. 
 
 ## Immer nur ein Modell in config.yaml z.B
 chat_model: qwen2.5:7b
