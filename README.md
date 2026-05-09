@@ -98,7 +98,7 @@ cd C:\Users\andre\student-course-ai-final
 
 ### 2. Virtuelle Umgebung anlegen
 Nur falls noch keine `.venv` vorhanden ist:  
-py -3.11 -m venv .venv
+py -3.11 -m venv .venv (oder mit Python 3.13 - damit wurde das Modell erfolgreich getestet)
 
 ### 3. Abhängigkeiten installieren
 .venv\Scripts\python.exe -m pip install --upgrade pip   
