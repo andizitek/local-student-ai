@@ -146,7 +146,7 @@ Reflexions-/Critical-Dateien nach:
 courses\demo_kurs\critical\
 
 ### 11. Index bauen
-~ set PYTHONPATH=.
+~set PYTHONPATH=.
 ~.venv\Scripts\python.exe scripts\build_index.py --course demo_kurs
 
 ### 12. Backend starten
