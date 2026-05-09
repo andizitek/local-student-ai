@@ -113,10 +113,10 @@ ollama serve
 
 ### 5. Modelle laden
 Beispiel:  
-ollama pull qwen2.5:7b. 
-ollama pull qwen2.5:3b-instruct. 
-ollama pull gemma3:12b. 
-ollama pull mxbai-embed-large. 
+ollama pull qwen2.5:7b  
+ollama pull qwen2.5:3b-instruct  
+ollama pull gemma3:12b  
+ollama pull mxbai-embed-large  
 
 ### 6. Original-PDFs ablegen
 In:  
