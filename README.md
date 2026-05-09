@@ -82,7 +82,7 @@ courses\demo_kurs\topic_map.json
 ## Typischer Workflow
 
 1. PDFs nach `source_pdfs/` legen
-2. `metadata.csv` ergänzen
+2. `metadata.csv` ergänzen (Metadaten werden beim Tool-spezifischen Ablauf der Markdown-files automatisch in den Header geschrieben. Wichtig: Filename und Eintrag im Metadatenfile müssen eindeutig übereinstimmen (inkl. Filetyp-Endung)
 3. PDFs in Markdown überführen
 4. Materialien in `materials/` und ggf. `critical/` ablegen
 5. Index bauen
