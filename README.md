@@ -108,17 +108,19 @@ py -3.11 -m venv .venv (oder mit Python 3.13 - damit wurde das Modell erfolgreic
 
 ### 4. Ollama prüfen oder starten
 Prüfen:  
-ollama list
+ollama list -> listet welche Modelle bereits lokal vorhanden sind
 
 Falls nötig starten:  
 ollama serve
 
-### 5. Modelle laden
+### 5. Modelle herunterladen
 Beispiel:  
 ollama pull qwen2.5:7b  
 ollama pull qwen2.5:3b-instruct  
 ollama pull gemma3:12b  
 ollama pull mxbai-embed-large  
+
+Wenn ich ein anderes Modell verwenden will, dann muss ich dieses in der config.yaml als chat_model eintragen. 
 
 ### 6. Original-PDFs ablegen
 In:  
@@ -177,6 +179,7 @@ http://localhost:8501
 Dann reicht:
 .venv\Scripts\python.exe -m uvicorn app.main:app --reload. 
 .venv\Scripts\python.exe -m streamlit run app\ui\streamlit_app.py. 
+
 ### Neue Materialien / neue `.md` / neuer `critical`-Text
 Dann erst neu indexieren:
 set PYTHONPATH=. 
@@ -189,7 +192,12 @@ Dann meist nur Backend neu starten:
 .venv\Scripts\python.exe -m uvicorn app.main:app --reload
 
 ## Mögliche Modelle für den lokalen Betrieb
-Für die lokale Nutzung erwies sich ein mittelgroßes Modell als besonders praktikabel, da es ein gutes Verhältnis zwischen Antwortqualität, Sprachkompetenz in Deutsch und Englisch sowie Verarbeitungsgeschwindigkeit bietet; kleinere Modelle sind für ressourcenschwächere Systeme interessant, größere Modelle eher für leistungsstärkere Rechner und qualitativ anspruchsvollere Szenarien.
+Für die lokale Nutzung erwies sich ein mittelgroßes Modell als besonders praktikabel, da es ein gutes Verhältnis zwischen Antwortqualität, Sprachkompetenz in Deutsch und Englisch sowie Verarbeitungsgeschwindigkeit bietet; kleinere Modelle sind für ressourcenschwächere Systeme interessant, größere Modelle eher für leistungsstärkere Rechner und qualitativ anspruchsvollere Szenarien. Auf https://ollama.com/library finden sich immer die neuesten verfügbaren Modelle.
+
+Grundsätzlich (die Zahl "b" gibt dabei die Modellgröße in Milliarden Parametern an und entspricht grob dem benötigen RAM-Speicher in GB):  
+3B–4B: schneller, schwächere Rechner  
+7B: guter Allrounder  
+12B–14B+: besser, aber deutlich langsamer und speicherhungriger  
 
 # Beispielmodelle
 - Standardmodell: qwen2.5:7b
