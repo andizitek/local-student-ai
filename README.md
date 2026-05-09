@@ -97,7 +97,7 @@ Wenn du willst, formuliere ich dir daraus noch eine **besonders schöne, publika
 cd C:\Users\andre\student-course-ai-final
 
 ### 2. Virtuelle Umgebung anlegen
-Nur falls noch keine `.venv` vorhanden ist:
+Nur falls noch keine `.venv` vorhanden ist:  
 py -3.11 -m venv .venv
 
 ### 3. Abhängigkeiten installieren
