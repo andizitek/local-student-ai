@@ -161,7 +161,7 @@ cd C:\Users\andre\student-course-ai-final
 ### 14. App im Browser öffnen
 http://localhost:8501
 
-## Wann du was neu starten musst
+## Wann muss was neu gestartet werden
 ### Nur `chat_model` in `config.yaml` geändert
 Dann reicht:
 .venv\Scripts\python.exe -m uvicorn app.main:app --reload
