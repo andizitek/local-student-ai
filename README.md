@@ -101,7 +101,7 @@ Nur falls noch keine `.venv` vorhanden ist:
 py -3.11 -m venv .venv
 
 ### 3. Abhängigkeiten installieren
-.venv\Scripts\python.exe -m pip install --upgrade pip
+.venv\Scripts\python.exe -m pip install --upgrade pip. 
 .venv\Scripts\pip.exe install -r requirements.txt
 
 ### 4. Ollama prüfen oder starten
@@ -113,33 +113,33 @@ ollama serve
 
 ### 5. Modelle laden
 Beispiel:
-ollama pull qwen2.5:7b
-ollama pull qwen2.5:3b-instruct
-ollama pull gemma3:12b
-ollama pull mxbai-embed-large
+ollama pull qwen2.5:7b. 
+ollama pull qwen2.5:3b-instruct. 
+ollama pull gemma3:12b. 
+ollama pull mxbai-embed-large. 
 
 ### 6. Original-PDFs ablegen
 In:
-text
+text. 
 courses\demo_kurs\source_pdfs\
 
 ### 7. `metadata.csv` ergänzen
 Datei:
-text
+text. 
 courses\demo_kurs\metadata.csv
 
 ### 8. PDFs in Markdown umwandeln
 .venv\Scripts\python.exe scripts\pdfs_to_md_with_metadata.py
 
-Vorhandene Markdown-Dateien überschreiben:
+Vorhandene Markdown-Dateien überschreiben:  
 .venv\Scripts\python.exe scripts\pdfs_to_md_with_metadata.py --force
 
 ### 9. Alternative PDF-zu-Markdown-Skripte basierend auf MarkItDown (muss noch separat installiert werden)
-scripts/pdfs_to_md_alternative.py
+scripts/pdfs_to_md_alternative.py. 
 Einige alternative Skripte zur Umwandlung von PDFs in Markdown basieren auf **MarkItDown**.  
-Diese Variante ist nicht Teil der Standardinstallation und erfordert eine separate Installation von markitdown.
+Diese Variante ist nicht Teil der Standardinstallation und erfordert eine separate Installation von markitdown.  
 Beispiel:
-py -m pip install "markitdown[all]"
+py -m pip install "markitdown[all]". 
 Das pdfs_to_md_alternative.py file wird in den source_pdfs Ordner kopiert und über die Befehlseingabe aufgerufen. Dadurch werden die entsprechenden .md files kreiert, die dann in den materials Ordner kompiert werden.
 
 ### 10. Zusätzliche Materialien ergänzen
@@ -160,7 +160,7 @@ set PYTHONPATH=.
 ### 13. Streamlit starten
 In einem zweiten Fenster:
 
-cd C:\Users\andre\student-course-ai-final
+cd C:\Users\andre\student-course-ai-final. 
 .venv\Scripts\python.exe -m streamlit run app\ui\streamlit_app.py
 
 ### 14. App im Browser öffnen
@@ -169,17 +169,17 @@ http://localhost:8501
 ## Wann muss was neu gestartet werden
 ### Nur `chat_model` in `config.yaml` geändert
 Dann reicht:
-.venv\Scripts\python.exe -m uvicorn app.main:app --reload
-.venv\Scripts\python.exe -m streamlit run app\ui\streamlit_app.py
+.venv\Scripts\python.exe -m uvicorn app.main:app --reload. 
+.venv\Scripts\python.exe -m streamlit run app\ui\streamlit_app.py. 
 ### Neue Materialien / neue `.md` / neuer `critical`-Text
 Dann erst neu indexieren:
-set PYTHONPATH=.
+set PYTHONPATH=. 
 .venv\Scripts\python.exe scripts\build_index.py --course demo_kurs
 
 danach Backend und Streamlit neu starten.
 
 ### Nur Prompt geändert
-Dann meist nur Backend neu starten:
+Dann meist nur Backend neu starten:  
 .venv\Scripts\python.exe -m uvicorn app.main:app --reload
 
 ## Mögliche Modelle für den lokalen Betrieb
