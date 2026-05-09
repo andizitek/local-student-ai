@@ -10,7 +10,7 @@ Arbeitsspeicher (RAM) und Grafikspeicher (VRAM) sind getrennte Ressourcen. Für 
 ## Benötigter lokaler Speicherplatz
 Neben RAM und gegebenenfalls VRAM ist auch ausreichender freier Speicherplatz erforderlich. Als grobe Untergrenze erscheinen etwa 15-30 GB sinnvoll; bei mehreren lokalen Modellen, umfangreicheren Materialsammlungen oder mehreren Kursindizes können mehr als 30 GB notwendig sein.
 ## Allgemeines zu Installation und Start des Modells
-Zuerst werden die Ordner und die notwendigen Dateien installiert. Die Installation der notwendigen Dateien und Modelle erfolgt im Eingabefenster (Windows-Taste und "R", dann cmd, dann in den Ordner des Chatbots wechseln, und die weiteren Befehle ausführen). Nach der Installation werden einerseits das Backend und die Applikation samt dem User Interface (Streamlit) in zwei einzelnen Eingabefenstern geöffnet. Wenn man etwas ändern möchte bzw. geändert hat, dann kann man mit der Strg.-Taste und "C" den laufenden Prozess unterbrechen, und wieder neu starten. Alles weitere findet sich in der untenstehenden Anleitung.
+Zuerst werden die Ordner und die notwendigen Dateien installiert. Die Installation der notwendigen Dateien und Modelle erfolgt im Eingabefenster (Windows-Taste und "R", dann cmd, dann in den Ordner des Chatbots wechseln, und die weiteren Befehle ausführen). Nach der Installation werden einerseits das Backend und die Applikation in jeweils einem eigenen Eingabefenster gestartet, dadurch öffnet sich im Browser normalerweise direkt das User Interface (Streamlit). Wenn man etwas ändern möchte bzw. geändert hat, dann kann man mit der Strg.-Taste und "C" den laufenden Prozess unterbrechen, und wieder neu starten. Alles weitere findet sich in der untenstehenden Anleitung.
 
 ## Projektstruktur
 ```text
