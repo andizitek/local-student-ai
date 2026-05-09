@@ -146,8 +146,8 @@ Reflexions-/Critical-Dateien nach:
 courses\demo_kurs\critical\
 
 ### 11. Index bauen
-```set PYTHONPATH=.
-```.venv\Scripts\python.exe scripts\build_index.py --course demo_kurs
+~ set PYTHONPATH=.
+~.venv\Scripts\python.exe scripts\build_index.py --course demo_kurs
 
 ### 12. Backend starten
 .venv\Scripts\python.exe -m uvicorn app.main:app --reload
