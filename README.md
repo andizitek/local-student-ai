@@ -222,7 +222,7 @@ Nützlichkeit für eure Modi.
 
 ## Immer nur ein Modell in config.yaml z.B
 chat_model: qwen2.5:7b
-## embedding_model bleibt gleich:
+## embedding_model in config.yaml bleibt gleich:
 embedding_model: mxbai-embed-large
 ## Zeit messen und Qualität bewerten
-Tabellarische Vergleichsdokumentation erstellen
+Tabellarische Vergleichsdokumentation erstellen.
