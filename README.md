@@ -119,7 +119,7 @@ ollama pull gemma3:12b.
 ollama pull mxbai-embed-large. 
 
 ### 6. Original-PDFs ablegen
-In:
+In:  
 text. 
 courses\demo_kurs\source_pdfs\
 
