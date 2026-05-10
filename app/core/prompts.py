@@ -21,7 +21,7 @@ def build_user_prompt(
 ) -> str:
     context = _format_hits(hits, "Fachkontext")
     critical_context = _format_hits(critical_hits or [], "Reflexionskontext")
-
+# Sonderfall: critical_ai_literacy mit getrenntem Fach- und Reflexionskontext
     if mode == "critical_ai_literacy":
         return f"""
 {learning_context}
