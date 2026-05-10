@@ -750,7 +750,8 @@ Weitere Bereiche der Seitenleiste werden aus `progress.json` erzeugt. Dazu gehö
 * #### Offene Fragen**  
   Werden aus `open_questions` in `student_data/default_user/progress.json` geladen. Ist die Liste leer, erscheint „Noch keine offenen Fragen gespeichert“. Die Erkennung und Aktualisierung erfolgt ebenfalls in `app/core/student_memory.py`.
 
-  Offene Fragen werden gespeichert, wenn die erzeugte Antwort sprachliche Hinweise darauf enthält, dass ein Punkt noch nicht eindeutig oder nicht direkt geklärt werden konnte. Dazu gehören Marker wie `nicht eindeutig`, `nicht klar`, `im material nicht direkt`, `nicht direkt beantwortet` oder `unsicherheit`. In diesem Fall wird die ursprüngliche Nutzerfrage in `open_questions` übernommen.
+**Offene Fragen werden im aktuellen Stand nur dann gespeichert, wenn die erzeugte Antwort sprachliche Hinweise darauf enthält, dass ein Punkt noch nicht eindeutig oder nicht direkt geklärt werden konnte.** Dazu gehören Marker wie `nicht eindeutig`, `nicht klar`, `im material nicht direkt`, `nicht direkt beantwortet` oder `unsicherheit`. In diesem Fall wird die ursprüngliche Nutzerfrage in `open_questions` übernommen.  
+Unsicherheitsformulierungen in der Nutzerfrage allein führen daher nicht automatisch zu einem Eintrag unter „Offene Fragen“.
 
 * #### Letzte Sitzung**  
   Wird aus `last_question` und `last_session_summary` erzeugt. Dort kann also die letzte Frage und die dazu gespeicherte Antwort oder Zusammenfassung erscheinen.
