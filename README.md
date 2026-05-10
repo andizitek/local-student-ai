@@ -245,9 +245,105 @@ Schlussendlich, muss ich dieses in der config.yaml als chat_model eintragen. Fer
 Diese Parameter sind in der config.yaml abgelegt, und können dort angepasst werden. Die chunk_size ist standarddmäßig auf 2000, chunk_overlap standardmäßig auf 100 und top_k (als Anzahl der herangezogenen Chunks für eine Antwort) standardmäßig auf 4 gesetzt. 
 Ebenfalls in der config.yaml ist die Temperatur des Modells angegeben. 
 <img width="377" height="471" alt="image" src="https://github.com/user-attachments/assets/b1a4f40a-40de-4a29-ac09-a3d755beffdc" />
+Ja — dafür ist ein **kurzer GitHub-/README-Eintrag** sinnvoll.
+
+Nicht riesig, sondern einfach eine kleine Erklärung zu `config.yaml`, damit andere verstehen:
+
+* **wo** man etwas ändert
+* **was** die wichtigsten Parameter bedeuten
+* **wann** man danach neu starten oder neu indexieren muss
+
+## Gute README-Sektion
+
+````md
+## Wichtige Einstellungen in `config.yaml`
+
+Die kursbezogene Konfiguration liegt in:
+
+```text
+courses/demo_kurs/config.yaml
+````
+
+Dort können zentrale Parameter der App angepasst werden.
+
+### Modellwahl
+
+```yaml
+llm:
+  chat_model: gemma3:4b
+  embedding_model: mxbai-embed-large
+```
+
+* `chat_model` bestimmt das verwendete Sprachmodell für die Antworten.
+* `embedding_model` bestimmt das Modell zur Einbettung und Suche in den Materialien.
+
+Wenn Antworten zu langsam sind, kann ein kleineres Chatmodell gewählt werden. Die Auswahl lokaler Modelle richtet sich nach den in Ollama installierten Modellen.
+
+### Retrieval
+
+```yaml
+retrieval:
+  top_k: 4
+  chunk_size: 2000
+  chunk_overlap: 100
+```
+
+* `top_k`: Anzahl der Chunks, die für eine Antwort herangezogen werden
+* `chunk_size`: Größe der Textsegmente beim Chunking
+* `chunk_overlap`: Überlappung zwischen zwei Chunks
+
+Diese Werte beeinflussen, wie gut relevante Textstellen gefunden und als Kontext genutzt werden.
+
+### Antwortverhalten
+
+```yaml
+response:
+  temperature: 0.2
+  cite_sources: true
+  refusal_on_missing_context: true
+```
+
+* `temperature` steuert, wie eng das Modell am bereitgestellten Material und an naheliegenden Formulierungen bleibt. Niedrige Werte führen meist zu stabileren, stärker materialgebundenen Antworten.
+* `cite_sources` steuert, ob Quellenhinweise ausgegeben werden.
+* `refusal_on_missing_context` steuert, ob das System eine Antwort verweigert, wenn kein ausreichender Materialkontext gefunden wird.
+
+## Was muss nach einer Änderung neu gestartet werden?
+
+### Nur `chat_model` oder `temperature` geändert
+
+Dann reicht in der Regel ein Neustart von Backend und Streamlit.
+
+### `chunk_size`, `chunk_overlap` oder Materialien geändert
+
+Dann muss der Index neu gebaut werden, da sich die Segmentierung oder der Materialbestand geändert hat.
+
+````
+
+## Noch kürzer für GitHub
+Wenn du es ganz kompakt willst:
+
+```md
+### `config.yaml`
+
+In `courses/demo_kurs/config.yaml` können Modellwahl, Retrieval-Parameter und Antwortverhalten angepasst werden. Besonders relevant sind `chat_model`, `temperature`, `top_k`, `chunk_size` und `chunk_overlap`. Änderungen an Modell oder Temperatur erfordern in der Regel nur einen Neustart; Änderungen am Chunking oder an den Materialien erfordern einen Neuaufbau des Index.
+````
+
+## Antwort auf deine eigentliche Frage
+
+**Ja, ich würde dafür einen GitHub-Eintrag machen**, am besten im `README.md`.
+
+Nicht als lange Theorie, sondern als kurze praktische Doku.
+
+Wenn du willst, schreibe ich dir gleich noch den **Anschlussabschnitt mit den konkreten Befehlen: neu starten / neu indexieren**.
+
 ### Wie füge ich einen Interaktionsmodus hinzu bzw. adaptiere einen bestehenden?
 #### Interaktionsmodi hinzufügen oder anpassen
-Neue Interaktionsmodi lassen sich mit wenigen Änderungen ergänzen. In der Regel sind dafür drei Dateien relevant:
+Neue Interaktionsmodi lassen sich mit wenigen Änderungen ergänzen.
+Ein neuer Interaktionsmodus benötigt in der Regel:
+* einen Eintrag in `app/ui/streamlit_app.py`
+* eine Prompt-Definition in `app/core/prompts.py`
+* gegebenenfalls Retrieval-Anpassungen in `app/api/chat.py`
+* optional neue Materialien in `materials/` oder `critical/` 
 #### 1. Modus im Dropdown hinzufügen
 Neue Modi werden in der Datei -> app/ui/streamlit_app.py hinzugefügt
 In dieser Datei wird die Liste der verfügbaren Modi in der `selectbox` gepflegt.
@@ -272,189 +368,4 @@ mode = st.selectbox(
     ],
     index=0,
 )
-
-#### 2. Prompt-Logik des Modus definieren
-In der Datei -> app/core/prompts.py wird festgelegt, wie der neue Modus antworten soll.
-Dazu wird im `mode_instruction`-Block ein neuer Eintrag ergänzt.
-Beispiel:
-```python
-"neuer_modus": "Beschreibe kurz, was dieser Modus tun soll und in welcher Struktur die Antwort ausgegeben werden soll.",
-```
-Wenn ein Modus mehr als nur eine zusätzliche Instruktion benötigt, kann in derselben Datei auch eine eigene Prompt-Logik ergänzt werden.
-
-#### 3. Retrieval oder Sonderlogik anpassen
-In der Datei -> app/api/chat.py wird gesteuert, welcher Kontext für einen Modus geholt wird.
-Falls ein neuer Modus nur mit normalen Kursmaterialien arbeiten soll, sind häufig keine weiteren Änderungen nötig.
-Wenn er zusätzlich Materialien aus `critical/` oder eine eigene Behandlung braucht, wird das in `chat.py` ergänzt.
-
-##### 1. `chat.py` anpassen
-Datei:
-```text
-app/api/chat.py
-```
-Dort muss der Modus speziell behandelt werden:
-* `critical_ai_literacy`:
-  * Fachkontext aus `materials`
-  * Reflexionskontext aus `critical` (eigene .md-Datei(en) dort ablegbar
-* `collaborative_work`:
-  * Material + Critical gemeinsam (in materials befinden sich die zusätzlichen, kontextspezifischen .md-Dateien)
-* alle anderen Modi:
-  * nur `materials`
-  * 
----
-
-## 2. `prompts.py` anpassen
-
-Datei:
-
-```text
-app/core/prompts.py
-```
-
-Dort brauchst du:
-
-### a) `critical_hits` als zusätzlichen Parameter
-
-Die Funktion sollte so beginnen:
-
-```python
-def build_user_prompt(
-    question: str,
-    hits: list[dict],
-    mode: str,
-    learning_context: str = "",
-    critical_hits: list[dict] | None = None,
-) -> str:
-```
-
-### b) Fach- und Reflexionskontext getrennt formatieren
-
-Also etwa:
-
-* `Fachkontext`
-* `Zusätzlicher Reflexionskontext`
-
-### c) Für `critical_ai_literacy` einen eigenen Prompt-Block
-
-Der sollte sagen:
-
-* zuerst die konkrete Frage beantworten
-* Fachkontext ist vorrangig
-* Reflexionskontext dient nur als Prüfrahmen
-* irrelevante Kontexte ignorieren
-
----
-
-## 3. `streamlit_app.py` prüfen
-
-Datei:
-
-```text
-app/ui/streamlit_app.py
-```
-
-In der Modusliste müssen beide Einträge korrekt vorkommen:
-
-```python
-"critical_ai_literacy",
-"collaborative_work",
-```
-
-Wichtig: mit **Komma** dazwischen.
-
----
-
-## 4. `system_prompt.md` ergänzen
-
-Datei:
-
-```text
-courses/demo_course/system_prompt.md
-```
-
-Dort solltest du Regeln ergänzen wie:
-
-* Im `critical_ai_literacy`-Modus zuerst die konkrete Nutzerfrage beantworten
-* Fachkontext vor Reflexionskontext behandeln
-* Reflexionskontext nur als kritischen Rahmen nutzen
-* irrelevante Kontexte ignorieren
-* materialgestützte Aussagen, Interpretation und offene Punkte klar unterscheiden
-
----
-
-## 5. Inhalte im `critical/`-Ordner prüfen
-
-Ordner:
-
-```text
-courses/demo_course/critical/
-```
-
-Dort sollten sinnvolle Dateien liegen, zum Beispiel:
-
-* `critical_ai_literacy.md`
-* `ki_transparenz_gruppenarbeit.md`
-* `collaborative_work_design.md`
-
-Wenn dort nur Platzhalter liegen, ist der Modus inhaltlich schwach.
-
----
-
-## 6. Neu indexieren
-
-Nur nötig, wenn du neue `.md`-Dateien in `materials/` oder `critical/` ergänzt oder geändert hast:
-
-```bat
-cd C:\Users\andre\student-course-ai-final
-set PYTHONPATH=.
-.venv\Scripts\python.exe scripts\build_index.py --course demo_course
-```
-
----
-
-## 7. Backend neu starten
-
-```bat
-cd C:\Users\andre\student-course-ai-final
-.venv\Scripts\python.exe -m uvicorn app.main:app --reload
-```
-
----
-
-## 8. Streamlit neu starten
-
-```bat
-cd C:\Users\andre\student-course-ai-final
-.venv\Scripts\python.exe -m streamlit run app\ui\streamlit_app.py
-```
-
----
-
-## Kurzüberblick
-
-Für den `critical_ai_literacy`-Modus brauchst du also:
-
-* `chat.py` → getrenntes Retrieval
-* `prompts.py` → getrennte Prompt-Logik
-* `streamlit_app.py` → Modus sichtbar machen
-* `system_prompt.md` → Verhalten absichern
-* `critical/` → Reflexionstexte
-* danach ggf. **neu indexieren** und **neu starten**
-
-Wenn du willst, kann ich dir jetzt direkt die **fertige `prompts.py`-Version** noch einmal komplett hinschreiben.
-
-
-## Kurzüberblick
-
-Ein neuer Interaktionsmodus benötigt in der Regel:
-
-* einen Eintrag in `app/ui/streamlit_app.py`
-* eine Prompt-Definition in `app/core/prompts.py`
-* gegebenenfalls Retrieval-Anpassungen in `app/api/chat.py`
-* optional neue Materialien in `materials/` oder `critical/`
-
-Damit lassen sich bestehende Modi relativ einfach anpassen oder neue Modi für spezifische didaktische Zwecke ergänzen.
-
-```
-```
 
