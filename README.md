@@ -234,7 +234,7 @@ Tabellarische Vergleichsdokumentation erstellen.
 ## Wie ändere ich das Modell?
 Wenn ich das Srachmodell ändern will, überprüfe ich zuerst, ob dieses schon installiert ist. 
 Das mache ich mit dem Befehl  
--> ollama list
+-> ollama list  
 Falls nötig Ollama zuerst starten:  
 -> ollama serve  
 Wenn das Modell nicht installiert ist, dann kannich ein Modell, das ich verwenden möchte von Ollama herunterladen.  
