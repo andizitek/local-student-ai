@@ -287,7 +287,7 @@ In der Datei -> app/api/chat.py wird gesteuert, welcher Kontext für einen Modus
 Falls ein neuer Modus nur mit normalen Kursmaterialien arbeiten soll, sind häufig keine weiteren Änderungen nötig.
 Wenn er zusätzlich Materialien aus `critical/` oder eine eigene Behandlung braucht, wird das in `chat.py` ergänzt.
 
-#### 1. `chat.py` anpassen
+##### 1. `chat.py` anpassen
 Datei:
 ```text
 app/api/chat.py
@@ -297,13 +297,10 @@ Dort muss der Modus speziell behandelt werden:
   * Fachkontext aus `materials`
   * Reflexionskontext aus `critical` (eigene .md-Datei(en) dort ablegbar
 * `collaborative_work`:
-  * Material + Critical gemeinsam (in material befindet sich eine .md 
+  * Material + Critical gemeinsam (in materials befinden sich die zusätzlichen, kontextspezifischen .md-Dateien)
 * alle anderen Modi:
   * nur `materials`
   * 
-
-Deine aktuelle `chat.py` sieht dafür schon passend aus.
-
 ---
 
 ## 2. `prompts.py` anpassen
