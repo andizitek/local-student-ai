@@ -508,8 +508,6 @@ Wenn ein vorhandener Text überprüft werden soll, sollte `peer_review` genutzt 
 
 ## Modi anpassen oder neue Modi hinzufügen
 
-Die Interaktionsmodi der App lassen sich relativ einfach ändern oder erweitern. In der Regel sind dafür drei Dateien wichtig:
-
 ````md
 ## Modi anpassen oder neue Modi hinzufügen
 
