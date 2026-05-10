@@ -559,13 +559,13 @@ Beispiel:
 
 Wenn ein Modus eine speziellere Prompt-Logik braucht, kann in derselben Datei auch eine eigene Behandlung ergänzt werden.
 
-**Nicht alle Modi werden in `prompts.py` im `mode_instruction`-Block definiert. `critical_ai_literacy` wird in `build_user_prompt()` separat behandelt, weil dieser Modus Fach- und Reflexionskontext getrennt verarbeitet. `peer_review` verwendet mit `build_peer_review_prompt()` eine eigene Funktion, da hier zusätzlich ein zu prüfender Text einbezogen wird. Die übrigen Modi werden über den `mode_instruction`-Block gesteuert.**
+**Nicht alle Modi werden jedoch in prompts.py im mode_instruction-Block definiert. critical_ai_literacy wird in build_user_prompt() separat behandelt, weil dieser Modus Fach- und Reflexionskontext getrennt verarbeitet. peer_review verwendet mit build_peer_review_prompt() eine eigene Funktion, da hier zusätzlich ein zu prüfender Text einbezogen wird. Die übrigen Modi werden über den mode_instruction-Block gesteuert.**
 
-**Generell arbeitet die App mit einem mehrschichtigen Prompt-System: 
--> system_prompt.md definiert den allgemeinen Rahmen, 
--> prompts.py verarbeitet die konkrete Anfrage zusammen mit Modus und Kontext, und 
--> chat.py steuert, welcher Kontext überhaupt geholt wird. 
-Nicht alle Modi werden dabei in prompts.py im mode_instruction-Block definiert. critical_ai_literacy wird in build_user_prompt() separat behandelt, weil dieser Modus Fach- und Reflexionskontext getrennt verarbeitet. peer_review verwendet mit build_peer_review_prompt() eine eigene Funktion, da hier zusätzlich ein zu prüfender Text einbezogen wird. Die übrigen Modi werden über den mode_instruction-Block gesteuert.**
+**Generell arbeitet die App mit einem mehrschichtigen Prompt-System:  
+-> prompts.py - baut den konkreten User-Prompt aus Frage, Modus, Kontext und zusätzlichen Regeln,     
+-> system_prompt.md - enthält den allgemeinen Antwort- und Regelrahmen des Kurses.,  
+-> chat.py - legt fest, welcher Kontext für einen bestimmten Modus geholt und an `prompts.py` übergeben wird..**
+
 
 ### 3. Falls nötig: Retrieval oder Sonderlogik anpassen
 
