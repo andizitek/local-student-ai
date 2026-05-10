@@ -20,7 +20,7 @@ student-course-ai/
 │   ├── core/
 │   └── ui/
 ├── courses/
-│   └── demo_kurs/
+│   └── demo_course/
 │       ├── source_pdfs/
 │       ├── materials/
 │       ├── critical/
@@ -47,23 +47,23 @@ student-course-ai/
 
 ## Wichtige Ordner mit Funktion
 ### Originalquellen
-courses\demo_kurs\source_pdfs\
+courses\demo_course\source_pdfs\
 
 ### Fachliche Materialien als .md files
-courses\demo_kurs\materials\
+courses\demo_course\materials\
 
 ### Reflexions- und Zusatztexte
-courses\demo_kurs\critical\
+courses\demo_course\critical\
 ### Metadaten
-courses\demo_kurs\metadata.csv
+courses\demo_course\metadata.csv
 
 ### Konfiguration
-courses\demo_kurs\config.yaml
+courses\demo_course\config.yaml
 ### Systemprompt
-courses\demo_kurs\system_prompt.md
+courses\demo_course\system_prompt.md
 
 ### Thematische Zuordnungen
-courses\demo_kurs\topic_map.json
+courses\demo_course\topic_map.json
 
 ### Modi der App
 
@@ -125,12 +125,12 @@ Wenn ich ein anderes Modell verwenden will, dann muss ich dieses in der config.y
 ### 6. Original-PDFs ablegen
 In:  
 text. 
-courses\demo_kurs\source_pdfs\
+courses\demo_course\source_pdfs\
 
 ### 7. `metadata.csv` ergänzen
 Datei:
 text. 
-courses\demo_kurs\metadata.csv
+courses\demo_course\metadata.csv
 
 ### 8. PDFs in Markdown umwandeln
 .venv\Scripts\python.exe scripts\pdfs_to_md_with_metadata.py
