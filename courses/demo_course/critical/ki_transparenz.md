@@ -1,8 +1,8 @@
-\# KI-Transparenz in der Gruppenarbeit
+# KI-Transparenz in der Gruppenarbeit
 
 
 
-\## Grundsatz
+## Grundsatz
 
 Wenn KI in Gruppenarbeiten genutzt wird, sollte ihr Einsatz nicht unsichtbar bleiben. 
 
@@ -10,53 +10,53 @@ Die Gruppe sollte nachvollziehbar machen, an welchen Stellen KI beteiligt war un
 
 
 
-\## Wofür KI genutzt werden kann
+## Wofür KI genutzt werden kann
 
-\- zur Strukturierung von Materialien
+- zur Strukturierung von Materialien
 
-\- zur Formulierung erster Zusammenfassungen
+- zur Formulierung erster Zusammenfassungen
 
-\- zur Generierung von Diskussionsfragen
+- zur Generierung von Diskussionsfragen
 
-\- zur Unterstützung bei Peer-Feedback
+- zur Unterstützung bei Peer-Feedback
 
-\- zur sprachlichen Überarbeitung
+- zur sprachlichen Überarbeitung
 
-\- zur Vorbereitung von Gruppenbeiträgen
-
-
-
-\## Was transparent gemacht werden sollte
-
-\- Welche KI-Tools wurden verwendet?
-
-\- Für welche Arbeitsschritte wurde KI eingesetzt?
-
-\- Welche Vorschläge der KI wurden übernommen?
-
-\- Welche Vorschläge wurden verworfen oder verändert?
-
-\- Welche Aussagen wurden mit Originalquellen überprüft?
-
-\- Welche Teile der Arbeit beruhen auf eigener Diskussion und eigener Entscheidung?
+- zur Vorbereitung von Gruppenbeiträgen
 
 
 
-\## Kritische Fragen für Gruppen
+## Was transparent gemacht werden sollte
 
-\- Hat KI unsere Zusammenarbeit unterstützt oder vorschnell vorstrukturiert?
+- Welche KI-Tools wurden verwendet?
 
-\- Haben wir KI-Ergebnisse geprüft oder nur übernommen?
+- Für welche Arbeitsschritte wurde KI eingesetzt?
 
-\- Haben alle Gruppenmitglieder gleichermaßen Einblick in die KI-Nutzung?
+- Welche Vorschläge der KI wurden übernommen?
 
-\- Wurde durch KI die Beteiligung einzelner Personen gestärkt oder eher verdrängt?
+- Welche Vorschläge wurden verworfen oder verändert?
 
-\- Ist noch nachvollziehbar, was die Eigenleistung der Gruppe ist?
+- Welche Aussagen wurden mit Originalquellen überprüft?
+
+- Welche Teile der Arbeit beruhen auf eigener Diskussion und eigener Entscheidung?
 
 
 
-\## Fairness und Verantwortung
+## Kritische Fragen für Gruppen
+
+- Hat KI unsere Zusammenarbeit unterstützt oder vorschnell vorstrukturiert?
+
+- Haben wir KI-Ergebnisse geprüft oder nur übernommen?
+
+- Haben alle Gruppenmitglieder gleichermaßen Einblick in die KI-Nutzung?
+
+- Wurde durch KI die Beteiligung einzelner Personen gestärkt oder eher verdrängt?
+
+- Ist noch nachvollziehbar, was die Eigenleistung der Gruppe ist?
+
+
+
+## Fairness und Verantwortung
 
 KI darf nicht dazu führen, dass Verantwortung diffus wird. 
 
@@ -64,21 +64,21 @@ Auch wenn Formulierungen, Strukturierungen oder Ideen technisch erzeugt wurden, 
 
 
 
-\## Dokumentation
+## Dokumentation
 
 Eine sinnvolle Praxis ist eine kurze Dokumentation:
 
-\- eingesetztes Tool
+- eingesetztes Tool
 
-\- Zweck der Nutzung
+- Zweck der Nutzung
 
-\- Umfang der Übernahme
+- Umfang der Übernahme
 
-\- eigene Prüfung und Überarbeitung
+- eigene Prüfung und Überarbeitung
 
 
 
-\## Ziel
+## Ziel
 
 Transparenz in der KI-Nutzung stärkt Fairness, Nachvollziehbarkeit und kritische Reflexion. 
 
