@@ -11,5 +11,5 @@ app.include_router(health_router)
 
 # Macht den gesamten courses-Ordner per HTTP zugänglich
 # Beispiel:
-# http://127.0.0.1:8000/course_files/demo_kurs/source_pdfs/datei.pdf
+# http://127.0.0.1:8000/course_files/demo_course/source_pdfs/datei.pdf
 app.mount("/course_files", StaticFiles(directory="courses"), name="course_files")
