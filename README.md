@@ -248,15 +248,13 @@ Ebenfalls in der config.yaml ist die Temperatur des Modells angegeben.
 ## Wichtige Einstellungen in `config.yaml`
 
 Die kursbezogene Konfiguration liegt in:
-
-```text
+```
 courses/demo_kurs/config.yaml
 ````
 
 Dort können zentrale Parameter der App angepasst werden.
 
 #### Modellwahl
-
 ```yaml
 llm:
   chat_model: gemma3:4b
