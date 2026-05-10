@@ -146,6 +146,22 @@ Beispiel:
 py -m pip install "markitdown[all]". 
 Das pdfs_to_md_alternative.py file wird in den source_pdfs Ordner kopiert und über die Befehlseingabe aufgerufen. Dadurch werden die entsprechenden .md files kreiert, die dann in den materials Ordner kompiert werden.
 
+#### Mini-Checkliste für Markdown-Dateien vor dem Indexieren
+Vor dem Indexieren kann kurz geprüft werden, ob eine Markdown-Datei als gute Grundlage für die KI-Suche geeignet ist.
+#### Ja/Nein-Check
+
+- Ist der Text für Menschen gut lesbar?
+- Gibt es klare Überschriften und sinnvolle Abschnitte?
+- Enthält die Datei möglichst wenig Seitenzahlen, Punktlinien oder Inhaltsverzeichnis-Reste?
+- Gibt es keine störenden Literatur- oder Fußnotenfragmente mitten im Fließtext?
+- Sind kaputte Worttrennungen und seltsame Leerzeichen weitgehend bereinigt?
+- Enthält die Datei keine unnötigen Layout-, Tabellen- oder Lizenzreste?
+- Sind die Abschnitte inhaltlich zusammenhängend und nicht nur lose Fragmente?
+- Würde ich wollen, dass die KI genau diesen Abschnitt als Antwortgrundlage verwendet?
+  
+#### Faustregel
+Wenn mehrere Fragen mit **Nein** beantwortet werden, sollte die Datei vor dem Indexieren noch bereinigt oder in kleinere, klarere Einheiten aufgeteilt werden.
+
 ### 10. Zusätzliche Materialien ergänzen
 Normale Materialien nach:
 courses\demo_kurs\materials\
