@@ -244,14 +244,12 @@ Schlussendlich, muss ich dieses in der config.yaml als chat_model eintragen. Fer
 ### Wie ändere ich die Parameter des Chunking und die Temperatur?
 Diese Parameter sind in der config.yaml abgelegt, und können dort angepasst werden. Die chunk_size ist standarddmäßig auf 2000, chunk_overlap standardmäßig auf 100 und top_k (als Anzahl der herangezogenen Chunks für eine Antwort) standardmäßig auf 4 gesetzt. 
 Ebenfalls in der config.yaml ist die Temperatur des Modells angegeben. 
-````md
 ## Wichtige Einstellungen in `config.yaml`
-
+````
 Die kursbezogene Konfiguration liegt in:
 ```
 courses/demo_kurs/config.yaml
 ````
-
 Dort können zentrale Parameter der App angepasst werden.
 
 #### Modellwahl
