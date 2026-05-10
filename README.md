@@ -564,7 +564,7 @@ Wenn ein Modus eine speziellere Prompt-Logik braucht, kann in derselben Datei au
 **Generell arbeitet die App mit einem mehrschichtigen Prompt-System:  
 -> prompts.py - baut den konkreten User-Prompt aus Frage, Modus, Kontext und zusätzlichen Regeln,     
 -> system_prompt.md - enthält den allgemeinen Antwort- und Regelrahmen des Kurses.,  
--> chat.py - legt fest, welcher Kontext für einen bestimmten Modus geholt und an `prompts.py` übergeben wird..**
+-> chat.py - legt fest, welche Inhalte aus den verfügbaren Kursdaten für einen bestimmten Modus verwendet werden. Dazu können fachliche Materialien aus materials/ ebenso gehören wie zusätzliche Reflexions- und Orientierungstexte aus critical/.**
 
 
 ### 3. Falls nötig: Retrieval oder Sonderlogik anpassen
