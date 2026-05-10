@@ -510,7 +510,7 @@ Wenn ein vorhandener Text überprüft werden soll, sollte `peer_review` genutzt 
 
 Die Interaktionsmodi der App lassen sich relativ einfach ändern oder erweitern. In der Regel sind dafür drei Dateien wichtig:
 
-### 1. Modus in der Oberfläche sichtbar machen
+### 1. Modus in Datei bearbeiten
 ```Datei mit Editor zum Bearbeiten öffnen
 app/ui/streamlit_app.py
 ````
