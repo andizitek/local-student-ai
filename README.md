@@ -288,7 +288,7 @@ Wenn Antworten zu langsam sind, kann ein kleineres Chatmodell gewählt werden. D
 ```yaml
 retrieval:
   top_k: 4
-  chunk_size: 2000
+  chunk_size: 1200
   chunk_overlap: 100
 ```
 * `top_k`: Anzahl der Chunks, die für eine Antwort herangezogen werden
