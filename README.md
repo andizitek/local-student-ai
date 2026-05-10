@@ -510,10 +510,18 @@ Wenn ein vorhandener Text überprüft werden soll, sollte `peer_review` genutzt 
 
 Die Interaktionsmodi der App lassen sich relativ einfach ändern oder erweitern. In der Regel sind dafür drei Dateien wichtig:
 
-### 1. Modus in Datei bearbeiten
-```Datei mit Editor zum Bearbeiten öffnen
+````md
+## Modi anpassen oder neue Modi hinzufügen
+
+Die Interaktionsmodi der App lassen sich relativ einfach ändern oder erweitern. In der Regel sind dafür drei Dateien wichtig:
+
+### 1. Modus in der Oberfläche sichtbar machen
+Datei:
+
+```text
 app/ui/streamlit_app.py
 ````
+
 Dort wird die Liste der auswählbaren Modi in der `selectbox` gepflegt.
 Ein bestehender Modus kann dort umbenannt oder ein neuer Modus ergänzt werden.
 
@@ -541,7 +549,10 @@ mode = st.selectbox(
 ```
 
 ### 2. Festlegen, wie der Modus antworten soll
-```Datei mit Editor zum Bearbeiten öffnen
+
+Datei:
+
+```text
 app/core/prompts.py
 ```
 
@@ -557,7 +568,10 @@ Beispiel:
 Wenn ein Modus eine speziellere Prompt-Logik braucht, kann in derselben Datei auch eine eigene Behandlung ergänzt werden.
 
 ### 3. Falls nötig: Retrieval oder Sonderlogik anpassen
-```Datei mit Editor zum Bearbeiten öffnen
+
+Datei:
+
+```text
 app/api/chat.py
 ```
 
@@ -580,7 +594,7 @@ Beispiel:
 
 Wenn ein Modus eigene Inhalte oder Reflexionstexte nutzen soll, können passende Markdown-Dateien ergänzt werden in:
 
-```
+```text
 courses/demo_course/materials/
 courses/demo_course/critical/
 ```
@@ -615,7 +629,7 @@ set PYTHONPATH=.
 
 ---
 
-## Zusammenfassung
+## Kurz gesagt
 
 Ein neuer oder angepasster Modus braucht in der Regel:
 
@@ -623,6 +637,12 @@ Ein neuer oder angepasster Modus braucht in der Regel:
 * eine Prompt-Definition in `app/core/prompts.py`
 * gegebenenfalls eine Anpassung in `app/api/chat.py`
 * optional neue Markdown-Dateien in `materials/` oder `critical/`
+
+So lassen sich bestehende Modi einfach anpassen oder neue Modi für eigene didaktische Zwecke ergänzen.
+
+```
+```
+
 
 So lassen sich bestehende Modi einfach anpassen oder neue Modi für eigene didaktische Zwecke ergänzen.
 
