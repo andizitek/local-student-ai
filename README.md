@@ -683,7 +683,7 @@ Ein neuer oder angepasster Modus braucht in der Regel:
 * gegebenenfalls eine Anpassung in `app/api/chat.py`
 * optional neue Markdown-Dateien in `materials/` oder `critical/`
 
-#Beschereibung des Interaktionsfensters
+# Beschreibung des Interaktionsfensters
 ## Seitenleiste: Lernprofil und Lernverlauf
 
 Die App zeigt in der Seitenleiste lokal gespeicherte Profil- und Verlaufsdaten an. Diese Informationen werden nicht in einer externen Cloud gespeichert, sondern im Projektordner unter `student_data/`, typischerweise nutzerbezogen in einem Unterordner wie:  
