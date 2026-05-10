@@ -163,7 +163,7 @@ Vor dem Indexieren kann kurz geprüft werden, ob eine Markdown-Datei als gute Gr
 Wenn mehrere Fragen mit **Nein** beantwortet werden, sollte die Datei vor dem Indexieren noch bereinigt oder in kleinere, klarere Einheiten aufgeteilt werden.
 
 ### 10. Zusätzliche Materialien ergänzen
-Normale Materialien nach:
+Inhaltliche Materialien als  .md-Dateien nach:
 courses\demo_kurs\materials\
 
 Reflexions-/Critical-Dateien nach:
