@@ -730,15 +730,15 @@ In `topic_map.json` werden Themennamen mit typischen Schlüsselwörtern verknüp
 
 Wenn in `topic_map.json` nur Platzhalter oder Beispielthemen stehen, können keine sinnvollen Themen erkannt werden. In diesem Fall bleibt `seen_topics` leer und in der Seitenleiste erscheint:
 
-***Noch keine Themen gespeichert.***
+***Noch keine Themen gespeichert.***  
 
-* **Schwierige Themen**
+* **Schwierige Themen**  
   Werden aus `difficult_topics` geladen. Wenn dabei zwar Unsicherheit erkannt wurde, aber kein genaues Thema zugeordnet werden konnte, kann ein allgemeiner Platzhalter erscheinen.
 
-* **Offene Fragen**
+* **Offene Fragen**  
   Werden aus `open_questions` geladen. Ist die Liste leer, erscheint „Noch keine offenen Fragen gespeichert“.
 
-* **Letzte Sitzung**
+* **Letzte Sitzung**  
   Wird aus `last_question` und `last_session_summary` erzeugt. Dort kann also die letzte Frage und die dazu gespeicherte Antwort oder Zusammenfassung erscheinen.
 
 ### Wie werden schwierige Themen bestimmt?
