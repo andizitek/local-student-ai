@@ -298,6 +298,217 @@ Dann reicht in der Regel ein Neustart von Backend und Streamlit.
 
 Dann muss der Index neu gebaut werden, da sich die Segmentierung oder der Materialbestand geändert hat.
 
-````
-)
+## Vorhandene Modi
+Gern — hier ist eine **verständliche Anleitung für die Modi**, die du direkt ins README oder nach GitHub kopieren kannst.
+
+```md
+## Interaktionsmodi der App
+
+Die App bietet verschiedene Modi, die unterschiedliche Formen der Arbeit mit den Kursmaterialien unterstützen.  
+Je nach Modus liegt der Schwerpunkt stärker auf Erklärung, Zusammenfassung, Gruppenarbeit, Rückmeldung oder kritischer Reflexion.
+
+### `explain`
+Dieser Modus dient dazu, Begriffe, Zusammenhänge oder Fragen verständlich zu erklären.  
+Er eignet sich besonders, wenn ein Thema zum ersten Mal erschlossen oder ein schwieriger Zusammenhang schrittweise nachvollzogen werden soll.
+
+**Geeignet für:**
+- Begriffe erklären
+- Zusammenhänge verständlich machen
+- in ein Thema einsteigen
+
+**Beispiel:**
+> Erkläre, was im Material unter Körperarbeit verstanden wird.
+
+---
+
+### `summarize`
+Dieser Modus fasst Inhalte knapp und strukturiert zusammen.  
+Er eignet sich, wenn ein Überblick über ein Thema oder einen Text benötigt wird.
+
+**Geeignet für:**
+- Überblick gewinnen
+- längere Texte verdichten
+- Vorbereitung auf Diskussionen oder Lernen
+
+**Beispiel:**
+> Fasse die wichtigsten Aussagen zum Thema Körperarbeit knapp zusammen.
+
+---
+
+### `quiz`
+Dieser Modus erzeugt Verständnisfragen zu einem Thema oder Text.  
+Er eignet sich, um Wissen zu überprüfen oder Gruppenarbeit aktivierender zu gestalten.
+
+**Geeignet für:**
+- Lernkontrolle
+- Wiederholung
+- Aktivierung in Lehrveranstaltungen
+
+**Beispiel:**
+> Erstelle 3 Quizfragen zum Thema Schauspieltechniken.
+
+---
+
+### `flashcards`
+Dieser Modus erstellt Lernkarten mit Begriff und kurzer Erklärung.  
+Er eignet sich besonders für Wiederholung, Prüfungsvorbereitung und Begriffsarbeit.
+
+**Geeignet für:**
+- zentrale Begriffe lernen
+- Wiederholung
+- Selbststudium
+
+**Beispiel:**
+> Erstelle Lernkarten zu Stanislawski, Körperarbeit und Improvisation.
+
+---
+
+### `study_guide`
+Dieser Modus erstellt einen Lernleitfaden.  
+Er ordnet die Inhalte, benennt zentrale Punkte und hilft, einen sinnvollen Lernweg zu entwickeln.
+
+**Geeignet für:**
+- Prüfungsvorbereitung
+- Strukturierung eines Themas
+- Orientierung bei umfangreichen Materialien
+
+**Beispiel:**
+> Erstelle einen Lernleitfaden zum Thema körperorientierte Schauspieltechniken.
+
+---
+
+### `group_prep`
+Dieser Modus unterstützt die Vorbereitung von Gruppenbeiträgen.  
+Er hilft dabei, Kernaussagen, offene Fragen und Diskussionspunkte zu strukturieren.
+
+**Geeignet für:**
+- Vorbereitung von Gruppenarbeiten
+- Referate
+- gemeinsame Themenerschließung
+
+**Beispiel:**
+> Hilf uns, einen Gruppenbeitrag zur Bedeutung von Körperarbeit im Schauspiel vorzubereiten.
+
+---
+
+### `discussion`
+Dieser Modus erzeugt Material für Diskussionen.  
+Er kann Perspektiven, Rückfragen und kontroverse Punkte sichtbar machen.
+
+**Geeignet für:**
+- Seminardiskussionen
+- Gruppenarbeit
+- kontroverse Fragestellungen
+
+**Beispiel:**
+> Erzeuge Diskussionsfragen zur Beziehung von innerem Erleben und äußerer Bewegung.
+
+---
+
+### `peer_review`
+Dieser Modus dient der Rückmeldung zu einem vorhandenen Text.  
+Dabei wird nicht nur die Frage betrachtet, sondern vor allem der eingefügte Entwurf.
+
+**Geeignet für:**
+- Rückmeldung zu Texten
+- Gruppenentwürfe
+- Überarbeitung von Antworten oder Zusammenfassungen
+
+**Wichtig:**  
+Zusätzlich zur Frage muss im Feld **„Text für Peer-Review“** ein zu prüfender Text eingefügt werden.
+
+**Beispiel für das Fragefeld:**
+> Bitte gib Peer-Feedback zu diesem Text im Hinblick auf Klarheit, Materialbezug und Argumentationsstruktur.
+
+---
+
+### `group_summary`
+Dieser Modus hilft, Gruppenergebnisse kompakt zusammenzuführen.  
+Er eignet sich, wenn mehrere Beiträge oder Diskussionspunkte zu einem gemeinsamen Ergebnis verdichtet werden sollen.
+
+**Geeignet für:**
+- Abschluss einer Gruppenarbeit
+- Zusammenführung von Ergebnissen
+- kompakte Ergebnisdarstellung
+
+**Beispiel:**
+> Formuliere eine kompakte Gruppenzusammenfassung zum Thema Körperarbeit und Schauspiel.
+
+---
+
+### `critical_ai_literacy`
+Dieser Modus dient der **kritischen Reflexion** von KI-Antworten und Materialien.  
+Er soll nicht nur antworten, sondern auch sichtbar machen,
+- was im Material klar belegt ist,
+- was eher Interpretation oder Verallgemeinerung ist,
+- was unklar bleibt,
+- was die Gruppe selbst prüfen sollte,
+- und wie der KI-Einsatz transparent gemacht werden kann.
+
+**Geeignet für:**
+- kritische Prüfung von KI-Antworten
+- Reflexion von Unsicherheiten
+- Quellen- und Materialprüfung
+- transparente KI-Nutzung
+
+**Beispiel:**
+> Prüfe die vorige Antwort auf meine Frage im Critical-AI-Literacy-Modus: Was ist klar belegt, was ist Interpretation, und was sollte die Gruppe selbst prüfen?
+
+---
+
+### `collaborative_work`
+Dieser Modus unterstützt die Strukturierung gemeinsamer Arbeitsprozesse.  
+Er hilft Gruppen dabei, Aufgaben in Teilaufgaben zu zerlegen, Rollen zu klären, Abhängigkeiten sichtbar zu machen und die Zusammenführung von Ergebnissen zu planen.
+
+**Geeignet für:**
+- Gruppenreferate
+- Schreibprojekte
+- Projektarbeit
+- kollaboratives Arbeiten allgemein
+- auch Programmierung als Spezialfall
+
+**Beispiel:**
+> Hilf uns, die Aufgabe als Gruppe zu strukturieren: Ziel, Teilaufgaben, Rollen, Abhängigkeiten und Zusammenführung.
+
+---
+
+## Welche Modi eignen sich wofür?
+
+### Wenn etwas erklärt werden soll
+- `explain`
+- `study_guide`
+
+### Wenn etwas knapp zusammengefasst werden soll
+- `summarize`
+- `group_summary`
+
+### Wenn aktiv gelernt oder überprüft werden soll
+- `quiz`
+- `flashcards`
+
+### Wenn Gruppenarbeit vorbereitet oder begleitet werden soll
+- `group_prep`
+- `discussion`
+- `collaborative_work`
+
+### Wenn ein vorhandener Text überprüft werden soll
+- `peer_review`
+
+### Wenn KI-Antworten oder Materialien kritisch geprüft werden sollen
+- `critical_ai_literacy`
+
+---
+
+## Praktischer Hinweis
+
+Für einfache Sachfragen reicht oft `explain` oder `summarize`.  
+Für Gruppenarbeit sind `group_prep`, `discussion` und `collaborative_work` besonders nützlich.  
+Wenn eine Antwort kritisch hinterfragt werden soll, ist `critical_ai_literacy` der passende Modus.  
+Wenn ein vorhandener Text überprüft werden soll, sollte `peer_review` genutzt und zusätzlich ein Textentwurf eingefügt werden.
+```
+
+Wenn du willst, mache ich dir daraus noch eine **kürzere Version für Laien** oder eine **Tabelle mit Modus + Zweck + Beispiel**.
+
+
+Anpassung und Hinzufügen von Modi
 
