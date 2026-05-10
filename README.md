@@ -470,7 +470,7 @@ Er hilft Gruppen dabei, Aufgaben in Teilaufgaben zu zerlegen, Rollen zu klären,
 > Hilf uns, die Aufgabe als Gruppe zu strukturieren: Ziel, Teilaufgaben, Rollen, Abhängigkeiten und Zusammenführung.
 
 ---
-
+```
 ## Welche Modi eignen sich wofür?
 
 ### Wenn etwas erklärt werden soll
@@ -498,19 +498,19 @@ Er hilft Gruppen dabei, Aufgaben in Teilaufgaben zu zerlegen, Rollen zu klären,
 
 ---
 
-## Praktischer Hinweis
+### Praktischer Hinweis
 
 Für einfache Sachfragen reicht oft `explain` oder `summarize`.  
 Für Gruppenarbeit sind `group_prep`, `discussion` und `collaborative_work` besonders nützlich.  
 Wenn eine Antwort kritisch hinterfragt werden soll, ist `critical_ai_literacy` der passende Modus.  
 Wenn ein vorhandener Text überprüft werden soll, sollte `peer_review` genutzt und zusätzlich ein Textentwurf eingefügt werden.
 ```
-
+```
 ## Modi anpassen oder neue Modi hinzufügen
 
 Die Interaktionsmodi der App lassen sich relativ einfach ändern oder erweitern. In der Regel sind dafür drei Dateien wichtig:
 
-### 1. Bearbeiten des Modus
+### 1. Bearbeiten des Modus bzw. Modus hinzufügen
 Öffnen der Datei mit einem Editor:
 ```text
 app/ui/streamlit_app.py
@@ -567,18 +567,7 @@ Wenn ein Modus eine speziellere Prompt-Logik braucht, kann in derselben Datei au
 app/api/chat.py
 ```
 
-### Kontext je nach Modus steuern
-
-In `app/api/chat.py` wird festgelegt, aus welchen Bereichen der Kursdaten der Kontext für einen Modus geholt wird.
-
-- Standardmäßig greifen Modi nur auf fachliche Materialien aus `materials/` zu.
-- Manche Modi nutzen zusätzlich Reflexions- und Orientierungstexte aus `critical/`.
-- Der Modus critical_ai_literacy trennt zwischen Fachkontext (materials/) und zusätzlichem Reflexionskontext (critical/). Das bedeutet, dass zuerst der fachliche Inhalt aus den Materialien erschlossen und danach kritisch reflektiert wird.
-- Der Modus collaborative_work kann Materialien und Critical-Texte gemeinsam nutzen. Dabei werden Fachinhalt und Reflexions- bzw. Orientierungstexte zusammen verwendet, um Gruppen bei der Planung und Durchführung gemeinsamer Arbeit zu unterstützen.
-
-Beispiel aus `app/api/chat.py`:
-
-### Kontext je nach Modus steuern
+#### Kontext je nach Modus steuern
 
 In `app/api/chat.py` wird festgelegt, aus welchen Bereichen der Kursdaten der Kontext für einen Modus geholt wird.
 
@@ -622,7 +611,7 @@ else:
         allowed_content_types=["material"],
     )
 ```
-### Zusätzliche Materialien für einen Modus hinzufügwn
+#### Zusätzliche Materialien für einen Modus hinzufügwn
 
 Wenn ein Modus zusätzliche Inhalte oder Reflexionstexte nutzen soll, können passende Markdown-Dateien ergänzt werden in:
 ```text
@@ -634,29 +623,29 @@ courses/demo_course/critical/
 * `critical/` für Reflexions-, Transparenz- oder Orientierungstexte
 
 ---
-## Danach nicht vergessen
+### Danach nicht vergessen
 
-### Wenn neue Materialien hinzugefügt wurden
+#### Wenn neue Materialien hinzugefügt wurden
 Nach dem Hinzufügen neuer Dateien muss der Index neu gebaut werden.
 ```bat
 set PYTHONPATH=.
 .venv\Scripts\python.exe scripts\build_index.py --course demo_course
 ```
 
-### Backend neu starten
+#### Backend neu starten
 
 ```bat
 .venv\Scripts\python.exe -m uvicorn app.main:app --reload
 ```
 
-### Streamlit neu starten
+#### Streamlit neu starten
 
 ```bat
 .venv\Scripts\python.exe -m streamlit run app\ui\streamlit_app.py
 ```
 ---
 
-## Kurz gesagt
+### Kurz gesagt
 
 Ein neuer oder angepasster Modus braucht in der Regel:
 
