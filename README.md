@@ -578,13 +578,18 @@ In `app/api/chat.py` wird festgelegt, aus welchen Bereichen der Kursdaten der Ko
 
 Beispiel aus `app/api/chat.py`:
 
+### Kontext je nach Modus steuern
+
+In `app/api/chat.py` wird festgelegt, aus welchen Bereichen der Kursdaten der Kontext für einen Modus geholt wird.
+
+- Der Modus critical_ai_literacy trennt zwischen Fachkontext (materials/) und zusätzlichem Reflexionskontext (critical/). Das bedeutet, dass zuerst der fachliche Inhalt aus den Materialien erschlossen und danach kritisch reflektiert wird.
+- Der Modus collaborative_work kann Materialien und Critical-Texte gemeinsam nutzen. Dabei werden Fachinhalt und Reflexions- bzw. Orientierungstexte zusammen verwendet, um Gruppen bei der Planung und Durchführung gemeinsamer Arbeit zu unterstützen.
+- Alle übrigen Modi greifen standardmäßig nur auf fachliche Materialien aus materials/ zu. Das bedeutet, dass ihre Antworten in erster Linie auf den inhaltlichen Kursmaterialien beruhen und keine zusätzlichen Reflexionstexte aus critical/ einbeziehen.
+
+Beispiel aus `app/api/chat.py`:
+
 ```python
-learning_context = build_learning_context(req.user_id, req.course_id)
-
-critical_hits = None
-
 if req.mode == "critical_ai_literacy":
-    # Fachkontext nur aus materials
     hits = retrieve(
         course_id=req.course_id,
         question=req.question,
@@ -593,7 +598,6 @@ if req.mode == "critical_ai_literacy":
         allowed_content_types=["material"],
     )
 
-    # zusätzlicher Reflexionskontext aus critical
     critical_hits = retrieve(
         course_id=req.course_id,
         question=req.question,
@@ -601,9 +605,7 @@ if req.mode == "critical_ai_literacy":
         top_k=2,
         allowed_content_types=["critical"],
     )
-
 elif req.mode == "collaborative_work":
-    # Material und Critical gemeinsam
     hits = retrieve(
         course_id=req.course_id,
         question=req.question,
@@ -611,9 +613,7 @@ elif req.mode == "collaborative_work":
         top_k=cfg["retrieval"]["top_k"],
         allowed_content_types=["material", "critical"],
     )
-
 else:
-    # Standard: nur materials
     hits = retrieve(
         course_id=req.course_id,
         question=req.question,
@@ -621,51 +621,10 @@ else:
         top_k=cfg["retrieval"]["top_k"],
         allowed_content_types=["material"],
     )
+```
+### Zusätzliche Materialien für einen Modus hinzufügwn
 
-Im Code:
----
-if req.mode == "critical_ai_literacy":
-    # Fachkontext nur aus materials
-    hits = retrieve(
-        course_id=req.course_id,
-        question=req.question,
-        embedding_model=cfg["llm"]["embedding_model"],
-        top_k=max(2, min(cfg["retrieval"]["top_k"], 3)),
-        allowed_content_types=["material"],
-    )
-
-    # zusätzlicher Reflexionskontext aus critical
-    critical_hits = retrieve(
-        course_id=req.course_id,
-        question=req.question,
-        embedding_model=cfg["llm"]["embedding_model"],
-        top_k=2,
-        allowed_content_types=["critical"],
-    )
-
-elif req.mode == "collaborative_work":
-    # Material und Critical gemeinsam
-    hits = retrieve(
-        course_id=req.course_id,
-        question=req.question,
-        embedding_model=cfg["llm"]["embedding_model"],
-        top_k=cfg["retrieval"]["top_k"],
-        allowed_content_types=["material", "critical"],
-    )
-
-else:
-    # Standard: nur materials
-    hits = retrieve(
-        course_id=req.course_id,
-        question=req.question,
-        embedding_model=cfg["llm"]["embedding_model"],
-        top_k=cfg["retrieval"]["top_k"],
-        allowed_content_types=["material"],
-    )
-
-## Zusätzliche Materialien für einen Modus
-
-Wenn ein Modus eigene Inhalte oder Reflexionstexte nutzen soll, können passende Markdown-Dateien ergänzt werden in:
+Wenn ein Modus zusätzliche Inhalte oder Reflexionstexte nutzen soll, können passende Markdown-Dateien ergänzt werden in:
 ```text
 courses/demo_course/materials/
 courses/demo_course/critical/
@@ -674,14 +633,11 @@ courses/demo_course/critical/
 * `materials/` für fachliche Inhalte
 * `critical/` für Reflexions-, Transparenz- oder Orientierungstexte
 
-Nach dem Hinzufügen neuer Dateien muss der Index neu gebaut werden.
-
 ---
-
 ## Danach nicht vergessen
 
 ### Wenn neue Materialien hinzugefügt wurden
-
+Nach dem Hinzufügen neuer Dateien muss der Index neu gebaut werden.
 ```bat
 set PYTHONPATH=.
 .venv\Scripts\python.exe scripts\build_index.py --course demo_course
@@ -698,7 +654,6 @@ set PYTHONPATH=.
 ```bat
 .venv\Scripts\python.exe -m streamlit run app\ui\streamlit_app.py
 ```
-
 ---
 
 ## Kurz gesagt
@@ -712,12 +667,4 @@ Ein neuer oder angepasster Modus braucht in der Regel:
 
 So lassen sich bestehende Modi einfach anpassen oder neue Modi für eigene didaktische Zwecke ergänzen.
 
-```
-```
-
-
-So lassen sich bestehende Modi einfach anpassen oder neue Modi für eigene didaktische Zwecke ergänzen.
-
-```
-```
 
