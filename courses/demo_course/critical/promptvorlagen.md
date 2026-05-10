@@ -1,4 +1,4 @@
-\# Prompt-Vorlagen für die lokale Kurs-KI
+# Prompt-Vorlagen für die lokale Kurs-KI
 
 
 
@@ -6,51 +6,49 @@ Diese Vorlagen helfen dabei, die verschiedenen Modi gezielt zu nutzen.
 
 Die Platzhalter in eckigen Klammern können durch die eigene Frage oder Aufgabe ersetzt werden.
 
-
-
-\---
-
-
-
-\## 1. Explain – Begriff oder Zusammenhang klären
+---
 
 
 
-Erkläre die Frage „\[Frage]“ verständlich und materialgebunden.
+## 1. Explain – Begriff oder Zusammenhang klären
+
+
+
+Erkläre die Frage „[Frage]“ verständlich und materialgebunden.
 
 Bitte in klaren Schritten und mit direktem Bezug auf die Kursmaterialien.
 
 
 
-\---
+---
 
 
 
-\## 2. Summarize – Thema verdichten
+## 2. Summarize – Thema verdichten
 
 
 
-Fasse die wichtigsten Aussagen zur Frage „\[Frage]“ knapp und strukturiert zusammen.
+Fasse die wichtigsten Aussagen zur Frage „[Frage]“ knapp und strukturiert zusammen.
 
 Bitte nur materialgebunden und ohne allgemeine Ausschmückungen.
 
 
 
-\---
+---
 
 
 
-\## 3. Quiz – Verständnis prüfen
+## 3. Quiz – Verständnis prüfen
 
 
 
-Erkläre das Thema „\[Thema]“ kurz und stelle danach 3 Verständnisfragen dazu.
+Erkläre das Thema „[Thema]“ kurz und stelle danach 3 Verständnisfragen dazu.
 
 Bitte ohne sofortige Lösungen.
 
 
 
-\---
+---
 
 
 
@@ -58,13 +56,13 @@ Bitte ohne sofortige Lösungen.
 
 
 
-Erstelle Lernkarten zum Thema „\[Thema]“.
+Erstelle Lernkarten zum Thema „[Thema]“.
 
 Format:
 
-\- Begriff
+- Begriff
 
-\- kurze Erklärung
+- kurze Erklärung
 
 
 
@@ -72,55 +70,55 @@ Bitte nur mit Bezug auf die Kursmaterialien.
 
 
 
-\---
+---
 
 
 
-\## 5. Study Guide – Lernen strukturieren
+## 5. Study Guide – Lernen strukturieren
 
 
 
-Erstelle zu „\[Thema oder Frage]“ einen Lernleitfaden.
+Erstelle zu [Thema oder Frage]“ einen Lernleitfaden.
 
 Bitte mit:
 
-\- Kernpunkten
+- Kernpunkten
 
-\- sinnvoller Reihenfolge
+- sinnvoller Reihenfolge
 
-\- typischen Missverständnissen
+- typischen Missverständnissen
 
-\- Hinweisen, worauf besonders zu achten ist
-
-
-
-\---
+- Hinweisen, worauf besonders zu achten ist
 
 
 
-\## 6. Group Prep – Gruppenarbeit vorbereiten
+---
 
 
 
-Hilf uns, die Frage „\[Frage]“ für eine Gruppenarbeit vorzubereiten.
+## 6. Group Prep – Gruppenarbeit vorbereiten
+
+
+
+Hilf uns, die Frage „[Frage]“ für eine Gruppenarbeit vorzubereiten.
 
 Bitte gib:
 
-\- Kernaussagen
+- Kernaussagen
 
-\- Diskussionspunkte
+- Diskussionspunkte
 
-\- offene Punkte
+- offene Punkte
 
-\- sinnvolle Arbeitsaufträge für die Gruppe
-
-
-
-\---
+- sinnvolle Arbeitsaufträge für die Gruppe
 
 
 
-\## 7. Discussion – Diskussion anregen
+---
+
+
+
+## 7. Discussion – Diskussion anregen
 
 
 
@@ -128,27 +126,27 @@ Erzeuge zu der Frage „\[Frage]“ Material für eine Gruppendiskussion.
 
 Bitte mit:
 
-\- kurzer Ausgangserklärung
+- kurzer Ausgangserklärung
 
-\- zwei Perspektiven
+- zwei Perspektiven
 
-\- zwei kritischen Rückfragen
+- zwei kritischen Rückfragen
 
-\- einem kontroversen Punkt
-
-
-
-\---
+- einem kontroversen Punkt
 
 
 
-\## 8. Peer Review – Textentwurf prüfen
+---
+
+
+
+## 8. Peer Review – Textentwurf prüfen
 
 
 
 Gib mir Peer-Feedback zu folgendem Text im Hinblick auf Klarheit, Materialbezug und Argumentationsstruktur:
 
-„\[Text oder Entwurf]“
+„[Text oder Entwurf]“
 
 
 
@@ -156,253 +154,253 @@ Beziehe dich dabei auf die Kursmaterialien.
 
 
 
-\---
+---
 
 
 
-\## 9. Group Summary – Ergebnisse bündeln
+## 9. Group Summary – Ergebnisse bündeln
 
 
 
-Formuliere einen kompakten Gruppenbeitrag zur Frage „\[Frage]“.
+Formuliere einen kompakten Gruppenbeitrag zur Frage „[Frage]“.
 
 Bitte mit:
 
-\- Kernaussage
+- Kernaussage
 
-\- zentralen Begriffen
+- zentralen Begriffen
 
-\- Relevanz
+- Relevanz
 
-\- offener Rückfrage
-
-
-
-\---
+- offener Rückfrage
 
 
 
-\## 10. Critical AI Literacy – Frage kritisch prüfen
+---
 
 
 
-Analysiere die Frage „\[Frage]“ im Critical-AI-Literacy-Modus:
-
-1\. Was ist im Material klar belegt?
-
-2\. Was wäre eher Interpretation, Verallgemeinerung oder KI-Inferenz?
-
-3\. Was bleibt unklar oder offen?
-
-4\. Was sollte die Gruppe selbst prüfen oder diskutieren?
-
-5\. Wie sollte der KI-Einsatz transparent gemacht werden?
+## 10. Critical AI Literacy – Frage kritisch prüfen
 
 
 
-\---
+Analysiere die Frage „[Frage]“ im Critical-AI-Literacy-Modus:
+
+1. Was ist im Material klar belegt?
+
+2. Was wäre eher Interpretation, Verallgemeinerung oder KI-Inferenz?
+
+3. Was bleibt unklar oder offen?
+
+4. Was sollte die Gruppe selbst prüfen oder diskutieren?
+
+5. Wie sollte der KI-Einsatz transparent gemacht werden?
 
 
 
-\## 11. Critical AI Literacy – vorige Antwort prüfen
+---
 
 
 
-Prüfe die vorige Antwort auf meine Frage „\[Frage]“ im Critical-AI-Literacy-Modus:
-
-1\. Was ist im Material klar belegt?
-
-2\. Was ist eher Interpretation oder KI-Inferenz?
-
-3\. Was bleibt unklar?
-
-4\. Was sollte überprüft werden?
-
-5\. Wie sollte der KI-Einsatz dokumentiert werden?
+## 11. Critical AI Literacy – vorige Antwort prüfen
 
 
 
-\---
+Prüfe die vorige Antwort auf meine Frage „[Frage]“ im Critical-AI-Literacy-Modus:
+
+1. Was ist im Material klar belegt?
+
+2. Was ist eher Interpretation oder KI-Inferenz?
+
+3. Was bleibt unklar?
+
+4. Was sollte überprüft werden?
+
+5. Wie sollte der KI-Einsatz dokumentiert werden?
 
 
 
-\## 12. Critical AI Literacy – KI-Ausgabe auf Probleme prüfen
+---
 
 
 
-Welche Probleme könnte eine KI-Ausgabe zu der Frage „\[Frage]“ aufweisen?
+## 12. Critical AI Literacy – KI-Ausgabe auf Probleme prüfen
+
+
+
+Welche Probleme könnte eine KI-Ausgabe zu der Frage „[Frage]“ aufweisen?
 
 Bitte unterscheide:
 
-\- klar belegte Aussagen
+- klar belegte Aussagen
 
-\- mögliche Verallgemeinerungen
+- mögliche Verallgemeinerungen
 
-\- Unsicherheiten
+- Unsicherheiten
 
-\- Prüfpunkte für die Gruppe
+- Prüfpunkte für die Gruppe
 
-\- Transparenz des KI-Einsatzes
-
-
-
-\---
+- Transparenz des KI-Einsatzes
 
 
 
-\## 13. Collaborative Work – Aufgabe strukturieren
+---
 
 
 
-Hilf uns, die Aufgabe „\[Aufgabe]“ als Gruppe zu strukturieren.
+## 13. Collaborative Work – Aufgabe strukturieren
+
+
+
+Hilf uns, die Aufgabe „[Aufgabe]“ als Gruppe zu strukturieren.
 
 Bitte mit:
 
-\- Ziel
+- Ziel
 
-\- Teilaufgaben
+- Teilaufgaben
 
-\- Rollen
+- Rollen
 
-\- Abhängigkeiten
+- Abhängigkeiten
 
-\- Zusammenführung
+- Zusammenführung
 
-\- Prüfpunkten
-
-
-
-\---
+- Prüfpunkten
 
 
 
-\## 14. Collaborative Work – Schreibprojekt planen
+---
 
 
 
-Wir wollen gemeinsam an folgendem Text oder Thema arbeiten: „\[Thema/Text]“.
+## 14. Collaborative Work – Schreibprojekt planen
+
+
+
+Wir wollen gemeinsam an folgendem Text oder Thema arbeiten: „[Thema/Text]“.
 
 Hilf uns, den Arbeitsprozess zu planen:
 
-\- Ziel
+- Ziel
 
-\- Teilaufgaben
+- Teilaufgaben
 
-\- Rollen
+- Rollen
 
-\- Abstimmungsschritte
+- Abstimmungsschritte
 
-\- Zusammenführung
+- Zusammenführung
 
-\- Endprüfung
-
-
-
-\---
+- Endprüfung
 
 
 
-\## 15. Collaborative Work – Referat oder Präsentation planen
+---
 
 
 
-Wir bereiten als Gruppe ein Referat zu „\[Thema]“ vor.
+## 15. Collaborative Work – Referat oder Präsentation planen
+
+
+
+Wir bereiten als Gruppe ein Referat zu „[Thema]“ vor.
 
 Hilf uns bei:
 
-\- Struktur der Inhalte
+- Struktur der Inhalte
 
-\- Verteilung der Rollen
+- Verteilung der Rollen
 
-\- Teilaufgaben
+- Teilaufgaben
 
-\- gemeinsamen Übergängen
+- gemeinsamen Übergängen
 
-\- Zusammenführung der Ergebnisse
+- Zusammenführung der Ergebnisse
 
-\- abschließender Qualitätsprüfung
-
-
-
-\---
+- abschließender Qualitätsprüfung
 
 
 
-\## 16. Collaborative Work – Projektarbeit allgemein
+---
 
 
 
-Hilf uns, die gemeinsame Projektarbeit zu „\[Thema]“ zu organisieren.
+## 16. Collaborative Work – Projektarbeit allgemein
+
+
+
+Hilf uns, die gemeinsame Projektarbeit zu „[Thema]“ zu organisieren.
 
 Bitte mit:
 
-\- Zielklärung
+- Zielklärung
 
-\- Aufgabenverteilung
+- Aufgabenverteilung
 
-\- Rollen
+- Rollen
 
-\- zeitlicher Abfolge
+- zeitlicher Abfolge
 
-\- Zwischenschritten
+- Zwischenschritten
 
-\- Zusammenführung
+- Zusammenführung
 
-\- Reflexionsfragen
-
-
-
-\---
+- Reflexionsfragen
 
 
 
-\## 17. Collaborative Work – Programmierung als Spezialfall
+---
 
 
 
-Wir wollen gemeinsam eine kleine Anwendung oder ein kleines Skript zu „\[Aufgabe]“ entwickeln.
+## 17. Collaborative Work – Programmierung als Spezialfall
+
+
+
+Wir wollen gemeinsam eine kleine Anwendung oder ein kleines Skript zu „[Aufgabe]“ entwickeln.
 
 Hilf uns bei:
 
-\- Zielklärung
+- Zielklärung
 
-\- Teilaufgaben
+- Teilaufgaben
 
-\- Rollen
+- Rollen
 
-\- Schnittstellen
+- Schnittstellen
 
-\- Abhängigkeiten
+- Abhängigkeiten
 
-\- Zusammenführung
+- Zusammenführung
 
-\- Test- und Reviewpunkten
-
-
-
-\---
+- Test- und Reviewpunkten
 
 
 
-\## 18. Quellenfokus – nur belegte Aussagen
+---
 
 
 
-Beantworte die Frage „\[Frage]“ nur mit Aussagen, die im Material klar belegt sind.
+## 18. Quellenfokus – nur belegte Aussagen
+
+
+
+Beantworte die Frage „[Frage]“ nur mit Aussagen, die im Material klar belegt sind.
 
 Wenn etwas nicht klar belegt ist, sage das ausdrücklich.
 
 
 
-\---
+---
 
 
 
-\## 19. Präzisionsmodus – nur Stichpunkte
+## 19. Präzisionsmodus – nur Stichpunkte
 
 
 
-Beantworte die Frage „\[Frage]“ nur in 5 kurzen Stichpunkten.
+Beantworte die Frage „[Frage]“ nur in 5 kurzen Stichpunkten.
 
 Bitte direkt mit Dokumentnamen und wenn möglich mit Seitenangabe.
 
@@ -410,25 +408,25 @@ Keine separate Literaturliste.
 
 
 
-\---
+---
 
 
 
-\## 20. Vergleichsmodus – zwei Perspektiven
+## 20. Vergleichsmodus – zwei Perspektiven
 
 
 
-Vergleiche die Perspektiven oder Ansätze zu „\[Thema]“.
+Vergleiche die Perspektiven oder Ansätze zu „[Thema]“.
 
 Bitte nur auf Basis der Materialien und mit klarer Gegenüberstellung.
 
 
 
-\---
+---
 
 
 
-\## Hinweis zur Nutzung
+## Hinweis zur Nutzung
 
 Für den Critical-AI-Literacy-Modus ist es oft besser, die ursprüngliche Frage ausdrücklich noch einmal zu nennen, statt nur „prüfe das kritisch“ zu schreiben.
 
@@ -436,5 +434,5 @@ Für den Critical-AI-Literacy-Modus ist es oft besser, die ursprüngliche Frage 
 
 Gute Formel:
 
-Prüfe die vorige Antwort auf meine Frage „\[Frage]“ im Critical-AI-Literacy-Modus.
+Prüfe die vorige Antwort auf meine Frage „[Frage]“ im Critical-AI-Literacy-Modus.
 
