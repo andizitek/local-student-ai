@@ -236,15 +236,15 @@ Wenn ich das Srachmodell ändern will, überprüfe ich zuerst, ob dieses schon i
 Das mache ich mit dem Befehl  
 -> ollama list
 Falls nötig Ollama zuerst starten:  
--> ollama serve
-Wenn das Modell nicht installiert ist, dann kannich ein Modell, das ich verwenden möchte von Ollama herunterladen.
-Das mache ich mit dem Befehl:
+-> ollama serve  
+Wenn das Modell nicht installiert ist, dann kannich ein Modell, das ich verwenden möchte von Ollama herunterladen.  
+Das mache ich mit dem Befehl:  
 -> ollama pull gemma3:12b
 Schlussendlich, muss ich dieses in der config.yaml als chat_model eintragen. Fertig.
 ### Wie ändere ich die Parameter des Chunking und die Temperatur?
 Diese Parameter sind in der config.yaml abgelegt, und können dort angepasst werden. Die chunk_size ist standarddmäßig auf 2000, chunk_overlap standardmäßig auf 100 und top_k (als Anzahl der herangezogenen Chunks für eine Antwort) standardmäßig auf 4 gesetzt. 
 Ebenfalls in der config.yaml ist die Temperatur des Modells angegeben. 
-## Wichtige Einstellungen in `config.yaml`
+### Darstellung der Einstellungen in `config.yaml`
 ```yaml
 Die kursbezogene Konfiguration liegt in:
 courses/demo_kurs/config.yaml
