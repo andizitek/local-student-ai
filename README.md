@@ -728,9 +728,7 @@ Weitere Bereiche der Seitenleiste werden aus `progress.json` erzeugt. Dazu gehö
 ````
 *   In `topic_map.json` werden Themennamen mit typischen Schlüsselwörtern verknüpft. Wenn in Fragen oder Antworten passende Begriffe vorkommen, kann die App diese Themen als bereits bearbeitet speichern.
 
-*   Wenn in `topic_map.json` nur Platzhalter oder Beispielthemen stehen, können keine sinnvollen Themen erkannt werden. In diesem Fall bleibt `seen_topics` leer und in der Seitenleiste erscheint:
-
-***Noch keine Themen gespeichert.***  
+*   Wenn in `topic_map.json` nur Platzhalter oder Beispielthemen stehen, können keine sinnvollen Themen erkannt werden. In diesem Fall bleibt `seen_topics` leer und in der Seitenleiste erscheint: ***Noch keine Themen gespeichert.***  
 
 * **Schwierige Themen**  
   Werden aus `difficult_topics` geladen. Wenn dabei zwar Unsicherheit erkannt wurde, aber kein genaues Thema zugeordnet werden konnte, kann ein allgemeiner Platzhalter erscheinen.
