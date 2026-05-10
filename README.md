@@ -3,7 +3,6 @@ Ein lokaler KI-Chatbot für kollaboratives Lernen, kritische Reflexion und Kompe
 
 **Praktische Einrichtung.**
 Zuerst alle Ordner herunterladen (oben auf Code gehen, Download ZIP auswählen und alle Dateien herunterladen. Danach lokal unter Benutzer entzippen). Nach Installation von Python (https://www.python.org/downloads), Ollama (mit Kommando in Eingebafenster, s.u.) und den Projektabhängigkeiten werden lokale Modelle geladen. Anschließend werden Original-PDFs in einem Quellordner abgelegt, in Markdown überführt und über eine Metadaten-Datei beschrieben. Zusätzliche fachliche und reflexive Materialien können in eigenen Ordnern ergänzt werden. Danach werden die Materialien gechunkt, eingebettet und in einer Vektordatenbank indexiert. Erst auf dieser Grundlage werden Backend und Benutzeroberfläche gestartet und für unterschiedliche Modi nutzbar gemacht.  
-
 **Strukturelle Gliederung.**
 Die Materialien der App sind in mehrere Bereiche gegliedert: Originalquellen liegen in einem PDF-Ordner vor, fachliche Kursmaterialien werden in einem Materialordner als Markdown aufbereitet, und zusätzliche Reflexions- und Orientierungstexte können in einem eigenen Critical-Ordner hinterlegt werden. Ergänzt wird dies durch Konfigurations-, Prompt- und Metadatendateien. Die App arbeitet mit verschiedenen Modi, die von Erklärung, Zusammenfassung und Quiz über Gruppenarbeit und Peer-Review bis hin zu kritischer KI-Reflexion und der Strukturierung kollaborativer Arbeitsprozesse reichen.
 ## Voraussetzungen RAM und VRAM
@@ -159,7 +158,7 @@ set PYTHONPATH=.
 
 .venv\Scripts\python.exe scripts\build_index.py --course demo_kurs  
 
-Das Chunking, das beim Index bauen geschieht, ist für die Qualität des Retrievals ist das zentral. Die in Einheiten zerlegten längerne Texte werde dabei eingebettet und in der Vektordatenbank gespeichert. Relevante Parameter sind insbesondere chunk_size, chunk_overlap und top_k.  Diese Parameter sind in der config.yaml auf Ebene des Kurses definiert (chunk_size: standarddmäßig auf 2000, chunk_overlap: standardmäßig auf 100 und top_k (als Anzahl der herangezogenen Chunks für eine Antwort): standardmäßig auf 4). Diese können je nach Material und "Auflösungstiefe" der Materialien angepasst werden. Zu große Chunks können die Suche unpräzise machen, zu kleine Chunks wichtige Zusammenhänge zerstören. Praktisch verbessert eine vorgängige Bereinigung der Materialien, etwa durch PDF-zu-Markdown-Konvertierung und das Anpassen der Markdown-Dateien hinsichtlich störender Fragmente, die Qualität der Ergebnisse deutlich.
+Das Chunking, das beim Index bauen geschieht, ist für die Qualität des Retrievals ist das zentral. Die in Einheiten zerlegten längerne Texte werde dabei eingebettet und in der Vektordatenbank gespeichert. Relevante Parameter sind insbesondere chunk_size, chunk_overlap und top_k. Diese Parameter sind in der config.yaml auf Ebene des Kurses definiert (chunk_size: standarddmäßig auf 2000, chunk_overlap: standardmäßig auf 100 und top_k (als Anzahl der herangezogenen Chunks für eine Antwort): standardmäßig auf 4). Diese können je nach Material und "Auflösungstiefe" der Materialien angepasst werden. Zu große Chunks können die Suche unpräzise machen, zu kleine Chunks wichtige Zusammenhänge zerstören. Praktisch verbessert eine vorgängige Bereinigung der Materialien, etwa durch PDF-zu-Markdown-Konvertierung und das Anpassen der Markdown-Dateien hinsichtlich störender Fragmente, die Qualität der Ergebnisse deutlich.
 
 Ebenfalls in der config.yaml ist die Temperatur des Modells angegeben. Die Temperatur steuert, wie eng ein Sprachmodell am bereitgestellten Material und an naheliegenden Formulierungen bleibt: Niedrige Werte führen in der Regel zu stärker materialgebundenen, stabileren Antworten, während höhere Werte eher zu freieren und weniger eng am Kontext orientierten Ausgaben führen. Standardmäßig ist die Temperatur auf 0.2 eingestellt, was bedeutet, dass die Ausgaben in der Regel stärker am bereitgestellten Material orientiert sind und konsistente Antworten mit nüchternen Formulierungen ausgegeben werden und somit weniger kreative Ausschmückung und Halluzinationen beinhalten. Es werden auch bei mehreren Abfragen weniger zufällige Varianten erzeugt. Dies ist bevorzugt wenn auf Quellenbezug und den Inhalt der bereitgestellten Materialien wert gelegt wird.
 
@@ -230,3 +229,121 @@ chat_model: qwen2.5:7b
 embedding_model: mxbai-embed-large
 ## Zeit messen und Qualität bewerten
 Tabellarische Vergleichsdokumentation erstellen.
+
+## Mögliche Übungen
+### Wie ändere ich das Modell?
+Wenn ich das Srachmodell ändern will, überprüfe ich zuerst, ob dieses schon installiert ist. 
+Das mache ich mit dem Befehl  
+-> ollama list
+Falls nötig Ollama zuerst starten:  
+-> ollama serve
+Wenn das Modell nicht installiert ist, dann kannich ein Modell, das ich verwenden möchte von Ollama herunterladen.
+Das mache ich mit dem Befehl:
+-> ollama pull gemma3:12b
+Schlussendlich, muss ich dieses in der config.yaml als chat_model eintragen. Fertig.
+### Wie ändere ich die Parameter des Chunking und die Temperatur?
+Diese Parameter sind in der config.yaml abgelegt, und können dort angepasst werden. Die chunk_size ist standarddmäßig auf 2000, chunk_overlap standardmäßig auf 100 und top_k (als Anzahl der herangezogenen Chunks für eine Antwort) standardmäßig auf 4 gesetzt. 
+Ebenfalls in der config.yaml ist die Temperatur des Modells angegeben. 
+<img width="377" height="471" alt="image" src="https://github.com/user-attachments/assets/b1a4f40a-40de-4a29-ac09-a3d755beffdc" />
+### Wie füge ich einen Interaktionsmodus hinzu bzw. adaptiere einen bestehenden?
+#### Interaktionsmodi hinzufügen oder anpassen
+Neue Interaktionsmodi lassen sich mit wenigen Änderungen ergänzen. In der Regel sind dafür drei Dateien relevant:
+#### 1. Modus im Dropdown hinzufügen
+Neue Modi werden in der Datei -> app/ui/streamlit_app.py hinzugefügt
+In dieser Datei wird die Liste der verfügbaren Modi in der `selectbox` gepflegt.
+Ein neuer Modus wird dort einfach als zusätzlicher Eintrag ergänzt.
+Beispiel:
+```python
+mode = st.selectbox(
+    "Modus",
+    [
+        "explain",
+        "summarize",
+        "quiz",
+        "flashcards",
+        "study_guide",
+        "group_prep",
+        "discussion",
+        "peer_review",
+        "group_summary",
+        "critical_ai_literacy",
+        "collaborative_work",
+        "neuer_modus",
+    ],
+    index=0,
+)
+
+### 2. Prompt-Logik des Modus definieren
+In der Datei -> app/core/prompts.py wird festgelegt, wie der neue Modus antworten soll.
+Dazu wird im `mode_instruction`-Block ein neuer Eintrag ergänzt.
+Beispiel:
+```python
+"neuer_modus": "Beschreibe kurz, was dieser Modus tun soll und in welcher Struktur die Antwort ausgegeben werden soll.",
+```
+Wenn ein Modus mehr als nur eine zusätzliche Instruktion benötigt, kann in derselben Datei auch eine eigene Prompt-Logik ergänzt werden.
+
+#### 3. Retrieval oder Sonderlogik anpassen
+In der Datei -> app/api/chat.py wird gesteuert, welcher Kontext für einen Modus geholt wird.
+Falls ein neuer Modus nur mit normalen Kursmaterialien arbeiten soll, sind häufig keine weiteren Änderungen nötig.
+Wenn er zusätzlich Materialien aus `critical/` oder eine eigene Behandlung braucht, wird das in `chat.py` ergänzt.
+
+Typische Anpassungen betreffen:
+* `allowed_content_types`
+* getrennte Retrieval-Logik für `material` und `critical`
+* modusspezifische Behandlung bei der Prompt-Erzeugung
+
+## Zusätzliche Materialien für neue Modi
+
+Wenn ein Modus mit eigenen Reflexions- oder Orientierungstexten arbeiten soll, können passende Markdown-Dateien in folgenden Ordnern ergänzt werden:
+
+```text
+courses/demo_course/materials/
+courses/demo_course/critical/
+```
+
+* `materials/` für fachliche Inhalte
+* `critical/` für Reflexions-, Transparenz- oder Orientierungstexte
+
+Nach dem Hinzufügen neuer Inhalte muss der Index neu gebaut werden.
+
+---
+
+## Danach nicht vergessen
+
+### Index neu bauen
+
+Nur notwendig, wenn neue Materialien oder neue Markdown-Dateien hinzugefügt wurden:
+
+```bat
+set PYTHONPATH=.
+.venv\Scripts\python.exe scripts\build_index.py --course demo_course
+```
+
+### Backend neu starten
+
+```bat
+.venv\Scripts\python.exe -m uvicorn app.main:app --reload
+```
+
+### Streamlit neu starten
+
+```bat
+.venv\Scripts\python.exe -m streamlit run app\ui\streamlit_app.py
+```
+
+---
+
+## Kurzüberblick
+
+Ein neuer Interaktionsmodus benötigt in der Regel:
+
+* einen Eintrag in `app/ui/streamlit_app.py`
+* eine Prompt-Definition in `app/core/prompts.py`
+* gegebenenfalls Retrieval-Anpassungen in `app/api/chat.py`
+* optional neue Materialien in `materials/` oder `critical/`
+
+Damit lassen sich bestehende Modi relativ einfach anpassen oder neue Modi für spezifische didaktische Zwecke ergänzen.
+
+```
+```
+
