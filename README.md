@@ -511,8 +511,7 @@ Wenn ein vorhandener Text überprüft werden soll, sollte `peer_review` genutzt 
 Die Interaktionsmodi der App lassen sich relativ einfach ändern oder erweitern. In der Regel sind dafür drei Dateien wichtig:
 
 ### 1. Bearbeiten des Modus
-Datei:
-Öffnen mit einem Editor
+Öffnen der Datei mit einem Editor
 ```text
 app/ui/streamlit_app.py
 ````
@@ -544,9 +543,7 @@ mode = st.selectbox(
 ```
 
 ### 2. Festlegen, wie der Modus antworten soll
-
-Datei:
-
+Öffnen der Datei mit einem Editor
 ```text
 app/core/prompts.py
 ```
