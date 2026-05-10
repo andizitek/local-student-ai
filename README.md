@@ -244,17 +244,6 @@ Schlussendlich, muss ich dieses in der config.yaml als chat_model eintragen. Fer
 ### Wie ändere ich die Parameter des Chunking und die Temperatur?
 Diese Parameter sind in der config.yaml abgelegt, und können dort angepasst werden. Die chunk_size ist standarddmäßig auf 2000, chunk_overlap standardmäßig auf 100 und top_k (als Anzahl der herangezogenen Chunks für eine Antwort) standardmäßig auf 4 gesetzt. 
 Ebenfalls in der config.yaml ist die Temperatur des Modells angegeben. 
-<img width="377" height="471" alt="image" src="https://github.com/user-attachments/assets/b1a4f40a-40de-4a29-ac09-a3d755beffdc" />
-Ja — dafür ist ein **kurzer GitHub-/README-Eintrag** sinnvoll.
-
-Nicht riesig, sondern einfach eine kleine Erklärung zu `config.yaml`, damit andere verstehen:
-
-* **wo** man etwas ändert
-* **was** die wichtigsten Parameter bedeuten
-* **wann** man danach neu starten oder neu indexieren muss
-
-## Gute README-Sektion
-
 ````md
 ## Wichtige Einstellungen in `config.yaml`
 
@@ -266,7 +255,7 @@ courses/demo_kurs/config.yaml
 
 Dort können zentrale Parameter der App angepasst werden.
 
-### Modellwahl
+#### Modellwahl
 
 ```yaml
 llm:
@@ -279,7 +268,7 @@ llm:
 
 Wenn Antworten zu langsam sind, kann ein kleineres Chatmodell gewählt werden. Die Auswahl lokaler Modelle richtet sich nach den in Ollama installierten Modellen.
 
-### Retrieval
+#### Retrieval
 
 ```yaml
 retrieval:
@@ -294,7 +283,7 @@ retrieval:
 
 Diese Werte beeinflussen, wie gut relevante Textstellen gefunden und als Kontext genutzt werden.
 
-### Antwortverhalten
+#### Antwortverhalten
 
 ```yaml
 response:
@@ -307,65 +296,16 @@ response:
 * `cite_sources` steuert, ob Quellenhinweise ausgegeben werden.
 * `refusal_on_missing_context` steuert, ob das System eine Antwort verweigert, wenn kein ausreichender Materialkontext gefunden wird.
 
-## Was muss nach einer Änderung neu gestartet werden?
+#### Was muss nach einer Änderung neu gestartet werden?
 
-### Nur `chat_model` oder `temperature` geändert
+##### Nur `chat_model` oder `temperature` geändert
 
 Dann reicht in der Regel ein Neustart von Backend und Streamlit.
 
-### `chunk_size`, `chunk_overlap` oder Materialien geändert
+##### `chunk_size`, `chunk_overlap` oder Materialien geändert
 
 Dann muss der Index neu gebaut werden, da sich die Segmentierung oder der Materialbestand geändert hat.
 
 ````
-
-## Noch kürzer für GitHub
-Wenn du es ganz kompakt willst:
-
-```md
-### `config.yaml`
-
-In `courses/demo_kurs/config.yaml` können Modellwahl, Retrieval-Parameter und Antwortverhalten angepasst werden. Besonders relevant sind `chat_model`, `temperature`, `top_k`, `chunk_size` und `chunk_overlap`. Änderungen an Modell oder Temperatur erfordern in der Regel nur einen Neustart; Änderungen am Chunking oder an den Materialien erfordern einen Neuaufbau des Index.
-````
-
-## Antwort auf deine eigentliche Frage
-
-**Ja, ich würde dafür einen GitHub-Eintrag machen**, am besten im `README.md`.
-
-Nicht als lange Theorie, sondern als kurze praktische Doku.
-
-Wenn du willst, schreibe ich dir gleich noch den **Anschlussabschnitt mit den konkreten Befehlen: neu starten / neu indexieren**.
-
-### Wie füge ich einen Interaktionsmodus hinzu bzw. adaptiere einen bestehenden?
-#### Interaktionsmodi hinzufügen oder anpassen
-Neue Interaktionsmodi lassen sich mit wenigen Änderungen ergänzen.
-Ein neuer Interaktionsmodus benötigt in der Regel:
-* einen Eintrag in `app/ui/streamlit_app.py`
-* eine Prompt-Definition in `app/core/prompts.py`
-* gegebenenfalls Retrieval-Anpassungen in `app/api/chat.py`
-* optional neue Materialien in `materials/` oder `critical/` 
-#### 1. Modus im Dropdown hinzufügen
-Neue Modi werden in der Datei -> app/ui/streamlit_app.py hinzugefügt
-In dieser Datei wird die Liste der verfügbaren Modi in der `selectbox` gepflegt.
-Ein neuer Modus wird dort einfach als zusätzlicher Eintrag ergänzt.
-Beispiel:
-```python
-mode = st.selectbox(
-    "Modus",
-    [
-        "explain",
-        "summarize",
-        "quiz",
-        "flashcards",
-        "study_guide",
-        "group_prep",
-        "discussion",
-        "peer_review",
-        "group_summary",
-        "critical_ai_literacy",
-        "collaborative_work",
-        "neuer_modus",
-    ],
-    index=0,
 )
 
