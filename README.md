@@ -692,18 +692,19 @@ Die App zeigt in der Seitenleiste lokal gespeicherte Profil- und Verlaufsdaten a
 ### Lernprofil (`profile.json`)
 Das Lernprofil wird aus `profile.json` geladen. Dort stehen grundlegende Präferenzen des Nutzers/der Nutzerin und müssen selbst eingetragen werden, zum Beispiel:
 
-* `user_id`
-* `language`
-* `preferred_style`
-* `level`
-* `preferred_term_mode`
-* `learning_goals`
+* "user_id": "default_user",  
+* "language": "de",  
+* "preferred_style": "klar, strukturiert, fachlich",  
+* "level": "unbekannt",  
+* "preferred_term_mode": "de_with_en_in_brackets",
+* "learning_goals": ["Verstehen"]
 
 Daraus entstehen in der Seitenleiste zum Beispiel die Einträge:
 
 * **Sprache: de**
 * **Stil: klar, strukturiert, fachlich**
 * **Niveau: unbekannt**
+* **Lernziele: Verstehen**
 
 Wenn `learning_goals` leer ist, erscheint unter **Lernziele** ein Hinweis wie „Noch keine Lernziele eingetragen“.
 
@@ -720,7 +721,16 @@ Weitere Bereiche der Seitenleiste werden aus `progress.json` erzeugt. Dazu gehö
 ### Bedeutung der einzelnen Anzeigen
 
 * **Bearbeitete Themen**
-  Werden aus `seen_topics` geladen. Wenn die Liste leer ist, erscheint „Noch keine Themen gespeichert“.
+Der Bereich **Bearbeitete Themen** wird aus dem Feld `seen_topics` in `student_data/default_user/progress.json` erzeugt.  
+Diese Themen werden nicht manuell formuliert, sondern heuristisch erkannt. Grundlage dafür ist die Datei:
+```
+courses/demo_course/topic_map.json
+````
+In `topic_map.json` werden Themennamen mit typischen Schlüsselwörtern verknüpft. Wenn in Fragen oder Antworten passende Begriffe vorkommen, kann die App diese Themen als bereits bearbeitet speichern.
+
+Wenn in `topic_map.json` nur Platzhalter oder Beispielthemen stehen, können keine sinnvollen Themen erkannt werden. In diesem Fall bleibt `seen_topics` leer und in der Seitenleiste erscheint:
+
+***Noch keine Themen gespeichert.***
 
 * **Schwierige Themen**
   Werden aus `difficult_topics` geladen. Wenn dabei zwar Unsicherheit erkannt wurde, aber kein genaues Thema zugeordnet werden konnte, kann ein allgemeiner Platzhalter erscheinen.
