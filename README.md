@@ -298,9 +298,7 @@ Dann reicht in der Regel ein Neustart von Backend und Streamlit.
 
 Dann muss der Index neu gebaut werden, da sich die Segmentierung oder der Materialbestand geändert hat.
 
-## Vorhandene Modi
-Gern — hier ist eine **verständliche Anleitung für die Modi**, die du direkt ins README oder nach GitHub kopieren kannst.
-
+## Beschreibung der vorhandenen Modi
 ```md
 ## Interaktionsmodi der App
 
@@ -340,12 +338,13 @@ Dieser Modus erzeugt Verständnisfragen zu einem Thema oder Text.
 Er eignet sich, um Wissen zu überprüfen oder Gruppenarbeit aktivierender zu gestalten.
 
 **Geeignet für:**
-- Lernkontrolle
-- Wiederholung
-- Aktivierung in Lehrveranstaltungen
+- gemeinsame Lernkontrolle
+- gemeinsame Wiederholung
+- Aktivierung des Wissens
+- gemeinsame Suche nach den richtigen Antworten
 
 **Beispiel:**
-> Erstelle 3 Quizfragen zum Thema Schauspieltechniken.
+> Erstelle 3 Quizfragen zum Thema xy.
 
 ---
 
@@ -432,7 +431,7 @@ Er eignet sich, wenn mehrere Beiträge oder Diskussionspunkte zu einem gemeinsam
 - kompakte Ergebnisdarstellung
 
 **Beispiel:**
-> Formuliere eine kompakte Gruppenzusammenfassung zum Thema Körperarbeit und Schauspiel.
+> Formuliere eine kompakte Gruppenzusammenfassung zum Thema xy.
 
 ---
 
@@ -507,8 +506,126 @@ Wenn eine Antwort kritisch hinterfragt werden soll, ist `critical_ai_literacy` d
 Wenn ein vorhandener Text überprüft werden soll, sollte `peer_review` genutzt und zusätzlich ein Textentwurf eingefügt werden.
 ```
 
-Wenn du willst, mache ich dir daraus noch eine **kürzere Version für Laien** oder eine **Tabelle mit Modus + Zweck + Beispiel**.
+## Modi anpassen oder neue Modi hinzufügen
 
+Die Interaktionsmodi der App lassen sich relativ einfach ändern oder erweitern. In der Regel sind dafür drei Dateien wichtig:
 
-Anpassung und Hinzufügen von Modi
+### 1. Modus in der Oberfläche sichtbar machen
+```Datei mit Editor zum Bearbeiten öffnen
+app/ui/streamlit_app.py
+````
+Dort wird die Liste der auswählbaren Modi in der `selectbox` gepflegt.
+Ein bestehender Modus kann dort umbenannt oder ein neuer Modus ergänzt werden.
+
+Beispiel:
+
+```python
+mode = st.selectbox(
+    "Modus",
+    [
+        "explain",
+        "summarize",
+        "quiz",
+        "flashcards",
+        "study_guide",
+        "group_prep",
+        "discussion",
+        "peer_review",
+        "group_summary",
+        "critical_ai_literacy",
+        "collaborative_work",
+        "neuer_modus",
+    ],
+    index=0,
+)
+```
+
+### 2. Festlegen, wie der Modus antworten soll
+```Datei mit Editor zum Bearbeiten öffnen
+app/core/prompts.py
+```
+
+Hier wird definiert, welche Aufgabe ein Modus erfüllen soll.
+Dazu wird im `mode_instruction`-Block ein neuer Eintrag ergänzt oder ein bestehender angepasst.
+
+Beispiel:
+
+```python
+"neuer_modus": "Beschreibe kurz, was dieser Modus tun soll und in welcher Struktur geantwortet werden soll.",
+```
+
+Wenn ein Modus eine speziellere Prompt-Logik braucht, kann in derselben Datei auch eine eigene Behandlung ergänzt werden.
+
+### 3. Falls nötig: Retrieval oder Sonderlogik anpassen
+```Datei mit Editor zum Bearbeiten öffnen
+app/api/chat.py
+```
+
+Hier wird gesteuert, welcher Kontext für einen Modus geholt wird.
+Einige Modi arbeiten nur mit normalen Materialien, andere zusätzlich mit Reflexionstexten aus `critical/`.
+
+Wenn ein neuer Modus:
+
+* nur auf `materials/` zugreifen soll, ist oft keine größere Änderung nötig
+* auch `critical/` nutzen soll, muss das in `chat.py` ergänzt werden
+
+Beispiel:
+
+* `critical_ai_literacy` → Fachkontext + Reflexionskontext
+* `collaborative_work` → Material + Critical gemeinsam
+
+---
+
+## Zusätzliche Materialien für einen Modus
+
+Wenn ein Modus eigene Inhalte oder Reflexionstexte nutzen soll, können passende Markdown-Dateien ergänzt werden in:
+
+```
+courses/demo_course/materials/
+courses/demo_course/critical/
+```
+
+* `materials/` für fachliche Inhalte
+* `critical/` für Reflexions-, Transparenz- oder Orientierungstexte
+
+Nach dem Hinzufügen neuer Dateien muss der Index neu gebaut werden.
+
+---
+
+## Danach nicht vergessen
+
+### Wenn neue Materialien hinzugefügt wurden
+
+```bat
+set PYTHONPATH=.
+.venv\Scripts\python.exe scripts\build_index.py --course demo_course
+```
+
+### Backend neu starten
+
+```bat
+.venv\Scripts\python.exe -m uvicorn app.main:app --reload
+```
+
+### Streamlit neu starten
+
+```bat
+.venv\Scripts\python.exe -m streamlit run app\ui\streamlit_app.py
+```
+
+---
+
+## Zusammenfassung
+
+Ein neuer oder angepasster Modus braucht in der Regel:
+
+* einen Eintrag in `app/ui/streamlit_app.py`
+* eine Prompt-Definition in `app/core/prompts.py`
+* gegebenenfalls eine Anpassung in `app/api/chat.py`
+* optional neue Markdown-Dateien in `materials/` oder `critical/`
+
+So lassen sich bestehende Modi einfach anpassen oder neue Modi für eigene didaktische Zwecke ergänzen.
+
+```
+```
 
