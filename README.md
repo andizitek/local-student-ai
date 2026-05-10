@@ -247,7 +247,6 @@ Ebenfalls in der config.yaml ist die Temperatur des Modells angegeben.
 ## Wichtige Einstellungen in `config.yaml`
 ````
 Die kursbezogene Konfiguration liegt in:
-```
 courses/demo_kurs/config.yaml
 ````
 Dort können zentrale Parameter der App angepasst werden.
@@ -265,18 +264,15 @@ llm:
 Wenn Antworten zu langsam sind, kann ein kleineres Chatmodell gewählt werden. Die Auswahl lokaler Modelle richtet sich nach den in Ollama installierten Modellen.
 
 #### Retrieval
-
 ```yaml
 retrieval:
   top_k: 4
   chunk_size: 2000
   chunk_overlap: 100
 ```
-
 * `top_k`: Anzahl der Chunks, die für eine Antwort herangezogen werden
 * `chunk_size`: Größe der Textsegmente beim Chunking
 * `chunk_overlap`: Überlappung zwischen zwei Chunks
-
 Diese Werte beeinflussen, wie gut relevante Textstellen gefunden und als Kontext genutzt werden.
 
 #### Antwortverhalten
