@@ -512,8 +512,8 @@ Die Interaktionsmodi der App lassen sich relativ einfach ändern oder erweitern.
 
 ### 1. Bearbeiten des Modus
 Datei:
-
-```Öffnen mit einem Editor
+Öffnen mit einem Editor
+```text
 app/ui/streamlit_app.py
 ````
 
