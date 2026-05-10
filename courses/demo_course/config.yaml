@@ -1,5 +1,5 @@
-course_id: demo_kurs
-course_name: "Demo-Kurs"
+course_id: demo_course
+course_name: "Demo-Course"
 language: de
 
 llm:
