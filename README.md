@@ -119,7 +119,8 @@ ollama pull qwen2.5:7b
 ollama pull qwen2.5:3b-instruct 
 ollama pull gemma3:4b
 ollama pull gemma3:12b  
-Für das embedding:  
+
+Für das embedding z.B.:  
 ollama pull mxbai-embed-large  
 
 Wenn ich ein anderes Modell verwenden will, dann muss ich dieses in der config.yaml als chat_model eintragen. 
