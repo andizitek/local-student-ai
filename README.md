@@ -559,6 +559,8 @@ Beispiel:
 
 Wenn ein Modus eine speziellere Prompt-Logik braucht, kann in derselben Datei auch eine eigene Behandlung ergänzt werden.
 
+**Nicht alle Modi werden in `prompts.py` im `mode_instruction`-Block definiert. `critical_ai_literacy` wird in `build_user_prompt()` separat behandelt, weil dieser Modus Fach- und Reflexionskontext getrennt verarbeitet. `peer_review` verwendet mit `build_peer_review_prompt()` eine eigene Funktion, da hier zusätzlich ein zu prüfender Text einbezogen wird. Die übrigen Modi werden über den `mode_instruction`-Block gesteuert.**
+
 ### 3. Falls nötig: Retrieval oder Sonderlogik anpassen
 
 Öffnen der Datei mit einem Editor:
