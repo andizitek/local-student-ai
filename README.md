@@ -720,7 +720,7 @@ Weitere Bereiche der Seitenleiste werden aus `progress.json` erzeugt. Dazu gehö
 
 ### Bedeutung der einzelnen Anzeigen
 
-* **Bearbeitete Themen**
+* #### Bearbeitete Themen
 *   Der Bereich **Bearbeitete Themen** wird aus dem Feld `seen_topics` in `student_data/default_user/progress.json` erzeugt.  
 *   Diese Themen werden nicht manuell formuliert, sondern heuristisch erkannt. Grundlage dafür ist die Datei:
 ```
@@ -730,7 +730,7 @@ Weitere Bereiche der Seitenleiste werden aus `progress.json` erzeugt. Dazu gehö
 
 *   Wenn in `topic_map.json` nur Platzhalter oder Beispielthemen stehen, können keine sinnvollen Themen erkannt werden. In diesem Fall bleibt `seen_topics` leer und in der Seitenleiste erscheint: ***Noch keine Themen gespeichert.***  
 
-* **Schwierige Themen**  
+* #### Schwierige Themen**  
   Werden aus `difficult_topics` in `student_data/default_user/progress.json` geladen. Die Erkennung und Aktualisierung erfolgt in `app/core/student_memory.py`. Wenn dabei zwar Unsicherheit erkannt wurde, aber kein genaues Thema zugeordnet werden konnte, kann ein allgemeiner Platzhalter erscheinen.
 
   Schwierige Themen werden dort über einfache Unsicherheitsmarker erkannt, zum Beispiel:
@@ -747,12 +747,12 @@ Weitere Bereiche der Seitenleiste werden aus `progress.json` erzeugt. Dazu gehö
 
   Wenn dabei bereits Themen erkannt wurden, werden diese als schwierige Themen gespeichert. Wenn kein konkretes Thema zugeordnet werden kann, wird aktuell ein allgemeiner Platzhalter eingetragen.
 
-* **Offene Fragen**  
+* #### Offene Fragen**  
   Werden aus `open_questions` in `student_data/default_user/progress.json` geladen. Ist die Liste leer, erscheint „Noch keine offenen Fragen gespeichert“. Die Erkennung und Aktualisierung erfolgt ebenfalls in `app/core/student_memory.py`.
 
   Offene Fragen werden gespeichert, wenn die erzeugte Antwort sprachliche Hinweise darauf enthält, dass ein Punkt noch nicht eindeutig oder nicht direkt geklärt werden konnte. Dazu gehören Marker wie `nicht eindeutig`, `nicht klar`, `im material nicht direkt`, `nicht direkt beantwortet` oder `unsicherheit`. In diesem Fall wird die ursprüngliche Nutzerfrage in `open_questions` übernommen.
 
-* **Letzte Sitzung**  
+* #### Letzte Sitzung**  
   Wird aus `last_question` und `last_session_summary` erzeugt. Dort kann also die letzte Frage und die dazu gespeicherte Antwort oder Zusammenfassung erscheinen.
 
 ### Verlauf verwalten
