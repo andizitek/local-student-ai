@@ -511,7 +511,7 @@ Wenn ein vorhandener Text überprüft werden soll, sollte `peer_review` genutzt 
 Die Interaktionsmodi der App lassen sich relativ einfach ändern oder erweitern. In der Regel sind dafür drei Dateien wichtig:
 
 ### 1. Bearbeiten des Modus
-Öffnen der Datei mit einem Editor
+Öffnen der Datei mit einem Editor:
 ```text
 app/ui/streamlit_app.py
 ````
@@ -543,7 +543,7 @@ mode = st.selectbox(
 ```
 
 ### 2. Festlegen, wie der Modus antworten soll
-Öffnen der Datei mit einem Editor
+Öffnen der Datei mit einem Editor:
 ```text
 app/core/prompts.py
 ```
@@ -561,31 +561,111 @@ Wenn ein Modus eine speziellere Prompt-Logik braucht, kann in derselben Datei au
 
 ### 3. Falls nötig: Retrieval oder Sonderlogik anpassen
 
-Datei:
+Öffnen der Datei mit einem Editor:
 
 ```text
 app/api/chat.py
 ```
 
-Hier wird gesteuert, welcher Kontext für einen Modus geholt wird.
-Einige Modi arbeiten nur mit normalen Materialien, andere zusätzlich mit Reflexionstexten aus `critical/`.
+### Kontext je nach Modus steuern
 
-Wenn ein neuer Modus:
+In `app/api/chat.py` wird festgelegt, aus welchen Bereichen der Kursdaten der Kontext für einen Modus geholt wird.
 
-* nur auf `materials/` zugreifen soll, ist oft keine größere Änderung nötig
-* auch `critical/` nutzen soll, muss das in `chat.py` ergänzt werden
+- Standardmäßig greifen Modi nur auf fachliche Materialien aus `materials/` zu.
+- Manche Modi nutzen zusätzlich Reflexions- und Orientierungstexte aus `critical/`.
+- Der Modus critical_ai_literacy trennt zwischen Fachkontext (materials/) und zusätzlichem Reflexionskontext (critical/). Das bedeutet, dass zuerst der fachliche Inhalt aus den Materialien erschlossen und danach kritisch reflektiert wird.
+- Der Modus collaborative_work kann Materialien und Critical-Texte gemeinsam nutzen. Dabei werden Fachinhalt und Reflexions- bzw. Orientierungstexte zusammen verwendet, um Gruppen bei der Planung und Durchführung gemeinsamer Arbeit zu unterstützen.
 
-Beispiel:
+Beispiel aus `app/api/chat.py`:
 
-* `critical_ai_literacy` → Fachkontext + Reflexionskontext
-* `collaborative_work` → Material + Critical gemeinsam
+```python
+learning_context = build_learning_context(req.user_id, req.course_id)
 
+critical_hits = None
+
+if req.mode == "critical_ai_literacy":
+    # Fachkontext nur aus materials
+    hits = retrieve(
+        course_id=req.course_id,
+        question=req.question,
+        embedding_model=cfg["llm"]["embedding_model"],
+        top_k=max(2, min(cfg["retrieval"]["top_k"], 3)),
+        allowed_content_types=["material"],
+    )
+
+    # zusätzlicher Reflexionskontext aus critical
+    critical_hits = retrieve(
+        course_id=req.course_id,
+        question=req.question,
+        embedding_model=cfg["llm"]["embedding_model"],
+        top_k=2,
+        allowed_content_types=["critical"],
+    )
+
+elif req.mode == "collaborative_work":
+    # Material und Critical gemeinsam
+    hits = retrieve(
+        course_id=req.course_id,
+        question=req.question,
+        embedding_model=cfg["llm"]["embedding_model"],
+        top_k=cfg["retrieval"]["top_k"],
+        allowed_content_types=["material", "critical"],
+    )
+
+else:
+    # Standard: nur materials
+    hits = retrieve(
+        course_id=req.course_id,
+        question=req.question,
+        embedding_model=cfg["llm"]["embedding_model"],
+        top_k=cfg["retrieval"]["top_k"],
+        allowed_content_types=["material"],
+    )
+
+Im Code:
 ---
+if req.mode == "critical_ai_literacy":
+    # Fachkontext nur aus materials
+    hits = retrieve(
+        course_id=req.course_id,
+        question=req.question,
+        embedding_model=cfg["llm"]["embedding_model"],
+        top_k=max(2, min(cfg["retrieval"]["top_k"], 3)),
+        allowed_content_types=["material"],
+    )
+
+    # zusätzlicher Reflexionskontext aus critical
+    critical_hits = retrieve(
+        course_id=req.course_id,
+        question=req.question,
+        embedding_model=cfg["llm"]["embedding_model"],
+        top_k=2,
+        allowed_content_types=["critical"],
+    )
+
+elif req.mode == "collaborative_work":
+    # Material und Critical gemeinsam
+    hits = retrieve(
+        course_id=req.course_id,
+        question=req.question,
+        embedding_model=cfg["llm"]["embedding_model"],
+        top_k=cfg["retrieval"]["top_k"],
+        allowed_content_types=["material", "critical"],
+    )
+
+else:
+    # Standard: nur materials
+    hits = retrieve(
+        course_id=req.course_id,
+        question=req.question,
+        embedding_model=cfg["llm"]["embedding_model"],
+        top_k=cfg["retrieval"]["top_k"],
+        allowed_content_types=["material"],
+    )
 
 ## Zusätzliche Materialien für einen Modus
 
 Wenn ein Modus eigene Inhalte oder Reflexionstexte nutzen soll, können passende Markdown-Dateien ergänzt werden in:
-
 ```text
 courses/demo_course/materials/
 courses/demo_course/critical/
