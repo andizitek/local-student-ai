@@ -721,29 +721,21 @@ Weitere Bereiche der Seitenleiste werden aus `progress.json` erzeugt. Dazu gehö
 ### Bedeutung der einzelnen Anzeigen
 
 * **Bearbeitete Themen**
-Der Bereich **Bearbeitete Themen** wird aus dem Feld `seen_topics` in `student_data/default_user/progress.json` erzeugt.  
-Diese Themen werden nicht manuell formuliert, sondern heuristisch erkannt. Grundlage dafür ist die Datei:
+*   Der Bereich **Bearbeitete Themen** wird aus dem Feld `seen_topics` in `student_data/default_user/progress.json` erzeugt.  
+*   Diese Themen werden nicht manuell formuliert, sondern heuristisch erkannt. Grundlage dafür ist die Datei:
 ```
-courses/demo_course/topic_map.json
+*   courses/demo_course/topic_map.json
 ````
-In `topic_map.json` werden Themennamen mit typischen Schlüsselwörtern verknüpft. Wenn in Fragen oder Antworten passende Begriffe vorkommen, kann die App diese Themen als bereits bearbeitet speichern.
+*   In `topic_map.json` werden Themennamen mit typischen Schlüsselwörtern verknüpft. Wenn in Fragen oder Antworten passende Begriffe vorkommen, kann die App diese Themen als bereits bearbeitet speichern.
 
-Wenn in `topic_map.json` nur Platzhalter oder Beispielthemen stehen, können keine sinnvollen Themen erkannt werden. In diesem Fall bleibt `seen_topics` leer und in der Seitenleiste erscheint:
+*   Wenn in `topic_map.json` nur Platzhalter oder Beispielthemen stehen, können keine sinnvollen Themen erkannt werden. In diesem Fall bleibt `seen_topics` leer und in der Seitenleiste erscheint:
 
 ***Noch keine Themen gespeichert.***  
 
 * **Schwierige Themen**  
   Werden aus `difficult_topics` geladen. Wenn dabei zwar Unsicherheit erkannt wurde, aber kein genaues Thema zugeordnet werden konnte, kann ein allgemeiner Platzhalter erscheinen.
-
-* **Offene Fragen**  
-  Werden aus `open_questions` geladen. Ist die Liste leer, erscheint „Noch keine offenen Fragen gespeichert“.
-
-* **Letzte Sitzung**  
-  Wird aus `last_question` und `last_session_summary` erzeugt. Dort kann also die letzte Frage und die dazu gespeicherte Antwort oder Zusammenfassung erscheinen.
-
-### Wie werden schwierige Themen bestimmt?
-
-Schwierige Themen werden in `student_memory.py` über einfache Unsicherheitsmarker erkannt, zum Beispiel:
+  
+  Schwierige Themen werden in `student_memory.py` über einfache Unsicherheitsmarker erkannt, zum Beispiel:
 
 * `ich verstehe nicht`
 * `unklar`
@@ -756,6 +748,14 @@ Schwierige Themen werden in `student_memory.py` über einfache Unsicherheitsmark
 * `mehrdeutig`
 
 Wenn dabei bereits Themen erkannt wurden, werden diese als schwierige Themen gespeichert. Wenn kein konkretes Thema zugeordnet werden kann, wird aktuell ein allgemeiner Platzhalter eingetragen.
+
+
+* **Offene Fragen**  
+  Werden aus `open_questions` geladen. Ist die Liste leer, erscheint „Noch keine offenen Fragen gespeichert“.
+
+* **Letzte Sitzung**  
+  Wird aus `last_question` und `last_session_summary` erzeugt. Dort kann also die letzte Frage und die dazu gespeicherte Antwort oder Zusammenfassung erscheinen.
+
 
 ### Verlauf verwalten
 
