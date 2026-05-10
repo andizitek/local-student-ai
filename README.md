@@ -167,10 +167,10 @@ Wenn mehrere Fragen mit **Nein** beantwortet werden, sollte die Datei vor dem In
 
 ### 10. Zusätzliche Materialien ergänzen
 Inhaltliche Materialien als  .md-Dateien nach:
-courses\demo_kurs\materials\
+courses\demo_course\materials\
 
 Reflexions-/Critical-Dateien nach:
-courses\demo_kurs\critical\
+courses\demo_course\critical\
 
 ### 11. Index bauen
 set PYTHONPATH=.
