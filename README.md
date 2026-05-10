@@ -181,6 +181,8 @@ Beim Index bauen geschieht das sog. **"Chunking"**, ist für die Qualität des R
 
 Ebenfalls in der ***config.yaml*** ist die **Temperatur** des Modells angegeben. Die Temperatur steuert, wie eng ein Sprachmodell am bereitgestellten Material und an naheliegenden Formulierungen bleibt: Niedrige Werte führen in der Regel zu stärker materialgebundenen, stabileren Antworten, während höhere Werte eher zu freieren und weniger eng am Kontext orientierten Ausgaben führen. Standardmäßig ist die Temperatur auf 0.2 eingestellt, was bedeutet, dass die Ausgaben in der Regel stärker am bereitgestellten Material orientiert sind und konsistente Antworten mit nüchternen Formulierungen ausgegeben werden und somit weniger kreative Ausschmückung und Halluzinationen beinhalten. Es werden auch bei mehreren Abfragen weniger zufällige Varianten erzeugt. Dies ist bevorzugt wenn auf Quellenbezug und den Inhalt der bereitgestellten Materialien wert gelegt wird.
 
+#### ACHTUNG: wenn das embedding_model: mxbai-embed-large mehrmals heruntergeladen wurde, muss in der .yaml Datei mxbai-embed-large:latest verwendet werden. Die aktuelle Version kann mit dem Befehl: ollama list herausgelesen werden.
+
 ### 12. Backend starten (erstes Eingabefenster - Windows-Taste und "R", dann cmd eintippen)
 Erstes Fenster öffen  
 
