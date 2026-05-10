@@ -6,7 +6,7 @@ import argparse
 from pypdf import PdfReader
 
 
-COURSE_ID = "demo_kurs"
+COURSE_ID = "demo_course"
 
 BASE_DIR = Path("courses") / COURSE_ID
 INPUT_DIR = BASE_DIR / "source_pdfs"
