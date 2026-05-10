@@ -273,7 +273,7 @@ mode = st.selectbox(
     index=0,
 )
 
-### 2. Prompt-Logik des Modus definieren
+#### 2. Prompt-Logik des Modus definieren
 In der Datei -> app/core/prompts.py wird festgelegt, wie der neue Modus antworten soll.
 Dazu wird im `mode_instruction`-Block ein neuer Eintrag ergänzt.
 Beispiel:
@@ -287,51 +287,165 @@ In der Datei -> app/api/chat.py wird gesteuert, welcher Kontext für einen Modus
 Falls ein neuer Modus nur mit normalen Kursmaterialien arbeiten soll, sind häufig keine weiteren Änderungen nötig.
 Wenn er zusätzlich Materialien aus `critical/` oder eine eigene Behandlung braucht, wird das in `chat.py` ergänzt.
 
-Typische Anpassungen betreffen:
-* `allowed_content_types`
-* getrennte Retrieval-Logik für `material` und `critical`
-* modusspezifische Behandlung bei der Prompt-Erzeugung
-
-## Zusätzliche Materialien für neue Modi
-
-Wenn ein Modus mit eigenen Reflexions- oder Orientierungstexten arbeiten soll, können passende Markdown-Dateien in folgenden Ordnern ergänzt werden:
-
+#### 1. `chat.py` anpassen
+Datei:
 ```text
-courses/demo_course/materials/
-courses/demo_course/critical/
+app/api/chat.py
 ```
+Dort muss der Modus speziell behandelt werden:
+* `critical_ai_literacy`:
+  * Fachkontext aus `materials`
+  * Reflexionskontext aus `critical` (eigene .md-Datei(en) dort ablegbar
+* `collaborative_work`:
+  * Material + Critical gemeinsam (in material befindet sich eine .md 
+* alle anderen Modi:
+  * nur `materials`
+  * 
 
-* `materials/` für fachliche Inhalte
-* `critical/` für Reflexions-, Transparenz- oder Orientierungstexte
-
-Nach dem Hinzufügen neuer Inhalte muss der Index neu gebaut werden.
+Deine aktuelle `chat.py` sieht dafür schon passend aus.
 
 ---
 
-## Danach nicht vergessen
+## 2. `prompts.py` anpassen
 
-### Index neu bauen
+Datei:
 
-Nur notwendig, wenn neue Materialien oder neue Markdown-Dateien hinzugefügt wurden:
+```text
+app/core/prompts.py
+```
+
+Dort brauchst du:
+
+### a) `critical_hits` als zusätzlichen Parameter
+
+Die Funktion sollte so beginnen:
+
+```python
+def build_user_prompt(
+    question: str,
+    hits: list[dict],
+    mode: str,
+    learning_context: str = "",
+    critical_hits: list[dict] | None = None,
+) -> str:
+```
+
+### b) Fach- und Reflexionskontext getrennt formatieren
+
+Also etwa:
+
+* `Fachkontext`
+* `Zusätzlicher Reflexionskontext`
+
+### c) Für `critical_ai_literacy` einen eigenen Prompt-Block
+
+Der sollte sagen:
+
+* zuerst die konkrete Frage beantworten
+* Fachkontext ist vorrangig
+* Reflexionskontext dient nur als Prüfrahmen
+* irrelevante Kontexte ignorieren
+
+---
+
+## 3. `streamlit_app.py` prüfen
+
+Datei:
+
+```text
+app/ui/streamlit_app.py
+```
+
+In der Modusliste müssen beide Einträge korrekt vorkommen:
+
+```python
+"critical_ai_literacy",
+"collaborative_work",
+```
+
+Wichtig: mit **Komma** dazwischen.
+
+---
+
+## 4. `system_prompt.md` ergänzen
+
+Datei:
+
+```text
+courses/demo_course/system_prompt.md
+```
+
+Dort solltest du Regeln ergänzen wie:
+
+* Im `critical_ai_literacy`-Modus zuerst die konkrete Nutzerfrage beantworten
+* Fachkontext vor Reflexionskontext behandeln
+* Reflexionskontext nur als kritischen Rahmen nutzen
+* irrelevante Kontexte ignorieren
+* materialgestützte Aussagen, Interpretation und offene Punkte klar unterscheiden
+
+---
+
+## 5. Inhalte im `critical/`-Ordner prüfen
+
+Ordner:
+
+```text
+courses/demo_course/critical/
+```
+
+Dort sollten sinnvolle Dateien liegen, zum Beispiel:
+
+* `critical_ai_literacy.md`
+* `ki_transparenz_gruppenarbeit.md`
+* `collaborative_work_design.md`
+
+Wenn dort nur Platzhalter liegen, ist der Modus inhaltlich schwach.
+
+---
+
+## 6. Neu indexieren
+
+Nur nötig, wenn du neue `.md`-Dateien in `materials/` oder `critical/` ergänzt oder geändert hast:
 
 ```bat
+cd C:\Users\andre\student-course-ai-final
 set PYTHONPATH=.
 .venv\Scripts\python.exe scripts\build_index.py --course demo_course
 ```
 
-### Backend neu starten
+---
+
+## 7. Backend neu starten
 
 ```bat
+cd C:\Users\andre\student-course-ai-final
 .venv\Scripts\python.exe -m uvicorn app.main:app --reload
 ```
 
-### Streamlit neu starten
+---
+
+## 8. Streamlit neu starten
 
 ```bat
+cd C:\Users\andre\student-course-ai-final
 .venv\Scripts\python.exe -m streamlit run app\ui\streamlit_app.py
 ```
 
 ---
+
+## Kurzüberblick
+
+Für den `critical_ai_literacy`-Modus brauchst du also:
+
+* `chat.py` → getrenntes Retrieval
+* `prompts.py` → getrennte Prompt-Logik
+* `streamlit_app.py` → Modus sichtbar machen
+* `system_prompt.md` → Verhalten absichern
+* `critical/` → Reflexionstexte
+* danach ggf. **neu indexieren** und **neu starten**
+
+Wenn du willst, kann ich dir jetzt direkt die **fertige `prompts.py`-Version** noch einmal komplett hinschreiben.
+
 
 ## Kurzüberblick
 
