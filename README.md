@@ -683,6 +683,78 @@ Ein neuer oder angepasster Modus braucht in der Regel:
 * gegebenenfalls eine Anpassung in `app/api/chat.py`
 * optional neue Markdown-Dateien in `materials/` oder `critical/`
 
-So lassen sich bestehende Modi einfach anpassen oder neue Modi für eigene didaktische Zwecke ergänzen.
+#Beschereibung des Interaktionsfensters
+## Seitenleiste: Lernprofil und Lernverlauf
+
+Die App zeigt in der Seitenleiste lokal gespeicherte Profil- und Verlaufsdaten an. Diese Informationen werden nicht in einer externen Cloud gespeichert, sondern im Projektordner unter `student_data/`, typischerweise nutzerbezogen in einem Unterordner wie:  
+-> student_data/default_user/
+
+### Lernprofil (`profile.json`)
+Das Lernprofil wird aus `profile.json` geladen. Dort stehen grundlegende Präferenzen des Nutzers/der Nutzerin und müssen selbst eingetragen werden, zum Beispiel:
+
+* `user_id`
+* `language`
+* `preferred_style`
+* `level`
+* `preferred_term_mode`
+* `learning_goals`
+
+Daraus entstehen in der Seitenleiste zum Beispiel die Einträge:
+
+* **Sprache: de**
+* **Stil: klar, strukturiert, fachlich**
+* **Niveau: unbekannt**
+
+Wenn `learning_goals` leer ist, erscheint unter **Lernziele** ein Hinweis wie „Noch keine Lernziele eingetragen“.
+
+### Lernverlauf (`progress.json`)
+
+Weitere Bereiche der Seitenleiste werden aus `progress.json` erzeugt. Dazu gehören insbesondere:
+
+* `seen_topics` – bereits bearbeitete oder erkannte Themen
+* `difficult_topics` – als schwierig markierte Themen
+* `open_questions` – offene oder ungeklärte Fragen
+* `last_question` – zuletzt gestellte Frage
+* `last_session_summary` – zuletzt gespeicherte Antwort oder Zusammenfassung
+
+### Bedeutung der einzelnen Anzeigen
+
+* **Bearbeitete Themen**
+  Werden aus `seen_topics` geladen. Wenn die Liste leer ist, erscheint „Noch keine Themen gespeichert“.
+
+* **Schwierige Themen**
+  Werden aus `difficult_topics` geladen. Wenn dabei zwar Unsicherheit erkannt wurde, aber kein genaues Thema zugeordnet werden konnte, kann ein allgemeiner Platzhalter erscheinen.
+
+* **Offene Fragen**
+  Werden aus `open_questions` geladen. Ist die Liste leer, erscheint „Noch keine offenen Fragen gespeichert“.
+
+* **Letzte Sitzung**
+  Wird aus `last_question` und `last_session_summary` erzeugt. Dort kann also die letzte Frage und die dazu gespeicherte Antwort oder Zusammenfassung erscheinen.
+
+### Wie werden schwierige Themen bestimmt?
+
+Schwierige Themen werden in `student_memory.py` über einfache Unsicherheitsmarker erkannt, zum Beispiel:
+
+* `ich verstehe nicht`
+* `unklar`
+* `nicht eindeutig`
+* `schwierig`
+* `unsicher`
+* `verwirrt`
+* `was genau`
+* `nicht klar`
+* `mehrdeutig`
+
+Wenn dabei bereits Themen erkannt wurden, werden diese als schwierige Themen gespeichert. Wenn kein konkretes Thema zugeordnet werden kann, wird aktuell ein allgemeiner Platzhalter eingetragen.
+
+### Verlauf verwalten
+
+Über die Buttons in der Seitenleiste kann der lokale Verlauf wieder gelöscht oder zurückgesetzt werden, zum Beispiel:
+
+* **Lernverlauf löschen**
+* **Fortschritt zurücksetzen**
+* **Alles zurücksetzen**
+
+Damit lassen sich die gespeicherten Profil- und Verlaufsdaten lokal bereinigen.
 
 
