@@ -380,7 +380,7 @@ Im Unterschied zu `quiz` können die Antworten hier direkt ausgewählt, gespeich
 - quizbasierte Lernanalytics
 
 **Beispiel:**
-> Erstelle 5 Multiple-Choice-Fragen zum Thema xy.
+> Erstelle 5 Multiple-Choice-Fragen zum Thema xy. ***WICHTIG***: dabei können per Dropdown entweder Themen aus der **`topic_map.json`** ausgewählt oder ein eigenes Thema eingegeben werden. 
 
 ---
 
