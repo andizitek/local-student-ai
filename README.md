@@ -543,8 +543,7 @@ Für einfache Sachfragen reicht oft `explain` oder `summarize`.
 Für Gruppenarbeit sind `group_prep`, `discussion` und `collaborative_work` besonders nützlich.  
 Wenn eine Antwort kritisch hinterfragt werden soll, ist `critical_ai_literacy` der passende Modus.  
 Wenn ein vorhandener Text überprüft werden soll, sollte `peer_review` genutzt und zusätzlich ein Textentwurf eingefügt werden.
-```
-```
+
 ## Modi anpassen oder neue Modi hinzufügen
 
 Die Interaktionsmodi der App lassen sich relativ einfach ändern oder erweitern. In der Regel sind dafür drei Dateien wichtig:
