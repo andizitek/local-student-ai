@@ -72,6 +72,7 @@ courses\demo_course\topic_map.json
 | `explain`              | Erklärt Begriffe und Zusammenhänge verständlich.                                                            |
 | `summarize`            | Fasst Materialien oder Themen strukturiert zusammen.                                                        |
 | `quiz`                 | Erzeugt Verständnisfragen für Lern- und Gruppenprozesse.                                                    |
+| `mc_quiz`              | Erzeugt einen MC-Test mit 3, 5 oder 10 Fragen, mit Learning Analytics.                                       |
 | `flashcards`           | Erstellt Lernkarten für Wiederholung und Begriffsarbeit.                                                    |
 | `study_guide`          | Unterstützt die Strukturierung von Lernprozessen.                                                           |
 | `group_prep`           | Unterstützt die Vorbereitung von Gruppenbeiträgen.                                                          |
