@@ -145,6 +145,7 @@ def chat_endpoint(req: ChatRequest):
         answer=answer,
         user_id=req.user_id,
         course_id=req.course_id,
+        mode=req.mode,
     )
 
     return {
