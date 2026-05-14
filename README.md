@@ -368,7 +368,7 @@ Er eignet sich, um Wissen zu überprüfen oder Gruppenarbeit aktivierender zu ge
 > Erstelle 3 Quizfragen zum Thema xy.
 
 ### `quiz_mc`
-Dieser Modus erzeugt **Multiple-Choice-Fragen** mit Antwortoptionen und genau einer richtigen Antwort.  
+Dieser Modus erzeugt **Multiple-Choice-Fragen** mit Antwortoptionen und genau einer richtigen Antwort. Dabei werden die Antwortoptionen nach der Generierung automatisch gemischt.  
 Er eignet sich besonders für strukturierte Selbsttests und für die automatische Auswertung im Quiz- und Analytics-Modul.
 
 Im Unterschied zu `quiz` können die Antworten hier direkt ausgewählt, gespeichert und ausgewertet werden. Dadurch lassen sich auch Trefferquote, fehlerhafte Fragen und thematische Unsicherheiten berechnen.
