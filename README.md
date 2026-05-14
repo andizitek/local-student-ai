@@ -750,20 +750,33 @@ Weitere Bereiche der Seitenleiste werden aus `progress.json` erzeugt. Dazu gehö
 * #### Offene Fragen**  
   Werden aus `open_questions` in `student_data/default_user/progress.json` geladen. Ist die Liste leer, erscheint „Noch keine offenen Fragen gespeichert“. Die Erkennung und Aktualisierung erfolgt ebenfalls in `app/core/student_memory.py`.
 
-**Offene Fragen werden im aktuellen Stand nur dann gespeichert, wenn die erzeugte Antwort sprachliche Hinweise darauf enthält, dass ein Punkt noch nicht eindeutig oder nicht direkt geklärt werden konnte.** Dazu gehören Marker wie `nicht eindeutig`, `nicht klar`, `im material nicht direkt`, `nicht direkt beantwortet` oder `unsicherheit`. In diesem Fall wird die ursprüngliche Nutzerfrage in `open_questions` übernommen.  
-Unsicherheitsformulierungen in der Nutzerfrage allein führen daher nicht automatisch zu einem Eintrag unter „Offene Fragen“.
+   **Offene Fragen werden im aktuellen Stand nur dann gespeichert, wenn die erzeugte Antwort sprachliche Hinweise darauf enthält, dass ein Punkt noch nicht eindeutig oder nicht direkt geklärt werden konnte.** Dazu gehören Marker wie   `nicht eindeutig`, `nicht klar`, `im material nicht direkt`, `nicht direkt beantwortet` oder `unsicherheit`. In diesem Fall wird die ursprüngliche Nutzerfrage in `open_questions` übernommen.  
+   Unsicherheitsformulierungen in der Nutzerfrage allein führen daher nicht automatisch zu einem Eintrag unter „Offene Fragen“.
 
 * #### Letzte Sitzung**  
   Wird aus `last_question` und `last_session_summary` erzeugt. Dort kann also die letzte Frage und die dazu gespeicherte Antwort oder Zusammenfassung erscheinen.
 
-### Verlauf verwalten
+* #### Quiz-Analytics
+  Der Bereich **Quiz-Analytics** wird aus lokal gespeicherten Quiz-Ergebnissen berechnet. Grundlage dafür sind insbesondere `student_data/default_user/quiz_results.json` und die Auswertungslogik in `app/core/quiz_analytics.py`.
+
+* Angezeigt werden zum Beispiel:
+  * `Bearbeitete Quizfragen`
+  * `Richtig`
+  * `Falsch`
+  * `Trefferquote`
+  * `im Quiz eher unsichere Themen`
+  * `letzte Quizdurchgänge`  
+
+    Dadurch kann die App sowohl den Überblick über mehrere Quizdurchgänge als auch thematische Unsicherheiten sichtbar machen.
+
+#### Verlauf verwalten
 
 Über die Buttons in der Seitenleiste kann der lokale Verlauf wieder gelöscht oder zurückgesetzt werden, zum Beispiel:
 
-* **Lernverlauf löschen**
-* **Fortschritt zurücksetzen**
-* **Alles zurücksetzen**
+  * `Lernverlauf löschen`
+  * `Fortschritt zurücksetzen`
+  * `Alles zurücksetzen`
 
-Damit lassen sich die gespeicherten Profil- und Verlaufsdaten lokal bereinigen.
+    Damit lassen sich die gespeicherten Profil- und Verlaufsdaten lokal bereinigen.
 
 
