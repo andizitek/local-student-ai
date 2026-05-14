@@ -785,12 +785,13 @@ Weitere Bereiche der Seitenleiste werden aus `progress.json` erzeugt. Dazu gehö
 
     Dadurch kann die App sowohl den Überblick über mehrere Quizdurchgänge als auch thematische Unsicherheiten sichtbar machen.
 
-#### Verlauf verwalten
+* #### Verlauf verwalten
 
-Über die Buttons in der Seitenleiste kann der lokale Verlauf wieder gelöscht oder zurückgesetzt werden, zum Beispiel:
+  Über die Buttons in der Seitenleiste kann der lokale Verlauf wieder gelöscht oder zurückgesetzt werden, zum Beispiel:
 
   * `Lernverlauf löschen`
   * `Fortschritt zurücksetzen`
+  * `Quiz-Analytics zurücksetzen`
   * `Alles zurücksetzen`
 
     Damit lassen sich die gespeicherten Profil- und Verlaufsdaten lokal bereinigen.
