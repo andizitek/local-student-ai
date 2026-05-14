@@ -381,7 +381,10 @@ Im Unterschied zu `quiz` können die Antworten hier direkt ausgewählt, gespeich
 - quizbasierte Lernanalytics
 
 **Beispiel:**
-> Erstelle 5 Multiple-Choice-Fragen zum Thema xy. ***WICHTIG***: dabei können per Dropdown entweder Themen aus der **`topic_map.json`** ausgewählt oder ein eigenes Thema eingegeben werden. 
+> Erstelle 5 Multiple-Choice-Fragen zum Thema xy. ***WICHTIG***: dabei können per Dropdown entweder Themen aus der **`topic_map.json`** ausgewählt oder ein eigenes Thema eingegeben werden.
+
+**Wichtig:** 
+> Beim MC-Quiz kann es vorkommen, dass die KI in Einzelfällen eine inhaltlich falsche Lösung als richtig markiert, weshalb im Explain-Modus hier auch bei Zweifeln immer nachgefragt werden sollte.
 
 ---
 
