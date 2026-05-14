@@ -231,7 +231,7 @@ Grundsätzlich (die Zahl "b" gibt dabei die Modellgröße in Milliarden Paramete
 
 qwen2.5:7b ist für Englisch und Deutsch wahrscheinlich dein bester Allrounder, hier können und sollten weitere Tests systematisch selbst durchgeführt werden.
 
-# So testest du die drei Modelle sinnvoll
+## So testest du die drei Modelle sinnvoll
 Du vergleichst immer dieselbe Frage mit:
 qwen2.5:7b. 
 qwen2.5:3b-instruct. 
@@ -245,15 +245,15 @@ Englisch.
 Quellentreue. 
 Nützlichkeit für eure Modi. 
 
-## Immer nur ein Modell in config.yaml z.B
+### Immer nur ein Modell in config.yaml z.B
 chat_model: qwen2.5:7b
 ## embedding_model in config.yaml bleibt gleich:
 embedding_model: mxbai-embed-large
 ## Zeit messen und Qualität bewerten
 Tabellarische Vergleichsdokumentation erstellen.
 
-# Mögliche Übungen
-## Wie ändere ich das Modell?
+## Mögliche Übungen
+### Wie ändere ich das Modell?
 Wenn ich das Srachmodell ändern will, überprüfe ich zuerst, ob dieses schon installiert ist. 
 Das mache ich mit dem Befehl  
 -> ollama list  
@@ -263,17 +263,17 @@ Wenn das Modell nicht installiert ist, dann kannich ein Modell, das ich verwende
 Das mache ich mit dem Befehl:  
 -> ollama pull gemma3:12b
 Schlussendlich, muss ich dieses in der config.yaml als chat_model eintragen. Fertig.
-## Wie ändere ich die Parameter des Chunking und die Temperatur?
+### Wie ändere ich die Parameter des Chunking und die Temperatur?
 Diese Parameter sind in der config.yaml abgelegt, und können dort angepasst werden. Die chunk_size ist standarddmäßig auf 2000, chunk_overlap standardmäßig auf 100 und top_k (als Anzahl der herangezogenen Chunks für eine Antwort) standardmäßig auf 4 gesetzt. 
 Ebenfalls in der config.yaml ist die Temperatur des Modells angegeben. 
-### Darstellung der Einstellungen in `config.yaml`
+#### Darstellung der Einstellungen in `config.yaml`
 ```yaml
 Die kursbezogene Konfiguration liegt in:
 courses/demo_kurs/config.yaml
 ````
 Dort können zentrale Parameter der App angepasst werden.
 
-### Modellwahl
+#### Modellwahl
 ```yaml
 llm:
   chat_model: gemma3:4b
@@ -285,7 +285,7 @@ llm:
 
 Wenn Antworten zu langsam sind, kann ein kleineres Chatmodell gewählt werden. Die Auswahl lokaler Modelle richtet sich nach den in Ollama installierten Modellen.
 
-### Retrieval
+#### Retrieval
 ```yaml
 retrieval:
   top_k: 4
@@ -297,7 +297,7 @@ retrieval:
 * `chunk_overlap`: Überlappung zwischen zwei Chunks
 Diese Werte beeinflussen, wie gut relevante Textstellen gefunden und als Kontext genutzt werden.
 
-### Antwortverhalten
+#### Antwortverhalten
 
 ```yaml
 response:
@@ -312,7 +312,7 @@ response:
 
 ### Was muss nach einer Änderung neu gestartet werden?
 
-### Nur `chat_model` oder `temperature` geändert
+#### Nur `chat_model` oder `temperature` geändert
 
 Dann reicht in der Regel ein Neustart von Backend und Streamlit.
 
