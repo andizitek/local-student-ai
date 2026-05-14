@@ -383,7 +383,7 @@ Im Unterschied zu `quiz` können die Antworten hier direkt ausgewählt, gespeich
 
 **Wichtig:** 
 > Beim MC-Quiz kann es vorkommen, dass die KI in Einzelfällen eine inhaltlich falsche Lösung als richtig markiert, weshalb im Explain-Modus hier auch bei Zweifeln immer nachgefragt werden sollte.
-
+> Weiters berechnet die App auf Basis der gespeicherten Quiz-Ergebnisse einfache thematische Unsicherheiten; Themen mit mehr falschen als richtigen Antworten werden als quizbasierte schwierige Themen in der Seitenleiste angezeigt.
 ---
 
 ### `flashcards`
@@ -781,7 +781,7 @@ Weitere Bereiche der Seitenleiste werden aus `progress.json` erzeugt. Dazu gehö
   * `Richtig`
   * `Falsch`
   * `Trefferquote`
-  * `im Quiz eher unsichere Themen`
+  * `im Quiz eher unsichere Themen` (diese werden auf Basis der gespeicherten Quiz-Ergebnisse berechnet; Themen mit mehr falschen als richtigen Antworten werden als quizbasierte schwierige Themen angezeigt.)
   * `letzte Quizdurchgänge`  
 
     Dadurch kann die App sowohl den Überblick über mehrere Quizdurchgänge als auch thematische Unsicherheiten sichtbar machen.
