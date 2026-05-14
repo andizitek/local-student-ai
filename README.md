@@ -367,6 +367,21 @@ Er eignet sich, um Wissen zu überprüfen oder Gruppenarbeit aktivierender zu ge
 **Beispiel:**
 > Erstelle 3 Quizfragen zum Thema xy.
 
+### `quiz_mc`
+Dieser Modus erzeugt **Multiple-Choice-Fragen** mit Antwortoptionen und genau einer richtigen Antwort.  
+Er eignet sich besonders für strukturierte Selbsttests und für die automatische Auswertung im Quiz- und Analytics-Modul.
+
+Im Unterschied zu `quiz` können die Antworten hier direkt ausgewählt, gespeichert und ausgewertet werden. Dadurch lassen sich auch Trefferquote, fehlerhafte Fragen und thematische Unsicherheiten berechnen.
+
+**Geeignet für:**
+- Selbsttests
+- wiederholbare Wissensüberprüfung
+- automatische Auswertung
+- quizbasierte Lernanalytics
+
+**Beispiel:**
+> Erstelle 5 Multiple-Choice-Fragen zum Thema xy.
+
 ---
 
 ### `flashcards`
@@ -504,6 +519,7 @@ Er hilft Gruppen dabei, Aufgaben in Teilaufgaben zu zerlegen, Rollen zu klären,
 
 ### Wenn aktiv gelernt oder überprüft werden soll
 - `quiz`
+- `mc_quiz` (mit Learning Analytics)
 - `flashcards`
 
 ### Wenn Gruppenarbeit vorbereitet oder begleitet werden soll
