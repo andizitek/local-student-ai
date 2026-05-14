@@ -508,7 +508,7 @@ Er hilft Gruppen dabei, Aufgaben in Teilaufgaben zu zerlegen, Rollen zu klären,
 > Hilf uns, die Aufgabe als Gruppe zu strukturieren: Ziel, Teilaufgaben, Rollen, Abhängigkeiten und Zusammenführung.
 
 ---
-```
+
 ## Welche Modi eignen sich wofür?
 
 ### Wenn etwas erklärt werden soll
