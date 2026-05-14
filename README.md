@@ -320,8 +320,6 @@ Dann reicht in der Regel ein Neustart von Backend und Streamlit.
 
 Dann muss der Index neu gebaut werden, da sich die Segmentierung oder der Materialbestand geändert hat.
 
-## Beschreibung der vorhandenen Modi
-```md
 ## Interaktionsmodi der App
 
 Die App bietet verschiedene Modi, die unterschiedliche Formen der Arbeit mit den Kursmaterialien unterstützen.  
