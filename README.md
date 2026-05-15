@@ -96,7 +96,7 @@ courses\demo_course\topic_map.json
 8. `metadata.csv` ergänzen (Metadaten werden beim Tool-spezifischen Ablauf der Markdown-files automatisch in den Header geschrieben. Wichtig: Filename und Eintrag im Metadatenfile müssen eindeutig übereinstimmen (inkl. Filetyp-Endung))
 9. PDFs in Markdown überführen - mit `.venv\Scripts\python.exe scripts\pdfs_to_md_with_metadata.py` oder alternativ mit MaritDown (siehe unten).
 10. Materialien in `materials/` und ggf. `critical/` ablegen
-11. Index in einem weiteren Eingabefenster bauen (**WICHTIG: Ollama muss in einem anderen Eingabfenster gestartet worden sein laufen - kann mit Ollama list** gestest werden **UND** das **richtige Sprachmodell muss in `config.yaml`** eingetragen sein), man kann auch die Chunking Parameter anpassen) mit `set PYTHONPATH=.` und `.venv\Scripts\python.exe scripts\build_index.py --course demo_course`.
+11. Index in einem weiteren Eingabefenster bauen (**WICHTIG: Ollama muss in einem anderen Eingabfenster gestartet worden sein laufen - kann mit Ollama list** gestest werden **UND** das **richtige Sprachmodell muss in `config.yaml`** eingetragen sein), man kann auch die Chunking Parameter anpassen) mit `set PYTHONPATH=.` und `.venv\Scripts\python.exe scripts\build_index.py --course demo_course`. **WICHTIG: die Markdown-Dateien MÜSSEN bereinigt sein (siehe unten!**
 12. Backend starten mit `.venv\Scripts\python.exe -m uvicorn app.main:app --reload`.
 13. Streamlit starten mit `.venv\Scripts\python.exe -m streamlit run app\ui\streamlit_app.py`.
 14. App im Browser öffnen und Modi testen und bei Bedarf anpassen (die Metaprompts aber auch z. B. die Temperatur lässt sich in der config.yaml Datei anpassen)
