@@ -121,7 +121,7 @@ courses\demo_course\topic_map.json
 
       Das PDF bleibt weiterhin als Originalquelle wichtig. Für die inhaltliche Verarbeitung im Index ist jedoch die Qualität der Markdown-Datei entscheidend.
 
-     ***Erhalten sollten folgende Seitenangaben bleiben:***
+     ***Erhalten sollten z.B. folgende Seitenangaben bleiben:***
     `<!-- PAGE:4 -->` bzw. `### Seite 4`
 
 13. Backend starten mit `.venv\Scripts\python.exe -m uvicorn app.main:app --reload`.
