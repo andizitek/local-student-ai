@@ -91,12 +91,12 @@ courses\demo_course\topic_map.json
 3. Virtuelle Umgebung anlegen - im Eingabefenster z. B. mit `cd C:\Users\andre\student-course-ai` in den Projektordner wechseln und `py -3.11 -m venv .venv` eingeben
 4. Abhängigkeiten installieren mit `.venv\Scripts\python.exe -m pip install --upgrade pip` und `.venv\Scripts\pip.exe install -r requirements.txt`.
 5. Modelle herunterladen (von https://ollama.com/library/) - z.B mit `ollama pull gemma3:4b` im Eingabefenster.
-6. Ollama prüfen mit `ollama list` bzw. starten mit `ollama serve`  
+6. Ollama prüfen mit `ollama list` bzw. starten mit `ollama serve` in einem Eingabefenster. 
 7. PDFs nach `source_pdfs/` legen
 8. `metadata.csv` ergänzen (Metadaten werden beim Tool-spezifischen Ablauf der Markdown-files automatisch in den Header geschrieben. Wichtig: Filename und Eintrag im Metadatenfile müssen eindeutig übereinstimmen (inkl. Filetyp-Endung))
 9. PDFs in Markdown überführen - mit `.venv\Scripts\python.exe scripts\pdfs_to_md_with_metadata.py` oder alternativ mit MaritDown (siehe unten).
 10. Materialien in `materials/` und ggf. `critical/` ablegen
-11. Index bauen (Chunking Parameter beachten) mit `set PYTHONPATH=.` und `.venv\Scripts\python.exe scripts\build_index.py --course demo_course`.
+11. Index in einem weiteren Eingabefenster bauen (**WICHTIG: Ollama muss in einem anderen Eingabfenster gestartet worden sein laufen - kann mit Ollama list** gestest werden **UND** das **richtige Sprachmodell muss in `config.yaml`** eingetragen sein), man kann auch die Chunking Parameter anpassen) mit `set PYTHONPATH=.` und `.venv\Scripts\python.exe scripts\build_index.py --course demo_course`.
 12. Backend starten mit `.venv\Scripts\python.exe -m uvicorn app.main:app --reload`.
 13. Streamlit starten mit `.venv\Scripts\python.exe -m streamlit run app\ui\streamlit_app.py`.
 14. App im Browser öffnen und Modi testen und bei Bedarf anpassen (die Metaprompts aber auch z. B. die Temperatur lässt sich in der config.yaml Datei anpassen)
