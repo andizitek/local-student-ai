@@ -89,33 +89,30 @@ courses\demo_course\topic_map.json
 1. Projektordner anlegen (z.B. C:\Users\andre\student-course-ai)
 2. Python (3.11 bis 3.13) und die vorausgesetzten files (in requirements.text) installieren (mit Windows "R" Taste und "cmd" das Eingabefenster öffnen)
 3. Virtuelle Umgebung anlegen - im Eingabefenster z. B. mit `cd C:\Users\andre\student-course-ai` in den Projektordner wechseln und `py -3.11 -m venv .venv` eingeben
-4. PDFs nach `source_pdfs/` legen
-5. `metadata.csv` ergänzen (Metadaten werden beim Tool-spezifischen Ablauf der Markdown-files automatisch in den Header geschrieben. Wichtig: Filename und Eintrag im Metadatenfile müssen eindeutig übereinstimmen (inkl. Filetyp-Endung))
-6. PDFs in Markdown überführen - mit `.venv\Scripts\python.exe scripts\pdfs_to_md_with_metadata.py`
-7. Materialien in `materials/` und ggf. `critical/` ablegen
-8. Index bauen (Chunking Parameter beachten)
-9. Backend starten
-10. Streamlit starten
-11. Modi testen und bei Bedarf anpassen (die Metaprompts aber auch z. B. die Temperatur lässt sich in der config.yaml Datei anpassen)
+4. Abhängigkeiten installieren mit `.venv\Scripts\python.exe -m pip install --upgrade pip` und `.venv\Scripts\pip.exe install -r requirements.txt`.
+5. PDFs nach `source_pdfs/` legen
+6. `metadata.csv` ergänzen (Metadaten werden beim Tool-spezifischen Ablauf der Markdown-files automatisch in den Header geschrieben. Wichtig: Filename und Eintrag im Metadatenfile müssen eindeutig übereinstimmen (inkl. Filetyp-Endung))
+7. PDFs in Markdown überführen - mit `.venv\Scripts\python.exe scripts\pdfs_to_md_with_metadata.py`
+8. Materialien in `materials/` und ggf. `critical/` ablegen
+9. Index bauen (Chunking Parameter beachten)
+10. Backend starten
+11. Streamlit starten
+12. Modi testen und bei Bedarf anpassen (die Metaprompts aber auch z. B. die Temperatur lässt sich in der config.yaml Datei anpassen)
 
 ## Typischer Workflow mit Befehlen
 ### 1. Projektordner öffnen
 cd C:\Users\andre\student-course-ai
 
-### 2. Virtuelle Umgebung anlegen
+### 2 Python installieren 
+Herunterladen von https://www.python.org/downloads (getestet wurde mit Python 3.11, und Python 3.14).
+
+### 3. Virtuelle Umgebung anlegen
 Nur falls noch keine `.venv` vorhanden ist:  
 py -3.11 -m venv .venv (oder mit Python 3.13 - damit wurde das Modell erfolgreich getestet)
 
-### 3. Abhängigkeiten installieren
+### 4. Abhängigkeiten installieren
 .venv\Scripts\python.exe -m pip install --upgrade pip     
 .venv\Scripts\pip.exe install -r requirements.txt  
-
-### 4. Ollama prüfen oder starten
-Prüfen:  
-ollama list -> listet welche Modelle bereits lokal vorhanden sind
-
-Falls nötig starten:  
-ollama serve
 
 ### 5. Modelle herunterladen (von https://ollama.com/library/)
 Beispiel:  
@@ -129,23 +126,30 @@ ollama pull mxbai-embed-large
 
 Wenn ich ein anderes Modell verwenden will, dann muss ich dieses in der config.yaml als chat_model eintragen. 
 
-### 6. Original-PDFs ablegen
+### 6. Ollama prüfen oder starten
+Prüfen:  
+ollama list -> listet welche Modelle bereits lokal vorhanden sind
+
+Falls nötig starten:  
+ollama serve
+
+### 7. Original-PDFs ablegen
 In:  
 text. 
 courses\demo_course\source_pdfs\
 
-### 7. `metadata.csv` ergänzen
+### 8. `metadata.csv` ergänzen
 Datei:
 text. 
 courses\demo_course\metadata.csv
 
-### 8. PDFs in Markdown umwandeln
+### 9. PDFs in Markdown umwandeln
 .venv\Scripts\python.exe scripts\pdfs_to_md_with_metadata.py
 
 Vorhandene Markdown-Dateien überschreiben:  
 .venv\Scripts\python.exe scripts\pdfs_to_md_with_metadata.py --force
 
-### 9. Alternative PDF-zu-Markdown-Skripte basierend auf MarkItDown (muss noch separat installiert werden)
+### 10. Alternative PDF-zu-Markdown-Skripte basierend auf MarkItDown (muss noch separat installiert werden)
 scripts/pdfs_to_md_alternative.py. 
 Einige alternative Skripte zur Umwandlung von PDFs in Markdown basieren auf **MarkItDown**.  
 Diese Variante ist nicht Teil der Standardinstallation und erfordert eine separate Installation von markitdown.  
