@@ -96,10 +96,37 @@ courses\demo_course\topic_map.json
 8. `metadata.csv` ergänzen (Metadaten werden beim Tool-spezifischen Ablauf der Markdown-files automatisch in den Header geschrieben. Wichtig: Filename und Eintrag im Metadatenfile müssen eindeutig übereinstimmen (inkl. Filetyp-Endung))
 9. PDFs in Markdown überführen - mit `.venv\Scripts\python.exe scripts\pdfs_to_md_with_metadata.py` oder alternativ mit MaritDown (siehe unten).
 10. Materialien in `materials/` und ggf. `critical/` ablegen
-11. Index in einem weiteren Eingabefenster bauen (**WICHTIG: Ollama muss in einem anderen Eingabfenster gestartet worden sein laufen - kann mit Ollama list** gestest werden **UND** das **richtige Sprachmodell muss in `config.yaml`** eingetragen sein), man kann auch die Chunking Parameter anpassen) mit `set PYTHONPATH=.` und `.venv\Scripts\python.exe scripts\build_index.py --course demo_course`. **WICHTIG: die Markdown-Dateien MÜSSEN bereinigt sein (siehe unten!**
-12. Backend starten mit `.venv\Scripts\python.exe -m uvicorn app.main:app --reload`.
-13. Streamlit starten mit `.venv\Scripts\python.exe -m streamlit run app\ui\streamlit_app.py`.
-14. App im Browser öffnen und Modi testen und bei Bedarf anpassen (die Metaprompts aber auch z. B. die Temperatur lässt sich in der config.yaml Datei anpassen)
+11. Index in einem weiteren Eingabefenster bauen (**WICHTIG: Ollama muss in einem anderen Eingabfenster gestartet worden sein laufen - kann mit Ollama list** gestest werden **UND** das **richtige Sprachmodell muss in `config.yaml`** eingetragen sein), man kann auch die Chunking Parameter anpassen) mit `set PYTHONPATH=.` und `.venv\Scripts\python.exe scripts\build_index.py --course demo_course`. **WICHTIG: die Markdown-Dateien MÜSSEN bereinigt sein!**
+```Woran erkennt man ein gutes Markdown-Dokument für den Index?
+
+Nicht jede aus einem PDF erzeugte `.md`-Datei ist automatisch gut für Retrieval und Embeddings geeignet. Für einen stabilen lokalen Index ist es hilfreich, die Markdown-Dateien vor dem Einlesen grob zu prüfen und bei Bedarf zu bereinigen.
+
+Ein gutes Markdown-Dokument für den Index hat in der Regel folgende Eigenschaften:
+
+- der **eigentliche Fachtext** steht im Vordergrund
+- **Kopf- und Fußzeilen** aus dem PDF wiederholen sich nicht ständig
+- es gibt möglichst wenig **Layout-Artefakte** wie Hefttitel, Download-Hinweise oder Seitennummern mitten im Text
+- **Worttrennungen** aus dem PDF wurden möglichst bereinigt
+- Überschriften und Abschnitte sind **klar strukturiert**
+- unnötige Blöcke wie lange Verlagshinweise oder irrelevante Metadaten wurden entfernt
+
+Problematisch für den Index sind vor allem Dateien mit:
+
+- wiederholten Zeitschriften- oder PDF-Kopfzeilen
+- vielen Seitenmarkierungen mitten im Fließtext
+- abgeschnittenen oder künstlich getrennten Wörtern
+- langen bibliografischen Blöcken ohne Relevanz für die spätere Nutzung
+- stark vermischtem Layouttext statt zusammenhängendem Inhalt
+
+Für gute Retrieval-Ergebnisse gilt daher:
+***Lieber ein leicht bereinigtes, gut lesbares Markdown-Dokument als eine rohe 1:1-Extraktion aus dem PDF.***
+
+Das PDF bleibt weiterhin als Originalquelle wichtig. Für die inhaltliche Verarbeitung im Index ist jedoch die Qualität der Markdown-Datei entscheidend.
+```
+
+13. Backend starten mit `.venv\Scripts\python.exe -m uvicorn app.main:app --reload`.
+14. Streamlit starten mit `.venv\Scripts\python.exe -m streamlit run app\ui\streamlit_app.py`.
+15. App im Browser öffnen und Modi testen und bei Bedarf anpassen (die Metaprompts aber auch z. B. die Temperatur lässt sich in der config.yaml Datei anpassen)
 
 ## Typischer Workflow mit Befehlen
 ### 1. Projektordner öffnen
