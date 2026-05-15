@@ -107,8 +107,7 @@ courses\demo_course\topic_map.json
      - es gibt möglichst wenig **Layout-Artefakte** wie Hefttitel, Download-Hinweise oder Seitennummern mitten im Text
      - **Worttrennungen** aus dem PDF wurden möglichst bereinigt
      - Überschriften und Abschnitte sind **klar strukturiert**
-     - unnötige Blöcke wie lange Verlagshinweise oder irrelevante Metadaten wurden entfernt
-
+     - unnötige Blöcke wie lange Verlagshinweise oder irrelevante Metadaten wurden entfernt 
    Problematisch für den Index sind vor allem Dateien mit:
 
      - wiederholten Zeitschriften- oder PDF-Kopfzeilen 
