@@ -146,7 +146,7 @@ py -3.11 -m venv .venv (oder mit Python 3.13 - damit wurde das Modell erfolgreic
 ### 5. Modelle herunterladen (von https://ollama.com/library/)
 Beispiel:  
 ollama pull qwen2.5:7b (für Englisch und Deutsch wahrscheinlich der bester Allrounder)    
-ollama pull qwen2.5:3b-instruct (Schnellmodus) 
+ollama pull qwen2.5:3b-instruct (Schnellmodus)  
 ollama pull gemma3:4b  
 ollama pull gemma3:12b    
 
