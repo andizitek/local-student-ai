@@ -145,8 +145,8 @@ py -3.11 -m venv .venv (oder mit Python 3.13 - damit wurde das Modell erfolgreic
 
 ### 5. Modelle herunterladen (von https://ollama.com/library/)
 Beispiel:  
-ollama pull qwen2.5:7b    
-ollama pull qwen2.5:3b-instruct   
+ollama pull qwen2.5:7b (für Englisch und Deutsch wahrscheinlich der bester Allrounder)    
+ollama pull qwen2.5:3b-instruct (Schnellmodus) 
 ollama pull gemma3:4b  
 ollama pull gemma3:12b    
 
@@ -267,7 +267,7 @@ Grundsätzlich (die Zahl "b" gibt dabei die Modellgröße in Milliarden Paramete
 - Schnellmodus: qwen2.5:3b-instruct
 - Qualitätsmodus: gemma3:12b
 
-qwen2.5:7b ist für Englisch und Deutsch wahrscheinlich dein bester Allrounder, hier können und sollten weitere Tests systematisch selbst durchgeführt werden.
+qwen2.5:7b ist für Englisch und Deutsch wahrscheinlich der bester Allrounder, hier können und sollten weitere Tests systematisch selbst durchgeführt werden.
 
 ## So testest du die drei Modelle sinnvoll
 Du vergleichst immer dieselbe Frage mit:
@@ -604,6 +604,7 @@ mode = st.selectbox(
         "explain",
         "summarize",
         "quiz",
+        "mc_quiz",
         "flashcards",
         "study_guide",
         "group_prep",
