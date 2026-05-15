@@ -102,20 +102,20 @@ courses\demo_course\topic_map.json
     Nicht jede aus einem PDF erzeugte `.md`-Datei ist automatisch gut für Retrieval und Embeddings geeignet. Für einen stabilen lokalen Index ist es hilfreich, die Markdown-Dateien vor dem Einlesen grob zu prüfen und bei Bedarf zu    bereinigen.
    Ein gutes Markdown-Dokument für den Index hat in der Regel folgende Eigenschaften:***
 
--- der **eigentliche Fachtext** steht im Vordergrund
--- **Kopf- und Fußzeilen** aus dem PDF wiederholen sich nicht ständig
--- es gibt möglichst wenig **Layout-Artefakte** wie Hefttitel, Download-Hinweise oder Seitennummern mitten im Text
--- **Worttrennungen** aus dem PDF wurden möglichst bereinigt
--- Überschriften und Abschnitte sind **klar strukturiert**
--- unnötige Blöcke wie lange Verlagshinweise oder irrelevante Metadaten wurden entfernt
+   - der **eigentliche Fachtext** steht im Vordergrund
+   - **Kopf- und Fußzeilen** aus dem PDF wiederholen sich nicht ständig
+   - es gibt möglichst wenig **Layout-Artefakte** wie Hefttitel, Download-Hinweise oder Seitennummern mitten im Text
+   - **Worttrennungen** aus dem PDF wurden möglichst bereinigt
+   - Überschriften und Abschnitte sind **klar strukturiert**
+   - unnötige Blöcke wie lange Verlagshinweise oder irrelevante Metadaten wurden entfernt
 
    Problematisch für den Index sind vor allem Dateien mit:
 
--- wiederholten Zeitschriften- oder PDF-Kopfzeilen
--- vielen Seitenmarkierungen mitten im Fließtext
--- abgeschnittenen oder künstlich getrennten Wörtern
--- langen bibliografischen Blöcken ohne Relevanz für die spätere Nutzung
--- stark vermischtem Layouttext statt zusammenhängendem Inhalt
+   - wiederholten Zeitschriften- oder PDF-Kopfzeilen 
+   - vielen Seitenmarkierungen mitten im Fließtext
+   - abgeschnittenen oder künstlich getrennten Wörtern
+   - langen bibliografischen Blöcken ohne Relevanz für die spätere Nutzung
+   - stark vermischtem Layouttext statt zusammenhängendem Inhalt
 
    Für gute Retrieval-Ergebnisse gilt daher:
    ***Lieber ein leicht bereinigtes, gut lesbares Markdown-Dokument als eine rohe 1:1-Extraktion aus dem PDF.***
