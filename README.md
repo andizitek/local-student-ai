@@ -96,7 +96,7 @@ courses\demo_course\topic_map.json
 8. `metadata.csv` ergänzen (Metadaten werden beim Tool-spezifischen Ablauf der Markdown-files automatisch in den Header geschrieben. Wichtig: Filename und Eintrag im Metadatenfile müssen eindeutig übereinstimmen (inkl. Filetyp-Endung))
 9. PDFs in Markdown überführen - mit `.venv\Scripts\python.exe scripts\pdfs_to_md_with_metadata.py` oder alternativ mit MaritDown (siehe unten).
 10. Materialien in `materials/` und ggf. `critical/` ablegen
-11. Index bauen (Chunking Parameter beachten)
+11. Index bauen (Chunking Parameter beachten) mit `set PYTHONPATH=.` und `.venv\Scripts\python.exe scripts\build_index.py --course demo_course`.
 12. Backend starten
 13. Streamlit starten
 14. App im Browser öffnen und Modi testen und bei Bedarf anpassen (die Metaprompts aber auch z. B. die Temperatur lässt sich in der config.yaml Datei anpassen)
