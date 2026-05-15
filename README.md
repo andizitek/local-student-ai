@@ -90,14 +90,16 @@ courses\demo_course\topic_map.json
 2. Python (3.11 bis 3.13) und die vorausgesetzten files (in requirements.text) installieren (mit Windows "R" Taste und "cmd" das Eingabefenster öffnen)
 3. Virtuelle Umgebung anlegen - im Eingabefenster z. B. mit `cd C:\Users\andre\student-course-ai` in den Projektordner wechseln und `py -3.11 -m venv .venv` eingeben
 4. Abhängigkeiten installieren mit `.venv\Scripts\python.exe -m pip install --upgrade pip` und `.venv\Scripts\pip.exe install -r requirements.txt`.
-5. PDFs nach `source_pdfs/` legen
-6. `metadata.csv` ergänzen (Metadaten werden beim Tool-spezifischen Ablauf der Markdown-files automatisch in den Header geschrieben. Wichtig: Filename und Eintrag im Metadatenfile müssen eindeutig übereinstimmen (inkl. Filetyp-Endung))
-7. PDFs in Markdown überführen - mit `.venv\Scripts\python.exe scripts\pdfs_to_md_with_metadata.py`
-8. Materialien in `materials/` und ggf. `critical/` ablegen
-9. Index bauen (Chunking Parameter beachten)
-10. Backend starten
-11. Streamlit starten
-12. Modi testen und bei Bedarf anpassen (die Metaprompts aber auch z. B. die Temperatur lässt sich in der config.yaml Datei anpassen)
+5. Modelle herunterladen (von https://ollama.com/library/) - z.B mit `ollama pull gemma3:4b` im Eingabefenster.
+6. Ollama prüfen mit `ollama list` bzw. starten mit `ollama serve`  
+7. PDFs nach `source_pdfs/` legen
+8. `metadata.csv` ergänzen (Metadaten werden beim Tool-spezifischen Ablauf der Markdown-files automatisch in den Header geschrieben. Wichtig: Filename und Eintrag im Metadatenfile müssen eindeutig übereinstimmen (inkl. Filetyp-Endung))
+9. PDFs in Markdown überführen - mit `.venv\Scripts\python.exe scripts\pdfs_to_md_with_metadata.py` oder alternativ mit MaritDown (siehe unten).
+10. Materialien in `materials/` und ggf. `critical/` ablegen
+11. Index bauen (Chunking Parameter beachten)
+12. Backend starten
+13. Streamlit starten
+14. App im Browser öffnen und Modi testen und bei Bedarf anpassen (die Metaprompts aber auch z. B. die Temperatur lässt sich in der config.yaml Datei anpassen)
 
 ## Typischer Workflow mit Befehlen
 ### 1. Projektordner öffnen
