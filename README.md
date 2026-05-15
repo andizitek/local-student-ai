@@ -88,10 +88,10 @@ courses\demo_course\topic_map.json
 
 1. Projektordner anlegen (z.B. C:\Users\andre\student-course-ai)
 2. Python (3.11 bis 3.13) und die vorausgesetzten files (in requirements.text) installieren (mit Windows "R" Taste und "cmd" das Eingabefenster öffnen)
-3. Virtuelle Umgebung anlegen - im Eingabefenster zu `C:\Users\andre\student-course-ai` gehen und `py -3.11 -m venv .venv` eingeben
+3. Virtuelle Umgebung anlegen - im Eingabefenster z. B. mit `cd C:\Users\andre\student-course-ai` in den Projektordner wechseln und `py -3.11 -m venv .venv` eingeben
 4. PDFs nach `source_pdfs/` legen
-5. `metadata.csv` ergänzen (Metadaten werden beim Tool-spezifischen Ablauf der Markdown-files automatisch in den Header geschrieben. Wichtig: Filename und Eintrag im Metadatenfile müssen eindeutig übereinstimmen (inkl. Filetyp-Endung)
-6. PDFs in Markdown überführen
+5. `metadata.csv` ergänzen (Metadaten werden beim Tool-spezifischen Ablauf der Markdown-files automatisch in den Header geschrieben. Wichtig: Filename und Eintrag im Metadatenfile müssen eindeutig übereinstimmen (inkl. Filetyp-Endung))
+6. PDFs in Markdown überführen - mit `.venv\Scripts\python.exe scripts\pdfs_to_md_with_metadata.py`
 7. Materialien in `materials/` und ggf. `critical/` ablegen
 8. Index bauen (Chunking Parameter beachten)
 9. Backend starten
