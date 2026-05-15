@@ -88,14 +88,15 @@ courses\demo_course\topic_map.json
 
 1. Projektordner anlegen (z.B. C:\Users\andre\student-course-ai)
 2. Python (3.11 bis 3.13) und die vorausgesetzten files (in requirements.text) installieren (mit Windows "R" Taste und "cmd" das Eingabefenster öffnen)
-3. PDFs nach `source_pdfs/` legen
-4. `metadata.csv` ergänzen (Metadaten werden beim Tool-spezifischen Ablauf der Markdown-files automatisch in den Header geschrieben. Wichtig: Filename und Eintrag im Metadatenfile müssen eindeutig übereinstimmen (inkl. Filetyp-Endung)
-5. PDFs in Markdown überführen
-6. Materialien in `materials/` und ggf. `critical/` ablegen
-7. Index bauen (Chunking Parameter beachten)
-8. Backend starten
-9. Streamlit starten
-10. Modi testen und bei Bedarf anpassen (die Metaprompts aber auch z. B. die Temperatur lässt sich in der config.yaml Datei anpassen)
+3. Virtuelle Umgebung anlegen - im Eingabefenster zu ***C:\Users\andre\student-course-ai*** gehen und ***py -3.11 -m venv .venv*** eingeben
+4. PDFs nach `source_pdfs/` legen
+5. `metadata.csv` ergänzen (Metadaten werden beim Tool-spezifischen Ablauf der Markdown-files automatisch in den Header geschrieben. Wichtig: Filename und Eintrag im Metadatenfile müssen eindeutig übereinstimmen (inkl. Filetyp-Endung)
+6. PDFs in Markdown überführen
+7. Materialien in `materials/` und ggf. `critical/` ablegen
+8. Index bauen (Chunking Parameter beachten)
+9. Backend starten
+10. Streamlit starten
+11. Modi testen und bei Bedarf anpassen (die Metaprompts aber auch z. B. die Temperatur lässt sich in der config.yaml Datei anpassen)
 
 ## Typischer Workflow mit Befehlen
 ### 1. Projektordner öffnen
