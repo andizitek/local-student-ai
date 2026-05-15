@@ -124,8 +124,8 @@ courses\demo_course\topic_map.json
      ***Erhalten sollten z.B. folgende Seitenangaben bleiben:***
     `<!-- PAGE:4 -->` bzw. `### Seite 4`
 
-13. Backend starten mit `.venv\Scripts\python.exe -m uvicorn app.main:app --reload`.
-14. Streamlit starten mit `.venv\Scripts\python.exe -m streamlit run app\ui\streamlit_app.py`.
+13. Backend starten mit `.venv\Scripts\python.exe -m uvicorn app.main:app --reload`
+14. Streamlit starten mit `.venv\Scripts\python.exe -m streamlit run app\ui\streamlit_app.py`
 15. App im Browser öffnen und Modi testen und bei Bedarf anpassen (die Metaprompts aber auch z. B. die Temperatur lässt sich in der config.yaml Datei anpassen)
 
 ## Typischer Workflow mit Befehlen
