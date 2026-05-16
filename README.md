@@ -880,7 +880,7 @@ mistral-finetuning/
 │  └─ finetune.py
 ├─ .env
 └─ README.md
-```text
+```
 
 ## Installation
 ```text
