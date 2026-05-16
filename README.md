@@ -336,7 +336,7 @@ Diese Werte beeinflussen, wie gut relevante Textstellen gefunden und als Kontext
 
 ##### WICHTIG: Retrieval-Anpassung
 
-Für dieses Projekt wurde `top_k` im Backend auf `2` reduziert.
+Für dieses Projekt wurde `top_k` direkt in `app/api/chat.py` auf `2` reduziert.
 
 ###### Grund
 Mit höheren Werten (`3` oder `4`) wurde der Kontext für das Modell zu groß oder zu gemischt. Dadurch entstanden instabile oder unpassende Antworten.
@@ -346,8 +346,6 @@ Mit höheren Werten (`3` oder `4`) wurde der Kontext für das Modell zu groß od
 - ausreichend Kontext
 - stabileren Antworten
 - besserer Fokusierung des Modells
-
-Die Anpassung wurde in `app/api/chat.py` direkt pro Modus vorgenommen.
 
 #### Antwortverhalten
 
@@ -698,7 +696,7 @@ elif req.mode == "collaborative_work":
         course_id=req.course_id,
         question=req.question,
         embedding_model=cfg["llm"]["embedding_model"],
-        top_k=cfg["retrieval"]["top_k"],
+        top_k=2,
         allowed_content_types=["material", "critical"],
     )
 else:
@@ -706,7 +704,7 @@ else:
         course_id=req.course_id,
         question=req.question,
         embedding_model=cfg["llm"]["embedding_model"],
-        top_k=cfg["retrieval"]["top_k"],
+        top_k=2,
         allowed_content_types=["material"],
     )
 ```
