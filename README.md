@@ -835,4 +835,154 @@ Weitere Bereiche der Seitenleiste werden aus `progress.json` erzeugt. Dazu gehö
 
     Damit lassen sich die gespeicherten Profil- und Verlaufsdaten lokal bereinigen.
 
+# Spezialfall Fine-Tuning eines Mistral-Modells mit eigenen Inhalten
 
+## Ziel
+
+Beim Fine-Tuning wird ein bestehendes Mistral-Modell mit eigenen Beispielen weitertrainiert.
+
+Das Modell lernt dadurch:
+
+- einen bestimmten Schreibstil
+- typische Antwortmuster
+- Fachbegriffe
+- wiederkehrende Aufgaben
+- gewünschte Ausgabeformate
+
+Als Wissensdatenbank ist jedoch ein RAG besser.
+
+---
+
+## Grundidee
+
+Man erstellt viele Beispiele nach dem Muster:
+
+User fragt etwas.
+Assistant antwortet so, wie das Modell später antworten soll.
+
+Die Trainingsdaten werden meist als `.jsonl` gespeichert.
+
+Jede Zeile ist ein vollständiges Trainingsbeispiel.
+
+Beispiel `train.jsonl`:
+```text
+{"messages":[{"role":"user","content":"Was bedeutet Nachhaltigkeit?"},{"role":"assistant","content":"Nachhaltigkeit bedeutet, natürliche Ressourcen so zu nutzen, dass ökologische, soziale und wirtschaftliche Bedürfnisse heutiger Generationen erfüllt werden, ohne die Möglichkeiten zukünftiger Generationen zu gefährden."}]}
+{"messages":[{"role":"user","content":"Was sind die drei Dimensionen der Nachhaltigkeit?"},{"role":"assistant","content":"Die drei Dimensionen der Nachhaltigkeit sind Ökologie, Soziales und Wirtschaft. Nachhaltige Entwicklung berücksichtigt alle drei Bereiche gleichzeitig."}]}
+{"messages":[{"role":"user","content":"Was versteht man unter dem ökologischen Fußabdruck?"},{"role":"assistant","content":"Der ökologische Fußabdruck misst, wie viele natürliche Ressourcen ein Mensch, eine Organisation oder ein Land verbraucht und wie viel Fläche benötigt wird, um diesen Verbrauch auszugleichen."}]}
+```
+## Projektstruktur
+```text
+mistral-finetuning/
+├─ data/
+│  ├─ train.jsonl
+│  └─ eval.jsonl
+├─ scripts/
+│  └─ finetune.py
+├─ .env
+└─ README.md
+```text
+
+## Installation
+```text
+pip install mistralai python-dotenv
+API-Key speichern
+```
+Datei `.env`:
+```
+MISTRAL_API_KEY=dein_api_key
+```
+
+### Fine-Tuning starten
+
+Datei `scripts/finetune.py`:
+
+```
+import os
+from dotenv import load_dotenv
+from mistralai import Mistral
+
+load_dotenv()
+
+client = Mistral(api_key=os.getenv("MISTRAL_API_KEY"))
+
+train_file = client.files.upload(
+    file={
+        "file_name": "train.jsonl",
+        "content": open("data/train.jsonl", "rb"),
+    }
+)
+
+eval_file = client.files.upload(
+    file={
+        "file_name": "eval.jsonl",
+        "content": open("data/eval.jsonl", "rb"),
+    }
+)
+
+job = client.fine_tuning.jobs.create(
+    model="open-mistral-7b",
+    training_files=[
+        {
+            "file_id": train_file.id,
+            "weight": 1
+        }
+    ],
+    validation_files=[eval_file.id],
+    hyperparameters={
+        "training_steps": 100,
+        "learning_rate": 0.0001
+    },
+    auto_start=True
+)
+
+print(job)
+```
+
+Starten:
+
+`python scripts/finetune.py`
+
+## Trainingsdaten vorbereiten
+
+Gute Trainingsdaten sind entscheidend.
+
+Empfohlen:
+
+   -- mindestens 50 Beispiele für erste Tests
+   -- besser 200–1000 Beispiele
+   -- klare Fragen
+   --ideale Antworten
+   --einheitlicher Stil
+   --keine widersprüchlichen Antworten
+   --keine sensiblen personenbezogenen Daten
+   --Was das Modell lernt
+
+Gut geeignet für:
+
+   --Tonfall
+   --Struktur
+   --Methode
+   --Fachsprache
+   --kurze oder lange Antwortformate
+   --typische Übungen
+   --Beratungsstil
+   --didaktische Erklärungen
+
+Weniger geeignet für:
+
+   --große Wissenssammlungen
+   --ständig neue Fakten
+   --exakte Zitate
+   --vertrauliche Dokumente
+### Beispiel für eigenes Stiltraining
+```
+{"messages":[{"role":"user","content":"Was bedeutet Nachhaltigkeit?"},{"role":"assistant","content":"Nachhaltigkeit bedeutet, natürliche Ressourcen so zu nutzen, dass ökologische, soziale und wirtschaftliche Bedürfnisse heutiger Generationen erfüllt werden, ohne die Möglichkeiten zukünftiger Generationen zu gefährden."}]}
+{"messages":[{"role":"user","content":"Was sind die drei Dimensionen der Nachhaltigkeit?"},{"role":"assistant","content":"Die drei Dimensionen der Nachhaltigkeit sind Ökologie, Soziales und Wirtschaft. Nachhaltige Entwicklung berücksichtigt alle drei Bereiche gleichzeitig."}]}
+{"messages":[{"role":"user","content":"Was versteht man unter dem ökologischen Fußabdruck?"},{"role":"assistant","content":"Der ökologische Fußabdruck misst, wie viele natürliche Ressourcen ein Mensch, eine Organisation oder ein Land verbraucht und wie viel Fläche benötigt wird, um diesen Verbrauch auszugleichen."}]}
+```
+
+### Empfehlung
+
+Für ein eigenes Mistral-Modell sollten die Beispiele nicht nur Wissen enthalten, sondern zeigen, wie das Modell denken, formulieren und antworten soll.
+
+Das Fine-Tuning trainiert vor allem Verhalten, Stil und Antwortform.
