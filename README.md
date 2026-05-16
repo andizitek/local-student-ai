@@ -145,10 +145,9 @@ py -3.11 -m venv .venv (oder mit Python 3.13 - damit wurde das Modell erfolgreic
 
 ### 5. Modelle herunterladen (von https://ollama.com/library/)
 Beispiel:  
-ollama pull qwen2.5:7b (für Englisch und Deutsch wahrscheinlich der bester Allrounder)    
-ollama pull qwen2.5:3b-instruct (Schnellmodus)  
-ollama pull gemma3:4b  
-ollama pull gemma3:12b    
+ollama pull mistral-nemo:12b (bester Kompromiss aus Geschwindigkeit und Qualität, wenn es auch auf einr GPU laufen kann)
+ollama pull llama3.1:8b (gut, sprachlich schwächer als gemma3:27b)
+ollama pull gemma3:27b (groß, sehr langsam)    
 
 Für das embedding z.B.:  
 ollama pull mxbai-embed-large  
@@ -263,17 +262,17 @@ Grundsätzlich (die Zahl "b" gibt dabei die Modellgröße in Milliarden Paramete
 12B–14B+: besser, aber deutlich langsamer und speicherhungriger  
 
 ### Beispielmodelle
-- Standardmodell: qwen2.5:7b
-- Schnellmodus: qwen2.5:3b-instruct
-- Qualitätsmodus: gemma3:12b
+- Standardmodell: mistral-nemo:12b
+- Schnellmodus: llama3.1:8b
+- Qualitätsmodus: gemma3:27b
 
-qwen2.5:7b ist für Englisch und Deutsch wahrscheinlich der bester Allrounder, hier können und sollten weitere Tests systematisch selbst durchgeführt werden.
+mistral-nemo:12b scheint für Englisch und Deutsch wahrscheinlich der bester Allrounder, hier können und sollten weitere Tests systematisch selbst durchgeführt werden.
 
 ## So testest du die drei Modelle sinnvoll
 Du vergleichst immer dieselbe Frage mit:
-qwen2.5:7b. 
-qwen2.5:3b-instruct. 
-gemma3:12b
+mistral-nemo:12b 
+llama3.1:8b 
+gemma3:27b
 
 und achtest auf:
 
@@ -284,7 +283,7 @@ Quellentreue.
 Nützlichkeit für eure Modi. 
 
 ### Immer nur ein Modell in config.yaml z.B
-chat_model: qwen2.5:7b
+chat_model: mistral-nemo:12b 
 ## embedding_model in config.yaml bleibt gleich:
 embedding_model: mxbai-embed-large
 ## Zeit messen und Qualität bewerten
@@ -299,7 +298,7 @@ Falls nötig Ollama zuerst starten:
 -> ollama serve  
 Wenn das Modell nicht installiert ist, dann kannich ein Modell, das ich verwenden möchte von Ollama herunterladen.  
 Das mache ich mit dem Befehl:  
--> ollama pull gemma3:12b
+-> ollama pull mistral-nemo:12b 
 Schlussendlich, muss ich dieses in der config.yaml als chat_model eintragen. Fertig.
 ### Wie ändere ich die Parameter des Chunking und die Temperatur?
 Diese Parameter sind in der config.yaml abgelegt, und können dort angepasst werden. Die chunk_size ist standarddmäßig auf 2000, chunk_overlap standardmäßig auf 100 und top_k (als Anzahl der herangezogenen Chunks für eine Antwort) standardmäßig auf 4 gesetzt. 
@@ -314,7 +313,7 @@ Dort können zentrale Parameter der App angepasst werden.
 #### Modellwahl
 ```yaml
 llm:
-  chat_model: gemma3:4b
+  chat_model: mistral-nemo:12b 
   embedding_model: mxbai-embed-large
 ```
 
