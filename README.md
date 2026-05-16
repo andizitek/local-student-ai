@@ -262,17 +262,17 @@ Grundsätzlich (die Zahl "b" gibt dabei die Modellgröße in Milliarden Paramete
 12B–14B+: besser, aber deutlich langsamer und speicherhungriger  
 
 ### Beispielmodelle
-- Standardmodell: mistral-nemo:12b
-- Schnellmodus: llama3.1:8b
-- Qualitätsmodus: gemma3:27b
+- Standardmodell: mistral-nemo:12b  
+- Schnellmodus: llama3.1:8b  
+- Qualitätsmodus: gemma3:27b  
 
-mistral-nemo:12b scheint für Englisch und Deutsch wahrscheinlich der bester Allrounder, hier können und sollten weitere Tests systematisch selbst durchgeführt werden.
+***mistral-nemo:12b***scheint für Englisch und Deutsch wahrscheinlich der bester Allrounder, hier können und sollten weitere Tests systematisch selbst durchgeführt werden.
 
 ## So testest du die drei Modelle sinnvoll
-Du vergleichst immer dieselbe Frage mit:
-mistral-nemo:12b 
-llama3.1:8b 
-gemma3:27b
+Du vergleichst immer dieselbe Frage mit:  
+mistral-nemo:12b  
+llama3.1:8b  
+gemma3:27b  
 
 und achtest auf:
 
@@ -333,6 +333,21 @@ retrieval:
 * `chunk_size`: Größe der Textsegmente beim Chunking
 * `chunk_overlap`: Überlappung zwischen zwei Chunks
 Diese Werte beeinflussen, wie gut relevante Textstellen gefunden und als Kontext genutzt werden.
+
+##### WICHTIG: Retrieval-Anpassung
+
+Für dieses Projekt wurde `top_k` im Backend auf `2` reduziert.
+
+###### Grund
+Mit höheren Werten (`3` oder `4`) wurde der Kontext für das Modell zu groß oder zu gemischt. Dadurch entstanden instabile oder unpassende Antworten.
+
+###### Ergebnis
+`top_k=2` erwies sich als guter Kompromiss zwischen:
+- ausreichend Kontext
+- stabileren Antworten
+- besserer Fokusierung des Modells
+
+Die Anpassung wurde in `app/api/chat.py` direkt pro Modus vorgenommen.
 
 #### Antwortverhalten
 
