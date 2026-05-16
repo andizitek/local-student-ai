@@ -1,7 +1,7 @@
 # local-student-ai
 Ein lokaler KI-Chatbot für kollaboratives Lernen, kritische Reflexion und Kompetenzentwicklung
 
-Das Projekt verbindet lokale LLM-Nutzung, kursbezogene Materialerschließung, didaktische Interaktionsmodi und einfache Learning Analytics zu einer datenschutzfreundlichen Lernumgebung für Studium und Lehre.
+Das Projekt verbindet lokale LLM-Nutzung, kursbezogene Materialerschließung mittels RAG-System, didaktische Interaktionsmodi und einfache Learning Analytics zu einer datenschutzfreundlichen Lernumgebung für Studium und Lehre. Als Erweiterung wird die Möglichkeit eines fachspezifischen Finetunings eines Mistral-Modells vorgestellt.
 
 **Praktische Einrichtung.**
 Zuerst alle Ordner herunterladen (oben auf Code gehen, Download ZIP auswählen und alle Dateien herunterladen. Danach lokal unter Benutzer entzippen). Danach die App-files in einen Ordne mit dem Namen student-course-ai kopieren. Danach können bereits materalien in **source_pdfs** oder Markdown-Dateien direkt in **materials** gelegt werden. Nach Installation von Python (https://www.python.org/downloads), Ollama (mit Kommando in Eingebafenster, s.u.) und den Projektabhängigkeiten werden lokale Modelle geladen. Anschließend werden die Original-PDFs aus dem Quellordner über eine Metadaten-Datei (**metadata.csv**) und in Markdown überführt. Zusätzliche fachliche und reflexive Materialien können in eigenen Ordnern ergänzt werden. Danach werden die Materialien gechunkt, eingebettet und in einer Vektordatenbank indexiert. Erst auf dieser Grundlage werden Backend und Benutzeroberfläche gestartet und für unterschiedliche Modi nutzbar gemacht. Weiter unten findet sich der typische Workflow in Einzelschritten abgebildet.
