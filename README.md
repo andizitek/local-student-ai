@@ -145,8 +145,8 @@ py -3.11 -m venv .venv (oder mit Python 3.13 - damit wurde das Modell erfolgreic
 
 ### 5. Modelle herunterladen (von https://ollama.com/library/)
 Beispiel:  
-ollama pull mistral-nemo:12b (bester Kompromiss aus Geschwindigkeit und Qualität, wenn es auch auf einr GPU laufen kann)
-ollama pull llama3.1:8b (gut, sprachlich schwächer als gemma3:27b)
+ollama pull mistral-nemo:12b (bester Kompromiss aus Geschwindigkeit und Qualität, wenn es auch auf einr GPU laufen kann)  
+ollama pull llama3.1:8b (gut, sprachlich schwächer als gemma3:27b)  
 ollama pull gemma3:27b (groß, sehr langsam)    
 
 Für das embedding z.B.:  
