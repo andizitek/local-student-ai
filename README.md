@@ -1,5 +1,5 @@
 # local-student-ai
-Ein lokaler KI-Chatbot für kollaboratives Lernen, kritische Reflexion und Kompetenzentwicklung
+Ein lokaler RAG-basierter KI-Chatbot als datenschutzfreundliche Lernumgebung für kollaboratives Lernen, kritische Reflexion und Kompetenzentwicklung
 
 Das Projekt verbindet lokale LLM-Nutzung, kursbezogene Materialerschließung mittels RAG-System, didaktische Interaktionsmodi und einfache Learning Analytics zu einer datenschutzfreundlichen Lernumgebung für Studium und Lehre. Als Erweiterung wird die Möglichkeit eines fachspezifischen Finetunings eines Mistral-Modells vorgestellt.
 
